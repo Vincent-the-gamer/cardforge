@@ -27,6 +27,10 @@ export default defineConfig({
             "button": `bg-transparent color-white border-rd-4px
             border-1px border-solid border-white hover:bg-white hover:color-black 
             transition-all-250 hover:cursor-pointer` 
+        },
+        {
+            "select": `bg-transparent color-white border-rd-4px border-1px border-solid 
+            border-white w-90px h-30px`
         }
     ]
 })
