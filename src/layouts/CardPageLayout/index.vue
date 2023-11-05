@@ -110,7 +110,7 @@ const dualCardClass = reactive({
     left: store.dualCardClass.left,
     right: store.dualCardClass.right
 })
-watch(() => dualCardClass, newVal => {
+watch(dualCardClass, newVal => {
     store.setDualCardClass(newVal.left, newVal.right)
 })
 

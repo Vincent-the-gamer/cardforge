@@ -5,10 +5,17 @@
 
 <p align="center">A HearthStone card DIY tool.</p>
 
-# Warning
-1. 🚧This repo is under construction.🚧
+# Notice
+🚧This repo is under construction.🚧
 
-2. Pure CSS icon in UnoCSS: 
+# Development
+
+## Gears
+- ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/) - born with fastness
+- 🍍 [State Management via Pinia](https://pinia.vuejs.org/)
+- 🎨 [UnoCSS](https://github.com/antfu/unocss) - the instant on-demand atomic CSS engine
+
+    Pure CSS icon in UnoCSS: 
 
     [https://icones.js.org/](https://icones.js.org/)
 
@@ -19,3 +26,7 @@
     ```
 
     then add class in your HTML.
+- 🦾 TypeScript, of course
+
+# Preview
+Preview will be available when the first alpha version is finished.
