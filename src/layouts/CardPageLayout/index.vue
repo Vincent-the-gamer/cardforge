@@ -2,7 +2,7 @@
     <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% min-h-700px">
         <FormLayout class="flex flex-col justify-center items-center bg-rgba-164-164-164-0.3 border-rd-6px font-family-BlizzardGlobal">
             <p>
-                <span>类型：</span>
+                <span>卡牌类型：</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>随从</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Spell"/><span>法术</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Weapon"/><span>武器</span>

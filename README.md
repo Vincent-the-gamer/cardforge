@@ -1,3 +1,6 @@
+<p align="center" style="height: 100px;">
+ <img src="./.github/logo/cardforge-logo.png"/>
+</p>
 <h1 align="center">CardForge</h1>
 
 <p align="center">A HearthStone card DIY tool.</p>
