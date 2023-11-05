@@ -6,7 +6,8 @@ export const useStore = defineStore("cardtype", {
     state: () => {
         return {
             cardType: CardType.Minion,
-            cardClass: CardClass.Neutral
+            cardClass: CardClass.Neutral,
+            cardKind: "" as string
         }
     },
     actions: {
@@ -15,6 +16,9 @@ export const useStore = defineStore("cardtype", {
         },
         setCardClass(cardClass: CardClass){
             this.cardClass = cardClass
+        },
+        setCardKind(cardKind: string){
+            this.cardKind = cardKind
         }
     }
 })

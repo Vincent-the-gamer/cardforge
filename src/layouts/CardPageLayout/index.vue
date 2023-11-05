@@ -12,7 +12,22 @@
                 <select class="select" v-model="cardClass">
                     <option :value="CardClass.Neutral">中立</option>
                     <option :value="CardClass.Warrior">战士</option>
+                    <option :value="CardClass.Druid">德鲁伊</option>
+                    <option :value="CardClass.Hunter">猎人</option>
+                    <option :value="CardClass.Mage">法师</option>
+                    <option :value="CardClass.Paladin">圣骑士</option>
+                    <option :value="CardClass.Priest">牧师</option>
+                    <option :value="CardClass.Rogue">潜行者</option>
+                    <option :value="CardClass.Shaman">萨满祭司</option>
+                    <option :value="CardClass.Warlock">术士</option>
+                    <option :value="CardClass.DemonHunter">恶魔猎手</option>
+                    <option :value="CardClass.DeathKnight">死亡骑士</option>
                 </select>
+            </p>
+            <p>
+                <span>种族: </span>
+                <input type="text" class="input-text"
+                v-model="cardKind"/>
             </p>
         </FormLayout>
     
@@ -35,16 +50,23 @@ import { CardClass } from '@/datatypes/cardClass'
 // store
 const store = useStore();
 
-// card type
-const cardType = ref<CardType>(CardType.Minion)
+// card type 卡牌类型：随从(Minion)等
+const cardType = ref<CardType>(store.cardType)
 watch(() => cardType.value, newVal => {
     store.setCardType(newVal)
 })
 
-// card class
-const cardClass = ref<CardClass>(CardClass.Neutral)
+// card class 卡牌职业
+const cardClass = ref<CardClass>(store.cardClass)
 watch(() => cardClass.value, newVal => {
     store.setCardClass(newVal)
 })
+
+// minion kind 随从种族
+const cardKind = ref<string>(store.cardKind)
+watch(() => cardKind.value, newVal => {
+    store.setCardKind(newVal)
+})
+
 
 </script>
