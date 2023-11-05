@@ -11,9 +11,9 @@ export enum CardType {
  * Rarity of card 卡牌稀有度
  */
 export enum Rarity {
-    None,   // 无
-    Common, // 普通
-    Rare,   // 稀有
-    Epic,   // 史诗
-    Legandary, // 传说
+    None = "none",   // 无
+    Common = "common", // 普通
+    Rare = "rare",   // 稀有
+    Epic = "epic",   // 史诗
+    Legandary = "legendary", // 传说
 }

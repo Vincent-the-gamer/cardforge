@@ -4,6 +4,11 @@
          url("@/assets/fonts/GBJenLei/GBJenLei-Medium.woff2") format("woff2");
 }
 
+@font-face {
+    font-family: BlizzardGlobal;
+    src: url("@/assets/fonts/BlizzardGlobal.ttf");
+}
+
 html {
     background-color: black;
     color: white;

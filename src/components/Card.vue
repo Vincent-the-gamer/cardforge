@@ -1,8 +1,26 @@
 <template>
     <div name="minion-card" class="position-relative flex justify-center w-100% h-100%">
-        <!-- 卡底：单职业 随从牌 -->
-        <img :src="minionURL"
-            class="position-absolute top--20px z-0"/>
+        <!-- 卡底 -->
+        <!-- 单职业 随从牌 -->
+        <img :src="minionBaseURL"
+            class="position-absolute top--20px z-0"
+            v-if="store.classType === ClassType.Single"/>
+
+        <!-- 双职业 随从牌 -->
+        <template v-else>
+            <!-- 左边 -->
+            <img :src="dualClassMinionLeftURL"
+                 class="position-absolute top--20px z-0"/>
+
+            <!-- 分割线 -->
+            <img src="@/assets/materials/minion/dual-classes-split.png"
+                 class="position-absolute translate-x-2px top-395px z-1"/>
+        
+            <!-- 右边 -->
+            <img :src="dualClassMinionRightURL"
+                 class="position-absolute top--20px z-0"/>
+        </template>
+    
 
         <!-- 随从种族：野兽，元素等 -->
         <template v-if="store.cardKind.length > 0">
@@ -14,31 +32,70 @@
             </p>
         </template>
 
-        <!-- 稀有度遮罩 -->
-        <img src="@/assets/materials/rarity/rarity-mask.png"
-             class="position-absolute top-370px translate-x-13px z-1"/>
+        <!-- 稀有度 -->
+        <template v-if="store.rarity !== Rarity.None">
+            <!-- 稀有度遮罩 -->
+            <img src="@/assets/materials/rarity/rarity-mask.png"
+                class="position-absolute top-370px translate-x-13px z-1"/>
+
+            <!-- 稀有度宝石 -->
+            <img :src="rarityCrystalURL"
+                class="position-absolute top-381px translate-x-6.5px z-2"/>
+            
+            <!-- 橙卡龙框 -->
+            <img src="@/assets/materials/minion/minion-dragon.png"
+                 class="position-absolute top-21px translate-x-50px z-5"
+                 v-if="store.rarity === Rarity.Legandary"/>
+        </template>
 
         <!-- 随从名称框 -->
         <img src="@/assets/materials/minion/minion-name.png"
-             class="position-absolute top-323px z-2"/>
+        class="position-absolute top-323px z-2"/>
 
         <!-- 随从描述底框 -->
         <img src="@/assets/materials/minion/minion-description-area.png"
-             class="position-absolute top-407px z-2"/>
+             class="position-absolute top-407px z-1"/>
+        
 
     </div>
 </template>
 
 <script lang="ts" setup>
+import { ClassType } from '@/datatypes/cardClass';
+import { Rarity } from '@/datatypes/cardType';
 import { useStore } from '@/store/useStore';
 import { computed } from 'vue';
 
 const store = useStore()
 
 // 单职业随从
-const minionURL = computed<string>(
+// 卡底
+const minionBaseURL = computed<string>(
     () => new URL(`../assets/minions/single-class/${store.cardClass}-minion.png`, import.meta.url).href
 )
+
+// 双职业随从
+// 左卡底
+const dualClassMinionLeftURL = computed<string>(
+    () => new URL(`../assets/minions/dual-class/left/${store.dualCardClass.left}-minion-left.png`, import.meta.url).href
+)
+// 右卡底
+const dualClassMinionRightURL = computed<string>(
+    () => new URL(`../assets/minions/dual-class/right/${store.dualCardClass.right}-minion-right.png`, import.meta.url).href
+)
+
+
+// 稀有度
+const rarityCrystalURL = computed<string>(
+    () => {
+        if(store.rarity === Rarity.None){
+            return ""
+        }
+        return new URL(`../assets/materials/rarity/${store.rarity}-crystal.png`, import.meta.url).href
+    }
+)
+
+
 
 
 </script>
