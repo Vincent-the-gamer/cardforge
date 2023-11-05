@@ -28,9 +28,13 @@ export default defineConfig({
         [ 
             "cost", {
                 color: "white",
+                "text-stroke": "6.5px transparent",
+                "-moz-text-stroke": "6.5px transparent",
                 "-webkit-text-stroke": "6.5px transparent",
-                "background": "black",
+                "background-color": "black",
+                "background-clip": "text",
                 "-webkit-background-clip": "text",
+                "-moz-background-clip": "text",
                 "font-weight": "lighter"
             }
         ]

@@ -61,14 +61,18 @@
             </p>
         </FormLayout>
     
-        <CardLayout class="flex justify-center items-center">
+        <CardLayout class="flex justify-center items-center flex-col">
             <Card/>
+            <button class="button position-absolute bottom-20px h-40px" @click="generateImage">
+                生成图片
+            </button>
         </CardLayout>
     </div>
 </template>
 
 
 <script lang="ts" setup>
+import html2canvas from "html2canvas"
 import FormLayout from './FormLayout.vue'
 import CardLayout from "./CardLayout.vue"
 import Card from "@/components/Card.vue"
@@ -142,5 +146,17 @@ const cost = ref<number>(store.cost)
 watch(() => cost.value, newVal => {
     store.setCost(newVal)
 })
+
+// 生成图片
+function generateImage(){
+    const card = document.getElementById("card") as HTMLElement
+    html2canvas(card).then(canvas => {
+        const image = canvas.toDataURL("image/png")
+        const link = document.createElement("a")
+        link.href = image
+        link.download = "MyCard.png"
+        link.click()
+    })
+}
 
 </script>
