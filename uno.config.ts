@@ -24,6 +24,15 @@ export default defineConfig({
         [
             /^font-family-([a-zA-Z_-]+)$/,
             ([_, fontFamily]) => ({ "font-family": fontFamily })
+        ],
+        [ 
+            "cost", {
+                color: "white",
+                "-webkit-text-stroke": "6.5px transparent",
+                "background": "black",
+                "-webkit-background-clip": "text",
+                "font-weight": "lighter"
+            }
         ]
     ],
     shortcuts: [

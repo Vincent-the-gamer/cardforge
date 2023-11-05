@@ -52,7 +52,12 @@
             <p>
                 <span>种族: </span>
                 <input type="text" class="input-text"
-                v-model="cardKind"/>
+                       v-model="cardKind"/>
+            </p>
+            <p>
+                <span>法力值: </span>
+                <input type="number" min="0" class="input-text w-120px"
+                       v-model="cost"/>
             </p>
         </FormLayout>
     
@@ -132,5 +137,10 @@ watch(() => cardKind.value, newVal => {
     store.setCardKind(newVal)
 })
 
+// cost 法力值消耗
+const cost = ref<number>(store.cost)
+watch(() => cost.value, newVal => {
+    store.setCost(newVal)
+})
 
 </script>

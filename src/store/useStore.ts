@@ -18,6 +18,8 @@ export const useStore = defineStore("cardtype", {
             classType: ClassType.Single,
             // 稀有度
             rarity: Rarity.None,
+            // 法力值消耗
+            cost: 1 as number
         }
     },
     actions: {
@@ -39,6 +41,10 @@ export const useStore = defineStore("cardtype", {
         },
         setRarity(rarity: Rarity) {
             this.rarity = rarity
+        },
+        setCost(cost: number) {
+            this.cost = cost
         }
+
     }
 })

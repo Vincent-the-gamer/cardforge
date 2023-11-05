@@ -55,7 +55,18 @@
         <!-- 随从描述底框 -->
         <img src="@/assets/materials/minion/minion-description-area.png"
              class="position-absolute top-407px z-1"/>
-        
+
+        <!-- 法力值消耗水晶 -->
+        <img src="@/assets/materials/cost/cost-crystal.png"
+             class="position-absolute top-60px translate-x--160px z-1"/>
+
+        <!-- 法力值消耗数值 -->
+        <div :class="
+        `position-absolute top--30px z-2 font-family-GBJenLei font-size-57px 
+        ${store.cost < 10 && `translate-x--160px`}
+        ${store.cost >= 10 && `translate-x--165px`}`">
+            <h1 class="cost">{{ store.cost }}</h1>
+        </div>
 
     </div>
 </template>
