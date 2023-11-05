@@ -15,3 +15,11 @@ export enum CardClass {
     DeathKnight = "deathknight", // 死亡骑士
     DemonHunter = "demonhunter", // 恶魔猎手
 }
+
+/**
+ * 职业类型 Class Type
+ */
+export enum ClassType {
+    Single, // 单职业
+    Dual    // 双职业
+}

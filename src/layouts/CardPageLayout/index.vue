@@ -8,6 +8,11 @@
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Weapon"/><span>武器</span>
             </p>
             <p>
+                <span>职业类型: </span>
+                <input type="radio" name="class-type" v-model="classType" :value="ClassType.Single"/><span>单职业</span>
+                <input type="radio" name="class-type" v-model="classType" :value="ClassType.Dual"/><span>双职业</span>
+            </p>
+            <p v-if="classType === ClassType.Single">
                 <span>职业：</span>
                 <select class="select" v-model="cardClass">
                     <option :value="CardClass.Neutral">中立</option>
@@ -23,6 +28,9 @@
                     <option :value="CardClass.DemonHunter">恶魔猎手</option>
                     <option :value="CardClass.DeathKnight">死亡骑士</option>
                 </select>
+            </p>
+            <p v-else>
+                <span>这是双职业的区域</span>
             </p>
             <p>
                 <span>种族: </span>
@@ -45,7 +53,7 @@ import Card from "@/components/Card.vue"
 import { CardType } from "@/datatypes/cardType"
 import { useStore } from "@/store/useStore"
 import { ref, watch } from 'vue';
-import { CardClass } from '@/datatypes/cardClass'
+import { CardClass, ClassType } from '@/datatypes/cardClass'
 
 // store
 const store = useStore();
@@ -60,6 +68,12 @@ watch(() => cardType.value, newVal => {
 const cardClass = ref<CardClass>(store.cardClass)
 watch(() => cardClass.value, newVal => {
     store.setCardClass(newVal)
+})
+
+// class type 职业类型
+const classType = ref<ClassType>(store.classType)
+watch(() => classType.value, newVal => {
+    store.setClassType(newVal)
 })
 
 // minion kind 随从种族

@@ -1,13 +1,15 @@
 import { defineStore } from "pinia";
 import { CardType } from "@/datatypes/cardType"
-import { CardClass } from "@/datatypes/cardClass"
+import { CardClass, ClassType } from "@/datatypes/cardClass"
 
 export const useStore = defineStore("cardtype", {
     state: () => {
         return {
             cardType: CardType.Minion,
             cardClass: CardClass.Neutral,
-            cardKind: "" as string
+            cardKind: "" as string,
+            // 职业类型： 单，双
+            classType: ClassType.Single
         }
     },
     actions: {
@@ -19,6 +21,9 @@ export const useStore = defineStore("cardtype", {
         },
         setCardKind(cardKind: string){
             this.cardKind = cardKind
+        },
+        setClassType(classType: ClassType){
+            this.classType = classType
         }
     }
 })
