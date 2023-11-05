@@ -1,3 +1,9 @@
+@font-face {
+    font-family: GBJenLei;
+    src: url("@/assets/fonts/GBJenLei/GBJenLei-Medium.woff") format("woff"),
+         url("@/assets/fonts/GBJenLei/GBJenLei-Medium.woff2") format("woff2");
+}
+
 html {
     background-color: black;
     color: white;
