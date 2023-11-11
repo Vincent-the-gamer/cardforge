@@ -1,10 +1,11 @@
 import { defineStore } from "pinia";
 import { CardType, Rarity } from "@/datatypes/cardType"
-import { CardClass, ClassType } from "@/datatypes/cardClass"
+import { CardClass, ClassType, KindType } from "@/datatypes/cardClass"
 
 export const useStore = defineStore("cardtype", {
     state: () => {
         return {
+            // 卡牌类型：随从 法术等
             cardType: CardType.Minion,
             // 单职业类型
             cardClass: CardClass.Neutral,
@@ -13,13 +14,27 @@ export const useStore = defineStore("cardtype", {
                 left: CardClass.Neutral,
                 right: CardClass.Warrior
             },
+            // 卡牌种族类型： 单 双
+            kindType: KindType.Single,
+            // 卡牌类型（种族）
             cardKind: "" as string,
+            // 双卡牌类型（双种族）
+            dualCardKind: {
+                up: "" as string,
+                down: "" as string
+            },
             // 职业类型： 单，双
             classType: ClassType.Single,
             // 稀有度
             rarity: Rarity.None,
             // 法力值消耗
-            cost: 1 as number
+            cost: 1 as number,
+            // 卡牌名称
+            name: "" as string,
+            // 卡牌描述
+            description: "" as string,
+            // 攻击力
+            attack: 1 as number
         }
     },
     actions: {
@@ -33,8 +48,15 @@ export const useStore = defineStore("cardtype", {
             this.dualCardClass.left = left
             this.dualCardClass.right = right
         },
+        setKindType(kindType: KindType){
+            this.kindType = kindType
+        },
         setCardKind(cardKind: string){
             this.cardKind = cardKind
+        },
+        setDualCardKind(up: string, down: string) {
+            this.dualCardKind.up = up
+            this.dualCardKind.down = down
         },
         setClassType(classType: ClassType){
             this.classType = classType
@@ -44,6 +66,15 @@ export const useStore = defineStore("cardtype", {
         },
         setCost(cost: number) {
             this.cost = cost
+        },
+        setName(name: string) {
+            this.name = name
+        },
+        setDescription(description: string) {
+            this.description = description
+        },
+        setAttack(attack: number){
+            this.attack = attack
         }
 
     }

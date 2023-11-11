@@ -1,11 +1,11 @@
 <template>
-    <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% min-h-700px">
-        <FormLayout class="flex flex-col justify-center items-center bg-rgba-164-164-164-0.3 border-rd-6px font-family-BlizzardGlobal">
+    <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-40px">
+        <FormLayout class="position-relative top-0 p-5px flex flex-col justify-center items-center bg-rgba-164-164-164-0.3 border-rd-6px font-family-BlizzardGlobal overflow-y-auto">
             <p>
                 <span>卡牌类型：</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>随从</span>
-                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Spell"/><span>法术</span>
-                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Weapon"/><span>武器</span>
+                <!-- <input type="radio" name="card-type" v-model="cardType" :value="CardType.Spell"/><span>法术</span>
+                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Weapon"/><span>武器</span> -->
             </p>
             <p>
                 <span>职业类型: </span>
@@ -50,18 +50,53 @@
                 </select>
             </p>
             <p>
-                <span>种族: </span>
+                <span>名称: </span>
                 <input type="text" class="input-text"
-                       v-model="cardKind"/>
+                       v-model="name"/>
+            </p>
+            <p>
+                <span>种族类型：</span>
+                <input type="radio" name="kind-type" v-model="cardKindType" :value="KindType.Single"/><span>单种族</span>
+                <input type="radio" name="kind-type" v-model="cardKindType" :value="KindType.Dual"/><span>双种族</span>
+            </p>
+            <template v-if="cardKindType === KindType.Single">
+                <p>
+                    <span>种族: </span>
+                    <input type="text" class="input-text"
+                        v-model="cardKind"/>
+                </p>
+            </template>
+            <template v-else-if="cardKindType === KindType.Dual">
+                <p>
+                    <span>种族1: </span>
+                    <input type="text" class="input-text"
+                        v-model="dualCardKind.up"/>
+                </p>
+                <p>
+                    <span>种族2: </span>
+                    <input type="text" class="input-text"
+                        v-model="dualCardKind.down"/>
+                </p>
+            </template>
+            
+            <p class="flex">
+                <span>描述: </span>
+                <textarea class="input-text w-300px h-100px resize-none m-l-5px"
+                          v-model="description"></textarea>
             </p>
             <p>
                 <span>法力值: </span>
                 <input type="number" min="0" class="input-text w-120px"
                        v-model="cost"/>
             </p>
+            <p>
+                <span>攻击力: </span>
+                <input type="number" min="0" class="input-text w-120px"
+                       v-model="attack"/>
+            </p>
         </FormLayout>
     
-        <CardLayout class="flex justify-center items-center flex-col">
+        <CardLayout class="flex justify-center items-center flex-col min-h-700px overflow-scroll">
             <Card/>
             <button class="button position-absolute bottom-20px h-40px" @click="generateImage">
                 生成图片
@@ -79,7 +114,7 @@ import Card from "@/components/Card.vue"
 import { CardType, Rarity } from "@/datatypes/cardType"
 import { useStore } from "@/store/useStore"
 import { reactive, ref, watch } from 'vue';
-import { CardClass, ClassType } from '@/datatypes/cardClass'
+import { CardClass, ClassType, KindType } from '@/datatypes/cardClass'
 
 // store
 const store = useStore();
@@ -99,7 +134,6 @@ const cardClassMap: { [cardClassEnumVal: string]: string } = {
     [CardClass.DemonHunter]: "恶魔猎手",
     [CardClass.DeathKnight]: "死亡骑士"
 }
-
 
 
 // card type 卡牌类型：随从(Minion)等
@@ -135,16 +169,47 @@ watch(() => rarity.value, newVal => {
     store.setRarity(newVal)
 })
 
-// minion kind 随从种族
+// card name 卡牌名称
+const name = ref<string>(store.name)
+watch(() => name.value, newVal => {
+    store.setName(newVal)
+})
+
+// card kind type 卡牌种族类型
+const cardKindType = ref<KindType>(store.kindType)
+watch(() => cardKindType.value, newVal => {
+    store.setKindType(newVal)
+})
+
+// single card kind 单卡牌种族（类型）
 const cardKind = ref<string>(store.cardKind)
 watch(() => cardKind.value, newVal => {
     store.setCardKind(newVal)
+})
+
+// dual card kinds 双卡牌种族（类型）
+const dualCardKind = reactive(store.dualCardKind)
+watch(dualCardKind, newVal => {
+    store.setDualCardKind(newVal.up, newVal.down)
+})
+
+
+// card description 卡牌描述
+const description = ref<string>(store.description)
+watch(() => description.value, newVal => {
+    store.setDescription(newVal)
 })
 
 // cost 法力值消耗
 const cost = ref<number>(store.cost)
 watch(() => cost.value, newVal => {
     store.setCost(newVal)
+})
+
+// attack 攻击力
+const attack = ref<number>(store.attack)
+watch(() => attack.value, newVal => {
+    store.setAttack(newVal)
 })
 
 // 生成图片

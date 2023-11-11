@@ -1,7 +1,7 @@
 <template>
   <Header/>
   <CardPageLayout/>
-  <Footer/>
+  <Footer :is-alpha="true"/>
 </template>
 
 <script setup lang="ts">

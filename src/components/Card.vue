@@ -1,5 +1,7 @@
 <template>
     <div id="card" class="position-relative flex justify-center w-100% h-100%">
+        <!-- 配图 -->
+        <img src=""/>
         <!-- 随从牌 -->
         <template v-if="store.cardType === CardType.Minion">
             <!-- 卡底 -->
@@ -23,14 +25,35 @@
                     class="position-absolute top--20px z-0 translate-x--0.5px"/>
             </template>
         
+            <!-- 随从名称 -->
+            <template v-if="store.name">
+                <p class="color-white position-absolute top-310px z-3 font-size-30px font-family-GBJenLei hearth-stroke-1.2px">
+                    {{ store.name }}
+                </p>
+            </template>
 
             <!-- 随从种族：野兽，元素等 -->
-            <template v-if="store.cardKind.length > 0">
-                <img src="@/assets/materials/minion/minion-kind.png"
-                class="position-absolute top-546px translate-x-4px z-3"/>
+            <!-- 单种族 -->
+            <template v-if="store.kindType === KindType.Single && store.cardKind.length > 0">
+                <img src="@/assets/materials/common/card-kind.png"
+                class="position-absolute top-546px translate-x-7px z-3"/>
                 <!-- 种族文字 -->
-                <p class="position-absolute top-550px translate-x-4px z-3 font-size-22px font-family-GBJenLei">
+                <p class="position-absolute top-550px translate-x-7px z-3 font-size-22px font-family-GBJenLei hearth-stroke-1.2px">
                     {{ store.cardKind }}
+                </p>
+            </template>
+
+            <!-- 双种族 -->
+            <template v-else-if="store.kindType === KindType.Dual">
+                <img src="@/assets/materials/common/dual-card-kind.png"
+                class="position-absolute top-560px translate-x-7px z-3"/>
+                <!-- 种族1文字 -->
+                <p class="position-absolute top-550px translate-x-7px z-3 font-size-22px font-family-GBJenLei hearth-stroke-1.2px">
+                    {{ store.dualCardKind.up }}
+                </p>
+                <!-- 种族2文字 -->
+                <p class="position-absolute top-570px translate-x-7px z-3 font-size-22px font-family-GBJenLei hearth-stroke-1.2px">
+                    {{ store.dualCardKind.down }}
                 </p>
             </template>
 
@@ -64,17 +87,32 @@
 
             <!-- 法力值消耗数值 -->
             <div :class="
-            `position-absolute top--30px z-2 font-family-GBJenLei font-size-57px 
+            `position-absolute top--30px z-2 font-size-57px 
             ${store.cost < 10 && `translate-x--160px`}
             ${store.cost >= 10 && `translate-x--165px`}`">
                 <Number :num="store.cost"/>
+            </div>
+
+            <!-- 攻击力，生命值底框 -->
+            <img src="@/assets/materials/common/attack.png"
+                class="position-absolute top-505px translate-x--170px z-3"/>
+
+            <img src="@/assets/materials/common/vitality.png"
+                class="position-absolute top-511px translate-x-156px z-3"/> 
+
+            <!-- 攻击力，生命值数值 -->
+            <div :class="`position-absolute top-457px z-3 font-size-48px 
+            ${store.attack < 10 && `translate-x--160px`}
+            ${store.attack >= 10 && `translate-x--167px`}
+            `">
+                <Number :num="store.attack"/>
             </div>
         </template>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ClassType } from '@/datatypes/cardClass';
+import { ClassType, KindType } from '@/datatypes/cardClass';
 import { CardType, Rarity } from '@/datatypes/cardType';
 import Number from '@/components/Number.vue';
 import { useStore } from '@/store/useStore';

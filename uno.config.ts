@@ -26,8 +26,8 @@ export default defineConfig({
             ([_, fontFamily]) => ({ "font-family": fontFamily })
         ],
         [
-            "hearth-stroke",
-            { "text-shadow": "-2.5px -2.5px 0 black, 2.5px -2.5px 0 black, -2.5px 2.5px 0 black, 2.5px 2.5px 0 black" }
+            /^hearth-stroke-([\.\d]+)px$/,
+            ([_, size]) => ({ "text-shadow": `-${size}px -${size}px 0 black, ${size}px -${size}px 0 black, -${size}px ${size}px 0 black, ${size}px ${size}px 0 black` })
         ]
     ],
     shortcuts: [
