@@ -28,6 +28,10 @@ export default defineConfig({
         [
             /^hearth-stroke-([\.\d]+)px$/,
             ([_, size]) => ({ "text-shadow": `-${size}px -${size}px 0 black, ${size}px -${size}px 0 black, -${size}px ${size}px 0 black, ${size}px ${size}px 0 black` })
+        ],
+        [
+            /^white-space-([a-zA-Z_-]+)$/,
+            ([_, whiteSpace]) => ({ "white-space": whiteSpace })
         ]
     ],
     shortcuts: [

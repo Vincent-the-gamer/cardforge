@@ -33,6 +33,8 @@ export const useStore = defineStore("cardtype", {
             name: "" as string,
             // 卡牌描述
             description: "" as string,
+            // 描述字体大小
+            desFontSize: 20 as number,
             // 攻击力
             attack: 1 as number,
             // 生命值
@@ -80,6 +82,9 @@ export const useStore = defineStore("cardtype", {
         },
         setVitality(vitality: number){
             this.vitality = vitality
+        },
+        setDesFontSize(desFontSize: number){
+            this.desFontSize = desFontSize
         }
 
     }

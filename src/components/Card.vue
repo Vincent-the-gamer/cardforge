@@ -84,6 +84,17 @@
             <img src="@/assets/materials/minion/minion-description-area.png"
                 class="position-absolute top-407px z-1"/>
 
+            <!-- 随从描述内容 -->
+            <template v-if="store.description">
+                <div class="position-absolute top-420px w-280px h-141px z-4 flex justify-center items-center">
+                    <h3 :class="`position-relative top-0 left-0 m-0 m-auto w-fit h-fit white-space-pre-wrap 
+                    font-family-BlizzardGlobal color-black font-100 text-center`"
+                    :style="{ fontSize: `${store.desFontSize}px`}"
+                    v-html="styledDescription">
+                    </h3>
+                </div>
+            </template>
+
             <!-- 法力值消耗水晶 -->
             <img src="@/assets/materials/cost/cost-crystal.png"
                 class="position-absolute top-60px translate-x--160px z-1"/>
@@ -155,4 +166,34 @@ const rarityCrystalURL = computed<string>(
         return new URL(`../assets/materials/rarity/${store.rarity}-crystal.png`, import.meta.url).href
     }
 )
+
+// 对描述的字体进行关键词等标记的特殊样式处理
+const styledDescription = computed<string>(() => {
+    // 加粗
+    const boldPattern = /\*\*(.*?)\*\*/
+    const matchbold: RegExpMatchArray | null = store.description.match(boldPattern)
+    if(matchbold){
+        for(let i = 1; i < matchbold.length; i++){
+            store.description = store.description.replace(
+                boldPattern, 
+                `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchbold[i]}</span>`
+            )
+        }
+    }
+
+    // 斜体
+    const italicPattern = /~(.*?)~/
+    const matchItalic: RegExpMatchArray | null = store.description.match(italicPattern)
+    if(matchItalic){
+        for (let i = 0; i < matchItalic.length; i++) {
+            store.description = store.description.replace(
+                italicPattern, 
+                `<span style="font-style: italic;">${matchItalic[i]}</span>`
+            )
+        }
+    }
+
+    return store.description
+})
+
 </script>

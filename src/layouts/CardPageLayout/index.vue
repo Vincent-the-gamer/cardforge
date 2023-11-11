@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-30px">
-        <FormLayout class="m-r-5px position-relative top-0 overflow-y-auto flex flex-col justify-center items-center bg-rgba-164-164-164-0.3">
+        <FormLayout class="m-r-5px p-t-20px p-b-20px position-relative top-0 overflow-y-auto flex flex-col justify-center items-center bg-rgba-164-164-164-0.3">
             <p class="m-b-2px">
                 <span>卡牌类型：</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>随从</span>
@@ -79,11 +79,23 @@
                 </p>
             </template>
             
-            <p class="m-b-2px flex justify-center">
+            <p class="m-b-1px flex justify-center">
                 <span>描述: </span>
                 <textarea class="input-text w-300px h-100px resize-none m-l-5px"
                           v-model="description"></textarea>
             </p>
+            
+            <p class="w-fit h-fit m-b-1px font-size-13px color-yellow">
+                提示：**内容**则加粗， ~内容~则斜体
+            </p>
+
+            <p class="m-b-2px">
+                <span>描述字体大小: </span>
+                <input type="number" min="0" class="input-text w-120px"
+                       v-model="desFontSize"/>
+                <span class="m-l-3px">px</span>
+            </p>
+
             <p class="m-b-2px">
                 <span>法力值: </span>
                 <input type="number" min="0" class="input-text w-120px"
@@ -103,9 +115,15 @@
     
         <CardLayout class="flex justify-center items-center flex-col min-h-700px overflow-scroll">
             <Card/>
-            <button class="button position-absolute bottom-20px h-40px" @click="generateImage">
-                生成图片
-            </button>
+            <div class="position-absolute bottom-20px">
+                <button class="button h-40px">
+                    上传背景图片
+                </button>
+                <button class="button h-40px m-l-5px" @click="generateImage">
+                    生成图片
+                </button>
+            </div>
+         
         </CardLayout>
     </div>
 </template>
@@ -203,6 +221,12 @@ watch(dualCardKind, newVal => {
 const description = ref<string>(store.description)
 watch(() => description.value, newVal => {
     store.setDescription(newVal)
+})
+
+// description font size描述字体大小
+const desFontSize = ref<number>(store.desFontSize)
+watch(() => desFontSize.value, newVal => {
+    store.setDesFontSize(newVal)
 })
 
 // cost 法力值消耗
