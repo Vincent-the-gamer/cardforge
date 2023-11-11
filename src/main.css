@@ -12,6 +12,7 @@
 html {
     background-color: black;
     color: white;
+    overflow-x: hidden;
 }
 
 a{

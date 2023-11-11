@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-30px">
+    <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-0">
         <FormLayout class="m-r-5px p-t-20px p-b-20px position-relative top-0 overflow-y-auto flex flex-col justify-center items-center bg-rgba-164-164-164-0.3">
             <p class="m-b-2px">
                 <span>卡牌类型：</span>
@@ -115,15 +115,9 @@
     
         <CardLayout class="flex justify-center items-center flex-col min-h-700px overflow-scroll">
             <Card/>
-            <div class="position-absolute bottom-20px">
-                <button class="button h-40px">
-                    上传背景图片
-                </button>
-                <button class="button h-40px m-l-5px" @click="generateImage">
-                    生成图片
-                </button>
-            </div>
-         
+            <button class="button h-40px m-l-5px position-absolute bottom-20px translate-x-40px" @click="generateImage">
+                生成图片
+            </button>
         </CardLayout>
     </div>
 </template>

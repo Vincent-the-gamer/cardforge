@@ -129,6 +129,18 @@
                 <Number :num="store.vitality"/>
             </div>
         </template>
+
+        <img v-if="imageUrl" :src="imageUrl" alt="background"
+            class="position-absolute top-5 z--1"
+        />
+        <input type="file" 
+                @mouseenter="() => mask = 'bg-white color-black cursor-pointer'"
+                @mouseleave="() => mask = ''"
+                @change="handleUpload"
+                class="button h-38px w-64px m-0 position-absolute bottom-20px translate-x--68px z-1 opacity-0"/>
+        <button :class="`button h-40px position-absolute bottom-20px translate-x--35px z-0 ${mask}`">
+            上传图片
+        </button>
     </div>
 </template>
 
@@ -137,7 +149,7 @@ import { ClassType, KindType } from '@/datatypes/cardClass';
 import { CardType, Rarity } from '@/datatypes/cardType';
 import Number from '@/components/Number.vue';
 import { useStore } from '@/store/useStore';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 const store = useStore()
 
@@ -195,5 +207,22 @@ const styledDescription = computed<string>(() => {
 
     return store.description
 })
+
+// 上传按钮遮罩样式
+const mask = ref<string>("")
+
+// 处理上传逻辑
+const imageUrl = ref<string>("")
+
+function handleUpload(e: any){
+    const file = e.target.files[0]
+    if(file){
+        const reader = new FileReader()
+        reader.onload = (e: any) => {
+            imageUrl.value = e.target.result
+        }
+        reader.readAsDataURL(file)
+    }
+}
 
 </script>
