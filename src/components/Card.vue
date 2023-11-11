@@ -44,7 +44,10 @@
             </template>
 
             <!-- 双种族 -->
-            <template v-else-if="store.kindType === KindType.Dual">
+            <template v-else-if="
+                store.kindType === KindType.Dual &&
+                (store.dualCardKind.up !== '' || store.dualCardKind.down !== '')
+            ">
                 <img src="@/assets/materials/common/dual-card-kind.png"
                 class="position-absolute top-560px translate-x-7px z-3"/>
                 <!-- 种族1文字 -->
@@ -106,6 +109,13 @@
             ${store.attack >= 10 && `translate-x--167px`}
             `">
                 <Number :num="store.attack"/>
+            </div>
+
+            <div :class="`position-absolute top-457px z-3 font-size-48px
+            ${store.vitality < 10 && `translate-x-156px`}
+            ${store.vitality >= 10 && `translate-x-155px`}
+            `">
+                <Number :num="store.vitality"/>
             </div>
         </template>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="m-5px inline-block w-45% h-90% position-relative min-w-400px min-h-500px">
+    <div class="inline-block w-45% h-80% font-family-BlizzardGlobal border-rd-6px">
         <slot/>
     </div>
 </template>

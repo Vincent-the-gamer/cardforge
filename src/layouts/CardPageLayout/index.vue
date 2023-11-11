@@ -1,19 +1,19 @@
 <template>
-    <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-40px">
-        <FormLayout class="position-relative top-0 p-5px flex flex-col justify-center items-center bg-rgba-164-164-164-0.3 border-rd-6px font-family-BlizzardGlobal overflow-y-auto">
-            <p>
+    <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-30px">
+        <FormLayout class="m-r-5px position-relative top-0 overflow-y-auto flex flex-col justify-center items-center bg-rgba-164-164-164-0.3">
+            <p class="m-b-2px">
                 <span>卡牌类型：</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>随从</span>
                 <!-- <input type="radio" name="card-type" v-model="cardType" :value="CardType.Spell"/><span>法术</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Weapon"/><span>武器</span> -->
             </p>
-            <p>
+            <p class="m-b-2px">
                 <span>职业类型: </span>
                 <input type="radio" name="class-type" v-model="classType" :value="ClassType.Single"/><span>单职业</span>
                 <input type="radio" name="class-type" v-model="classType" :value="ClassType.Dual"/><span>双职业</span>
             </p>
             <!-- 单职业卡底 -->
-            <p v-if="classType === ClassType.Single">
+            <p class="m-b-2px" v-if="classType === ClassType.Single">
                 <span>职业: </span>
                 <select class="select" v-model="cardClass">
                     <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key">
@@ -23,7 +23,7 @@
             </p>
             <!-- 双职业卡底 -->
             <template v-else>
-                <p>
+                <p class="m-b-2px">
                     <span>左职业：</span>
                     <select class="select m-r-7px" v-model="dualCardClass.left">
                         <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key">
@@ -39,7 +39,7 @@
                 </p>
             </template>
             
-            <p>
+            <p class="m-b-2px">
                 <span>稀有度: </span>
                 <select class="select" v-model="rarity">
                     <option :value="Rarity.None">无</option>
@@ -49,50 +49,55 @@
                     <option :value="Rarity.Legandary">传说</option>
                 </select>
             </p>
-            <p>
+            <p class="m-b-2px">
                 <span>名称: </span>
                 <input type="text" class="input-text"
                        v-model="name"/>
             </p>
-            <p>
+            <p class="m-b-2px">
                 <span>种族类型：</span>
                 <input type="radio" name="kind-type" v-model="cardKindType" :value="KindType.Single"/><span>单种族</span>
                 <input type="radio" name="kind-type" v-model="cardKindType" :value="KindType.Dual"/><span>双种族</span>
             </p>
             <template v-if="cardKindType === KindType.Single">
-                <p>
+                <p class="m-b-2px">
                     <span>种族: </span>
                     <input type="text" class="input-text"
                         v-model="cardKind"/>
                 </p>
             </template>
             <template v-else-if="cardKindType === KindType.Dual">
-                <p>
+                <p class="m-b-2px">
                     <span>种族1: </span>
                     <input type="text" class="input-text"
                         v-model="dualCardKind.up"/>
                 </p>
-                <p>
+                <p class="m-b-2px">
                     <span>种族2: </span>
                     <input type="text" class="input-text"
                         v-model="dualCardKind.down"/>
                 </p>
             </template>
             
-            <p class="flex">
+            <p class="m-b-2px flex justify-center">
                 <span>描述: </span>
                 <textarea class="input-text w-300px h-100px resize-none m-l-5px"
                           v-model="description"></textarea>
             </p>
-            <p>
+            <p class="m-b-2px">
                 <span>法力值: </span>
                 <input type="number" min="0" class="input-text w-120px"
                        v-model="cost"/>
             </p>
-            <p>
+            <p class="m-b-2px">
                 <span>攻击力: </span>
                 <input type="number" min="0" class="input-text w-120px"
                        v-model="attack"/>
+            </p>
+            <p class="m-b-2px">
+                <span>生命值: </span>
+                <input type="number" min="0" class="input-text w-120px"
+                       v-model="vitality"/>
             </p>
         </FormLayout>
     
@@ -210,6 +215,12 @@ watch(() => cost.value, newVal => {
 const attack = ref<number>(store.attack)
 watch(() => attack.value, newVal => {
     store.setAttack(newVal)
+})
+
+// vitality 生命值
+const vitality = ref<number>(store.vitality)
+watch(() => vitality.value, newVal => {
+    store.setVitality(newVal)
 })
 
 // 生成图片

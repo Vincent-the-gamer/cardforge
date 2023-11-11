@@ -34,7 +34,9 @@ export const useStore = defineStore("cardtype", {
             // 卡牌描述
             description: "" as string,
             // 攻击力
-            attack: 1 as number
+            attack: 1 as number,
+            // 生命值
+            vitality: 1 as number
         }
     },
     actions: {
@@ -75,6 +77,9 @@ export const useStore = defineStore("cardtype", {
         },
         setAttack(attack: number){
             this.attack = attack
+        },
+        setVitality(vitality: number){
+            this.vitality = vitality
         }
 
     }
