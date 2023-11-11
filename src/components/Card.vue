@@ -20,7 +20,7 @@
             
                 <!-- 右边 -->
                 <img :src="dualClassMinionRightURL"
-                    class="position-absolute top--20px z-0 translate-x--1px"/>
+                    class="position-absolute top--20px z-0 translate-x--0.5px"/>
             </template>
         
 
@@ -67,7 +67,7 @@
             `position-absolute top--30px z-2 font-family-GBJenLei font-size-57px 
             ${store.cost < 10 && `translate-x--160px`}
             ${store.cost >= 10 && `translate-x--165px`}`">
-                <h1 class="cost">{{ store.cost }}</h1>
+                <Number :num="store.cost"/>
             </div>
         </template>
     </div>
@@ -76,6 +76,7 @@
 <script lang="ts" setup>
 import { ClassType } from '@/datatypes/cardClass';
 import { CardType, Rarity } from '@/datatypes/cardType';
+import Number from '@/components/Number.vue';
 import { useStore } from '@/store/useStore';
 import { computed } from 'vue';
 
