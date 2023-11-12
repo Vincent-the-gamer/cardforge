@@ -114,10 +114,22 @@
         </FormLayout>
     
         <CardLayout class="flex justify-center items-center flex-col min-h-700px overflow-scroll">
-            <Card/>
-            <button class="button h-40px m-l-5px position-absolute bottom-20px translate-x-40px" @click="generateImage">
-                生成图片
-            </button>
+            <Card :image-url="imageUrl"/>
+            <p class="position-absolute bottom-60px">提示：使用鼠标拖拽/缩放上传的卡面</p>
+            <div class="position-absolute bottom-20px z-2">
+                <input type="file"
+                    @mouseenter="() => mask = 'bg-white color-black cursor-pointer'"
+                    @mouseleave="() => mask = ''"
+                    @change="handleUpload"
+                    class="button h-38px w-98px m-0 font-size-0 position-absolute z-1 opacity-0"/>
+                <button :class="`button h-40px w-100px z-0 hover:cursor-pointer ${mask}`">
+                    上传卡面图片
+                </button>
+                <button class="button h-40px w-90px m-l-7px" @click="generateImage">
+                    生成图片
+                </button>
+            </div>
+          
         </CardLayout>
     </div>
 </template>
@@ -240,6 +252,24 @@ const vitality = ref<number>(store.vitality)
 watch(() => vitality.value, newVal => {
     store.setVitality(newVal)
 })
+
+// 上传卡牌配图
+// 上传按钮遮罩样式
+const mask = ref<string>("")
+
+// 处理上传逻辑
+const imageUrl = ref<string>("")
+
+function handleUpload(e: any){
+    const file = e.target.files[0]
+    if(file){
+        const reader = new FileReader()
+        reader.onload = (e: any) => {
+            imageUrl.value = e.target.result
+        }
+        reader.readAsDataURL(file)
+    }
+}
 
 // 生成图片
 function generateImage(){

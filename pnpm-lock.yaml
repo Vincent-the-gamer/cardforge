@@ -14,6 +14,9 @@ dependencies:
   vue:
     specifier: ^3.3.4
     version: 3.3.7(typescript@5.2.2)
+  vue3-draggable-resizable:
+    specifier: ^1.6.5
+    version: 1.6.5
 
 devDependencies:
   '@iconify-json/grommet-icons':
@@ -1424,6 +1427,10 @@ packages:
       semver: 7.5.4
       typescript: 5.2.2
     dev: true
+
+  /vue3-draggable-resizable@1.6.5:
+    resolution: {integrity: sha512-31142E31fGNnq3HKqvmFLSsqIbhck7TyGuQWhUKrDw6DOcGAuRx4ddRjaxvT6fe7dgeKH53qAh+i0ZlWtPLl2g==}
+    dev: false
 
   /vue@3.3.7(typescript@5.2.2):
     resolution: {integrity: sha512-YEMDia1ZTv1TeBbnu6VybatmSteGOS3A3YgfINOfraCbf85wdKHzscD6HSS/vB4GAtI7sa1XPX7HcQaJ1l24zA==}
