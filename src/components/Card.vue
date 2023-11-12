@@ -184,21 +184,21 @@ const rarityCrystalURL = computed<string>(
 const styledDescription = computed<string>(() => {
     // 加粗
     const boldPattern = /\*\*(.*?)\*\*/
-    const matchbold: RegExpMatchArray | null = store.description.match(boldPattern)
-    if(matchbold){
-        for(let i = 1; i < matchbold.length; i++){
+    const matchBold: RegExpMatchArray | null = store.description.match(boldPattern)
+    if(matchBold){
+        for(let i = 1; i < matchBold.length; i++){
             store.description = store.description.replace(
                 boldPattern, 
-                `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchbold[i]}</span>`
+                `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchBold[i]}</span>`
             )
         }
     }
-
+    
     // 斜体
     const italicPattern = /~(.*?)~/
     const matchItalic: RegExpMatchArray | null = store.description.match(italicPattern)
     if(matchItalic){
-        for (let i = 0; i < matchItalic.length; i++) {
+        for (let i = 1; i < matchItalic.length; i++) {
             store.description = store.description.replace(
                 italicPattern, 
                 `<span style="font-style: italic;">${matchItalic[i]}</span>`

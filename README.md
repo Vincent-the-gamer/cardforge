@@ -30,4 +30,7 @@
 
 
 # Preview
-Preview will be available when the first alpha version is finished.
+
+PS: Not final.
+
+![preview](./.github/preview.png)
