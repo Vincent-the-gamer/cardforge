@@ -25,8 +25,13 @@
         
             <!-- 随从名称 -->
             <template v-if="store.name">
-                <p class="color-white position-absolute top-310px z-4 font-size-30px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
-                    {{ store.name }}
+                <p class="color-white position-absolute top-312px z-4 font-size-28px 
+                font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
+                    <!-- SVG绘制弧线文字 -->
+                    <ArcText width="400px" height="200px" text-path="M 6 60 C0 160 250 0 490 140"
+                             class="translate-x--40px translate-y--51px rotate--5deg">
+                        {{ store.name }}
+                    </ArcText>
                 </p>
             </template>
 
@@ -127,8 +132,8 @@
                 <Number :num="store.vitality"/>
             </div>
 
-            <!-- 卡牌背景图片 -->
-            <CardBackground v-if="props.imageUrl" :url="props.imageUrl"/>
+            <!-- 卡面图片 -->
+            <CardFace v-if="props.imageUrl" :url="props.imageUrl"/>
         </template>
      
     </div>
@@ -137,8 +142,9 @@
 <script lang="ts" setup>
 import { ClassType, KindType } from '@/datatypes/cardClass';
 import { CardType, Rarity } from '@/datatypes/cardType';
-import CardBackground from '@/components/CardBackground.vue';
+import CardFace from '@/components/CardFace.vue';
 import Number from '@/components/Number.vue';
+import ArcText from "@/components/ArcText.vue"
 import { useStore } from '@/store/useStore';
 import { computed } from 'vue';
 

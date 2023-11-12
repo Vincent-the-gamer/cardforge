@@ -38,7 +38,9 @@ export const useStore = defineStore("cardtype", {
             // 攻击力
             attack: 1 as number,
             // 生命值
-            vitality: 1 as number
+            vitality: 1 as number,
+            // 卡面缩放锁定纵横比
+            lockAspectRatio: false as boolean
         }
     },
     actions: {
@@ -85,6 +87,9 @@ export const useStore = defineStore("cardtype", {
         },
         setDesFontSize(desFontSize: number){
             this.desFontSize = desFontSize
+        },
+        setLockAspectRatio(lockAspectRatio: boolean){
+            this.lockAspectRatio = lockAspectRatio
         }
 
     }

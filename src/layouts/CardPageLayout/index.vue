@@ -115,7 +115,12 @@
     
         <CardLayout class="flex justify-center items-center flex-col min-h-700px overflow-scroll">
             <Card :image-url="imageUrl"/>
-            <p class="position-absolute bottom-60px">提示：使用鼠标拖拽/缩放上传的卡面</p>
+            <p class="position-absolute bottom-100px">提示：使用鼠标拖拽/缩放上传的卡面</p>
+            <p class="position-absolute bottom-60px flex justify-center items-center z-2 hover:cursor-pointer">
+                <span>锁定缩放纵横比：</span>
+                <input type="checkbox" v-model="lockAspectRatio"
+                       class="w-20px h-20px"/>
+            </p>
             <div class="position-absolute bottom-20px z-2">
                 <input type="file"
                     @mouseenter="() => mask = 'bg-white color-black cursor-pointer'"
@@ -251,6 +256,12 @@ watch(() => attack.value, newVal => {
 const vitality = ref<number>(store.vitality)
 watch(() => vitality.value, newVal => {
     store.setVitality(newVal)
+})
+
+// 卡面缩放锁定纵横比
+const lockAspectRatio = ref<boolean>(store.lockAspectRatio)
+watch(() => lockAspectRatio.value, newVal => {
+    store.setLockAspectRatio(newVal)
 })
 
 // 上传卡牌配图
