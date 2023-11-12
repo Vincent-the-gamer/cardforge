@@ -141,7 +141,7 @@
 
 
 <script lang="ts" setup>
-import html2canvas from "html2canvas"
+import { domToPng } from 'modern-screenshot'
 import FormLayout from './FormLayout.vue'
 import CardLayout from "./CardLayout.vue"
 import Card from "@/components/Card.vue"
@@ -285,10 +285,9 @@ function handleUpload(e: any){
 // 生成图片
 function generateImage(){
     const card = document.getElementById("card") as HTMLElement
-    html2canvas(card).then(canvas => {
-        const image = canvas.toDataURL("image/png")
+    domToPng(card).then(dataUrl => {
         const link = document.createElement("a")
-        link.href = image
+        link.href = dataUrl
         link.download = "MyCard.png"
         link.click()
     })

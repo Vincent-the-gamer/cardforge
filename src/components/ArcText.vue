@@ -1,6 +1,7 @@
 <template>
     <!-- SVG绘制弧线文字 -->
-    <svg :width="props.width" :height="props.height">
+    <svg :width="props.width" :height="props.height"
+         :class="props.class">
         <defs>
             <path id="MyPath" :d="props.textPath" />
         </defs>
@@ -19,7 +20,8 @@ const props = defineProps<{
     width: string,
     height: string,
     textPath: string,
-    assistPath?: string
+    assistPath?: string,
+    class?: string
 }>()
 
 

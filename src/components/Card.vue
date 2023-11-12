@@ -25,11 +25,11 @@
         
             <!-- 随从名称 -->
             <template v-if="store.name">
-                <p class="color-white position-absolute top-312px z-4 font-size-28px 
-                font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
+                <p class="position-absolute pointer-events-none">
                     <!-- SVG绘制弧线文字 -->
                     <ArcText width="400px" height="200px" text-path="M 6 60 C0 160 250 0 490 140"
-                             class="translate-x--40px translate-y--51px rotate--5deg">
+                             class="font-family-GBJenLei hearth-stroke-1.2px top-312px z-4 font-size-28px position-absolute
+         translate-x--234px translate-y--40px rotate--5deg">
                         {{ store.name }}
                     </ArcText>
                 </p>
