@@ -5,32 +5,24 @@
 
 <p align="center">A HearthStone card DIY tool.</p>
 
+<p align="center" style="font-style: italic;">Alpha Version: V0.0.1</p>
+
 # Notice
-🚧This repo is under construction.🚧
 
-# Development
+This repo is not final, now it can only generate `Minion Cards`.
 
-## Gears
-- ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/) - born with fastness
-- 🍍 [State Management via Pinia](https://pinia.vuejs.org/)
-- 🎨 [UnoCSS](https://github.com/antfu/unocss) - the instant on-demand atomic CSS engine
+# Play
 
-    Pure CSS icon in UnoCSS: 
+Play it at：
 
-    [https://icones.js.org/](https://icones.js.org/)
-
-    Usage:
-
-    ```shell
-    pnpm add -D @unocss/preset-icons @iconify-json/[the-collection-you-want]
-    ```
-
-    then add class in your HTML.
-- 🦾 TypeScript, of course
-
+[https://vincent-the-gamer.github.io/cardforge-live-page/](https://vincent-the-gamer.github.io/cardforge-live-page/)
 
 # Preview
 
 PS: Not final.
 
 ![preview](./.github/preview.png)
+
+Generated Card:
+
+![generated](./.github/generated-card.png)
