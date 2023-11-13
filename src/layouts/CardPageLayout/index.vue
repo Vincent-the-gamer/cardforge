@@ -16,7 +16,7 @@
             <p class="m-b-2px" v-if="classType === ClassType.Single">
                 <span>职业: </span>
                 <select class="select" v-model="cardClass">
-                    <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key">
+                    <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key" class="bg-black">
                         {{ value }}
                     </option>
                 </select>
@@ -26,13 +26,13 @@
                 <p class="m-b-2px">
                     <span>左职业：</span>
                     <select class="select m-r-7px" v-model="dualCardClass.left">
-                        <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key">
+                        <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key" class="bg-black">
                             {{ value }}
                         </option>
                     </select>
                     <span>右职业：</span>
                     <select class="select" v-model="dualCardClass.right">
-                        <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key">
+                        <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key" class="bg-black">
                             {{ value }}
                         </option>
                     </select>
@@ -42,11 +42,11 @@
             <p class="m-b-2px">
                 <span>稀有度: </span>
                 <select class="select" v-model="rarity">
-                    <option :value="Rarity.None">无</option>
-                    <option :value="Rarity.Common">普通</option>
-                    <option :value="Rarity.Rare">稀有</option>
-                    <option :value="Rarity.Epic">史诗</option>
-                    <option :value="Rarity.Legandary">传说</option>
+                    <option :value="Rarity.None" class="bg-black">无</option>
+                    <option :value="Rarity.Common" class="bg-black">普通</option>
+                    <option :value="Rarity.Rare" class="bg-black">稀有</option>
+                    <option :value="Rarity.Epic" class="bg-black">史诗</option>
+                    <option :value="Rarity.Legandary" class="bg-black">传说</option>
                 </select>
             </p>
             <p class="m-b-2px">
@@ -113,7 +113,7 @@
             </p>
         </FormLayout>
     
-        <CardLayout class="flex justify-center items-center flex-col min-h-800px w-500px overflow-scroll">
+        <CardLayout class="flex justify-center items-center flex-col min-h-800px w-500px overflow-auto hide-scrollbar">
             <Card :image-url="imageUrl"/>
             <p class="position-absolute bottom-100px z-2">提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取</p>
             <p class="position-absolute bottom-60px flex justify-center items-center z-2 hover:cursor-pointer">
@@ -300,3 +300,12 @@ function generateImage(){
 }
 
 </script>
+
+
+<style scoped>
+.hide-scrollbar{
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+</style>
