@@ -40,7 +40,9 @@ export const useStore = defineStore("cardtype", {
             // 生命值
             vitality: 1 as number,
             // 卡面缩放锁定纵横比
-            lockAspectRatio: false as boolean
+            lockAspectRatio: false as boolean,
+            // 遮罩开启/关闭
+            showMask: false as boolean
         }
     },
     actions: {
@@ -90,6 +92,9 @@ export const useStore = defineStore("cardtype", {
         },
         setLockAspectRatio(lockAspectRatio: boolean){
             this.lockAspectRatio = lockAspectRatio
+        },
+        setShowMask(showMask: boolean){
+            this.showMask = showMask
         }
 
     }

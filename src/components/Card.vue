@@ -28,7 +28,7 @@
                 <p class="position-absolute pointer-events-none">
                     <!-- SVG绘制弧线文字 -->
                     <ArcText width="400px" height="200px" text-path="M 6 60 C0 160 250 0 490 140"
-                             class="font-family-GBJenLei hearth-stroke-1.2px top-312px z-4 font-size-28px position-absolute
+                             class="font-family-GBJenLei color-white hearth-stroke-1.2px top-312px z-4 font-size-28px position-absolute
          translate-x--234px translate-y--40px rotate--5deg">
                         {{ store.name }}
                     </ArcText>
@@ -41,7 +41,7 @@
                 <img src="@/assets/materials/common/card-kind.png"
                 class="position-absolute top-546px translate-x-7px z-4 pointer-events-none"/>
                 <!-- 种族文字 -->
-                <p class="position-absolute top-550px translate-x-7px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
+                <p class="position-absolute top-550px color-white translate-x-5px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
                     {{ store.cardKind }}
                 </p>
             </template>
@@ -54,11 +54,11 @@
                 <img src="@/assets/materials/common/dual-card-kind.png"
                 class="position-absolute top-560px translate-x-7px z-4 pointer-events-none"/>
                 <!-- 种族1文字 -->
-                <p class="position-absolute top-550px translate-x-7px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
+                <p class="position-absolute top-550px color-white translate-x-5px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
                     {{ store.dualCardKind.up }}
                 </p>
                 <!-- 种族2文字 -->
-                <p class="position-absolute top-570px translate-x-7px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
+                <p class="position-absolute top-570px color-white translate-x-5px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
                     {{ store.dualCardKind.down }}
                 </p>
             </template>
@@ -92,7 +92,7 @@
                 <div class="position-absolute top-420px w-280px h-141px z-5 flex justify-center items-center">
                     <h3 :class="`position-relative top-0 left-0 m-0 m-auto w-fit h-fit white-space-pre-wrap 
                     font-family-BlizzardGlobal color-black font-100 text-center pointer-events-none`"
-                    :style="{ fontSize: `${store.desFontSize}px`}"
+                    :style="{ fontSize: `${store.desFontSize}px` }"
                     v-html="styledDescription">
                     </h3>
                 </div>
@@ -134,6 +134,9 @@
 
             <!-- 卡面图片 -->
             <CardFace v-if="props.imageUrl" :url="props.imageUrl"/>
+            <!-- 遮罩 -->
+            <div v-show="store.cardType === CardType.Minion && store.showMask"
+                 class="position-absolute bg-black color-transparent w-100% h-100% z--2 minion-mask-hole"></div>
         </template>
      
     </div>
@@ -146,13 +149,17 @@ import CardFace from '@/components/CardFace.vue';
 import Number from '@/components/Number.vue';
 import ArcText from "@/components/ArcText.vue"
 import { useStore } from '@/store/useStore';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 
 const props = defineProps<{
     imageUrl: string
 }>()
 
 const store = useStore()
+
+onMounted(() => {
+    store.setShowMask(false)
+})
 
 // 单职业随从
 // 卡底
@@ -208,6 +215,23 @@ const styledDescription = computed<string>(() => {
     return store.description
 })
 
-
-
 </script>
+
+<style scoped>
+/* 随从遮罩挖孔 */
+.minion-mask-hole {
+    clip-path: polygon(
+        0% 0%, 
+        0% 100%, 
+        50% 100%, 
+        22% 20%, 
+        23% 15%, 
+        50% 7%,
+        62% 10%, 
+        79% 30%, 
+        40% 70%, 
+        48% 100%,
+        100% 100%, 
+        100% 0%);
+}
+</style>

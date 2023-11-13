@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-0">
-        <FormLayout class="m-r-5px p-t-20px p-b-20px position-relative top-0 overflow-y-auto flex flex-col justify-center items-center bg-rgba-164-164-164-0.3">
+        <FormLayout class="m-r-5px p-t-20px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-164-164-164-0.3">
             <p class="m-b-2px">
                 <span>卡牌类型：</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>随从</span>
@@ -86,7 +86,7 @@
             </p>
             
             <p class="w-fit h-fit m-b-1px font-size-13px color-yellow">
-                提示：**内容**则加粗， ~内容~则斜体
+                提示：**内容**则加粗， *内容*则斜体
             </p>
 
             <p class="m-b-2px">
@@ -113,9 +113,9 @@
             </p>
         </FormLayout>
     
-        <CardLayout class="flex justify-center items-center flex-col min-h-700px overflow-scroll">
+        <CardLayout class="flex justify-center items-center flex-col min-h-800px w-500px overflow-scroll">
             <Card :image-url="imageUrl"/>
-            <p class="position-absolute bottom-100px">提示：使用鼠标拖拽/缩放上传的卡面</p>
+            <p class="position-absolute bottom-100px z-2">提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取</p>
             <p class="position-absolute bottom-60px flex justify-center items-center z-2 hover:cursor-pointer">
                 <span>锁定缩放纵横比：</span>
                 <input type="checkbox" v-model="lockAspectRatio"
@@ -285,11 +285,17 @@ function handleUpload(e: any){
 // 生成图片
 function generateImage(){
     const card = document.getElementById("card") as HTMLElement
+    card.style.color = "black"
+    // 截图
+    // 开启遮罩
+    store.setShowMask(true)
     domToPng(card).then(dataUrl => {
         const link = document.createElement("a")
         link.href = dataUrl
         link.download = "MyCard.png"
         link.click()
+        // 关闭遮罩
+        store.setShowMask(false)
     })
 }
 

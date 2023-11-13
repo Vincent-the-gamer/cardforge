@@ -1,7 +1,6 @@
 <template>
-    <Vue3DraggableResizable class="z--1"
+    <Vue3DraggableResizable class="z--2"
                             :lockAspectRatio="store.lockAspectRatio" 
-                            :parent="true"
                             :initW="cardPicData.w"
                             :initH="cardPicData.h"
                             v-model:x="cardPicData.x"
