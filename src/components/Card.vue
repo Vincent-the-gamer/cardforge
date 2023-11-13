@@ -183,29 +183,28 @@ const rarityCrystalURL = computed<string>(
 // 对描述的字体进行关键词等标记的特殊样式处理
 const styledDescription = computed<string>(() => {
     // 加粗
-    const boldPattern = /\*\*(.*?)\*\*/
+    const boldPattern = /\*\*(.*?)\*\*/g
     const matchBold: RegExpMatchArray | null = store.description.match(boldPattern)
-    if(matchBold){
-        for(let i = 1; i < matchBold.length; i++){
-            store.description = store.description.replace(
-                boldPattern, 
-                `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchBold[i]}</span>`
-            )
-        }
-    }
-    
     // 斜体
-    const italicPattern = /~(.*?)~/
+    const italicPattern = /\*(.*?)\*/g
     const matchItalic: RegExpMatchArray | null = store.description.match(italicPattern)
+
+    if(matchBold){
+        for (let i = 0; i < matchBold.length; i++) {
+            store.description = store.description.replaceAll(
+                matchBold[i], 
+                `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchBold[i]}</span>`.replaceAll("*", "")
+            )
+        }
+    } 
     if(matchItalic){
-        for (let i = 1; i < matchItalic.length; i++) {
-            store.description = store.description.replace(
-                italicPattern, 
-                `<span style="font-style: italic;">${matchItalic[i]}</span>`
+        for (let i = 0; i < matchItalic.length; i++) {
+            store.description = store.description.replaceAll(
+                matchItalic[i], 
+                `<span style="font-style: italic;">${matchItalic[i]}</span>`.replaceAll("*", "")
             )
         }
     }
-
     return store.description
 })
 
