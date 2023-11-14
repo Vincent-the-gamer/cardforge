@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-0">
+    <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-0 hide-scrollbar">
         <FormLayout class="m-r-5px p-t-20px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-164-164-164-0.3">
             <p class="m-b-2px">
                 <span>卡牌类型：</span>
@@ -113,7 +113,7 @@
             </p>
         </FormLayout>
     
-        <CardLayout class="flex justify-center items-center flex-col min-h-800px w-500px overflow-auto hide-scrollbar">
+        <CardLayout class="flex justify-center items-center flex-col h-750px w-500px overflow-auto">
             <Card :image-url="imageUrl"/>
             <p class="position-absolute bottom-100px z-2">提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取</p>
             <p class="position-absolute bottom-60px flex justify-center items-center z-2 hover:cursor-pointer">

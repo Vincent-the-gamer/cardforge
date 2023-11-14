@@ -1,5 +1,5 @@
 <template>
-    <div id="card" class="position-relative flex justify-center w-100% h-100% z-2">
+    <div id="card" class="position-relative flex justify-center w-100% h-100% z-2 translate-y-15px">
         <!-- 随从牌 -->
         <template v-if="store.cardType === CardType.Minion">
             <!-- 卡底 -->
@@ -136,7 +136,7 @@
             <CardFace v-if="props.imageUrl" :url="props.imageUrl"/>
             <!-- 遮罩 -->
             <div v-show="store.cardType === CardType.Minion && store.showMask"
-                 class="position-absolute bg-black color-transparent w-100% h-100% z--2 minion-mask-hole"></div>
+                 class="position-absolute bg-black color-transparent w-100% h-750px z--2 minion-mask-hole overflow-hidden"></div>
         </template>
      
     </div>
@@ -149,17 +149,13 @@ import CardFace from '@/components/CardFace.vue';
 import Number from '@/components/Number.vue';
 import ArcText from "@/components/ArcText.vue"
 import { useStore } from '@/store/useStore';
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 
 const props = defineProps<{
     imageUrl: string
 }>()
 
 const store = useStore()
-
-onMounted(() => {
-    store.setShowMask(false)
-})
 
 // 单职业随从
 // 卡底
@@ -226,10 +222,10 @@ const styledDescription = computed<string>(() => {
         50% 100%, 
         22% 20%, 
         23% 15%, 
-        50% 7%,
-        62% 10%, 
+        50% 8%,
+        65% 12%, 
         79% 30%, 
-        40% 70%, 
+        40% 76%, 
         48% 100%,
         100% 100%, 
         100% 0%);
