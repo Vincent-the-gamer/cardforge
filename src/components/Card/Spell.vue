@@ -14,8 +14,8 @@
             class="position-absolute top--20px z-1 pointer-events-none"/>
 
         <!-- 分割线 -->
-        <img src="@/assets/materials/minion/dual-classes-split.png"
-            class="position-absolute translate-x-2px top-395px z-2 pointer-events-none"/>
+        <img src="@/assets/materials/spell/spell-dual-classes-split.png"
+            class="position-absolute top-88px z-2 pointer-events-none"/>
     
         <!-- 右边 -->
         <img :src="dualClassSpellRightURL"
@@ -102,7 +102,7 @@
 
     <!-- 法术描述内容 -->
     <template v-if="store.description">
-        <div class="position-absolute top-440px w-273px h-133px z-5 flex justify-center items-center">
+        <div class="position-absolute top-435px w-273px h-130px z-5 flex justify-center items-center">
             <h3 :class="`position-relative top-0 left-0 m-0 m-auto w-fit h-fit white-space-pre-wrap 
             font-family-BlizzardGlobal color-black font-100 text-center pointer-events-none`"
             :style="{ fontSize: `${store.desFontSize}px` }"

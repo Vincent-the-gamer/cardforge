@@ -209,22 +209,3 @@ const styledDescription = computed<string>(() => {
 })
 
 </script>
-
-<style scoped>
-/* 随从遮罩挖孔 */
-.minion-mask-hole {
-    clip-path: polygon(
-        0% 0%, 
-        0% 100%, 
-        50% 100%, 
-        20% 30%, 
-        23% 20%, 
-        50% 8%,
-        65% 14%, 
-        79% 30%, 
-        40% 90%, 
-        48% 100%,
-        100% 100%, 
-        100% 0%);
-}
-</style>

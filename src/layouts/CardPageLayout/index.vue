@@ -1,6 +1,15 @@
 <template>
     <div class="flex justify-center items-center flex-row position-absolute h-100% w-100% top-0 hide-scrollbar">
-        <FormLayout class="m-r-5px p-t-20px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-164-164-164-0.3">
+        <!-- 移动端打开/关闭菜单 -->
+        <button class="position-fixed z-9 top-45px left-10px w-40px h-40px 
+                bg-transparent border-1px border-solid border-white color-white
+                border-rd-6px hover:bg-white hover:color-black hover:cursor-pointer transition-all-250"
+                v-show="showToggleButton"
+                @click="showFormLayout = !showFormLayout">
+            <div class="i-grommet-icons-menu position-relative w-100% h-100%"></div>
+        </button>
+        <FormLayout v-show="showFormLayout"
+            class="form-layout m-r-5px z-8 p-t-20px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7">
             <p class="m-b-2px">
                 <span>卡牌类型：</span>
                 <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>随从</span>
@@ -11,7 +20,7 @@
            <SpellMenu v-else-if="store.cardType === CardType.Spell"/>
         </FormLayout>
     
-        <CardLayout class="flex justify-center items-center flex-col h-100% w-500px overflow-hidden">
+        <CardLayout class="card-layout flex justify-center items-center flex-col h-100% w-500px overflow-hidden">
             <Card class="position-absolute h-650px"/>
             <div class="position-absolute m-0 z-2 bottom-0">
                 <p class="m-5px">提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取</p>
@@ -53,6 +62,22 @@ import { CardType } from '@/datatypes/cardType'
 
 // store
 const store = useStore();
+
+
+// 窄视图显示/隐藏菜单
+const showToggleButton = ref<boolean>(false)
+const showFormLayout = ref<boolean>(true)
+// 根据页面宽度来控制控件的显示
+window.addEventListener("resize", () => {
+    let width = window.innerWidth
+    if(width >= 800){
+        showFormLayout.value = true
+        showToggleButton.value = false
+    } else {
+        showToggleButton.value = true
+        showFormLayout.value = false
+    }
+})
 
 // card type 卡牌类型：随从(Minion)等
 const cardType = ref<CardType>(store.cardType)
@@ -109,6 +134,23 @@ function generateImage(){
 .hide-scrollbar{
     ::-webkit-scrollbar {
         display: none;
+    }
+}
+
+/* 窄视图样式调整 */
+@media screen and (max-width: 800px) {
+    .toggle-menu {
+        position: fixed;
+        top: 50px;
+        left: 20px;
+    }
+    .form-layout {
+        position: fixed;
+        top: 100px;
+        left: 20px;
+    }
+    .card-layout {
+        overflow: auto;
     }
 }
 </style>

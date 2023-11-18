@@ -14,6 +14,23 @@
                 </option>
             </select>
         </p>
+        <!-- 双职业卡底 -->
+        <template v-else>
+            <p class="m-b-2px">
+                <span>左职业：</span>
+                <select class="select m-r-7px" v-model="dualCardClass.left">
+                    <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key" class="bg-black">
+                        {{ value }}
+                    </option>
+                </select>
+                <span>右职业：</span>
+                <select class="select" v-model="dualCardClass.right">
+                    <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key" class="bg-black">
+                        {{ value }}
+                    </option>
+                </select>
+            </p>
+        </template>
 
         <!-- 法术名称 -->
         <p class="m-b-2px">

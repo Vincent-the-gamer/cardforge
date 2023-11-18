@@ -6,7 +6,7 @@ export const useStore = defineStore("cardtype", {
     state: () => {
         return {
             // 卡牌类型：随从 法术等
-            cardType: CardType.Spell,
+            cardType: CardType.Minion,
             // 单职业类型
             cardClass: CardClass.Neutral,
             // 双职业类型
