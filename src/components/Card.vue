@@ -1,5 +1,5 @@
 <template>
-    <div id="card" class="position-relative flex justify-center w-100% h-100% z-2 translate-y-15px">
+    <div id="card" class="position-relative flex justify-center w-100% h-100% z-2 translate-y--20px">
         <!-- 随从牌 -->
         <template v-if="store.cardType === CardType.Minion">
             <!-- 卡底 -->
@@ -136,7 +136,7 @@
             <CardFace v-if="props.imageUrl" :url="props.imageUrl"/>
             <!-- 遮罩 -->
             <div v-show="store.cardType === CardType.Minion && store.showMask"
-                 class="position-absolute bg-black color-transparent w-100% h-750px z--2 minion-mask-hole overflow-hidden"></div>
+                 class="position-absolute bg-black color-transparent w-100% h-670px z--2 minion-mask-hole overflow-hidden"></div>
         </template>
      
     </div>
@@ -220,12 +220,12 @@ const styledDescription = computed<string>(() => {
         0% 0%, 
         0% 100%, 
         50% 100%, 
-        22% 20%, 
-        23% 15%, 
+        20% 30%, 
+        23% 20%, 
         50% 8%,
-        65% 12%, 
+        65% 14%, 
         79% 30%, 
-        40% 76%, 
+        40% 90%, 
         48% 100%,
         100% 100%, 
         100% 0%);

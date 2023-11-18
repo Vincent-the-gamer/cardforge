@@ -113,26 +113,28 @@
             </p>
         </FormLayout>
     
-        <CardLayout class="flex justify-center items-center flex-col h-750px w-500px overflow-auto">
-            <Card :image-url="imageUrl"/>
-            <p class="position-absolute bottom-100px z-2">提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取</p>
-            <p class="position-absolute bottom-60px flex justify-center items-center z-2 hover:cursor-pointer">
-                <span>锁定缩放纵横比：</span>
-                <input type="checkbox" v-model="lockAspectRatio"
-                       class="w-20px h-20px"/>
-            </p>
-            <div class="position-absolute bottom-20px z-2">
+        <CardLayout class="flex justify-center items-center flex-col h-100% w-500px overflow-hidden">
+            <Card :image-url="imageUrl" class="position-absolute h-650px"/>
+            <div class="position-absolute m-0 z-2 bottom-0">
+                <p class="m-5px">提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取</p>
+                <p class="flex justify-center items-center hover:cursor-pointer m-5px">
+                    <span>锁定缩放纵横比：</span>
+                    <input type="checkbox" v-model="lockAspectRatio"
+                        class="w-20px h-20px"/>
+                </p>
                 <input type="file"
                     @mouseenter="() => mask = 'bg-white color-black cursor-pointer'"
                     @mouseleave="() => mask = ''"
                     @change="handleUpload"
-                    class="button h-38px w-98px m-0 font-size-0 position-absolute z-1 opacity-0"/>
-                <button :class="`button h-40px w-100px z-0 hover:cursor-pointer ${mask}`">
-                    上传卡面图片
-                </button>
-                <button class="button h-40px w-90px m-l-7px" @click="generateImage">
-                    生成图片
-                </button>
+                    class="button h-38px w-98px m-0 font-size-0 position-absolute translate-x-130px z-1 opacity-0"/>
+                <div class="flex justify-center items-center m-0">
+                    <button :class="`button h-40px w-100px z-0 hover:cursor-pointer ${mask}`">
+                     上传卡面图片
+                    </button>
+                    <button class="button h-40px w-90px m-l-7px" @click="generateImage">
+                        生成图片
+                    </button>
+                </div>
             </div>
           
         </CardLayout>
