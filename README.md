@@ -5,11 +5,13 @@
 
 <p align="center">A HearthStone card DIY tool.</p>
 
-<p align="center" style="font-style: italic;">Alpha Version: V0.0.1</p>
+<p align="center" style="font-style: italic;">Alpha Version: V0.0.2</p>
 
 # Notice
 
-This repo is not final, now it can only generate `Minion Cards`.
+This repo is not final, now it can only generate 
+- `Minion Cards`
+- `Spell Cards`
 
 # Play
 
@@ -21,8 +23,12 @@ Play it at：
 
 PS: Not final.
 
+Alpha Version: v0.0.2  -  Add `spell cards` generation.
+
+UI:
+
 ![preview](./.github/preview.png)
 
 Generated Card:
 
-![generated](./.github/generated-card.png)
+![card](./.github/generated-card.png)
