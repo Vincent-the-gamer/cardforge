@@ -1,4 +1,5 @@
 # Changelog
+
 ## Alpha Ver. v0.0.3
 - Add `i18n`
 - Add `Battlegrounds Minion` generation.
