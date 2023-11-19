@@ -128,8 +128,8 @@
     <CardFace v-if="imageUrl" :url="imageUrl"/>
     <!-- 遮罩 -->
     <Mask class="position-absolute z--2"
-          :card-type="CardType.Minion"
-          v-show="store.cardType === CardType.Minion && store.showMask"/>
+          :card-type="CardType.BattlegroundMinion"
+          v-show="store.cardType === CardType.BattlegroundMinion && store.showMask"/>
 </template>
 
 <script lang="ts" setup>

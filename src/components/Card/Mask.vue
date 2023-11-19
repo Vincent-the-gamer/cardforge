@@ -10,8 +10,9 @@ const props = defineProps<{
 </script>
 
 <style scoped>
-/* 随从遮罩挖孔 */
-.minion-mask-hole {
+/* 随从/酒馆战旗随从遮罩挖孔 */
+.minion-mask-hole,
+.battleground-minion-mask-hole {
     clip-path: polygon(
         0% 0%, 
         0% 100%, 

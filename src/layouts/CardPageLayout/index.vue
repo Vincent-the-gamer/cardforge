@@ -12,7 +12,7 @@
             class="form-layout m-r-5px z-8 p-t-20px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7">
             <p class="m-b-2px">
                 <span>{{ $t("cardType") }}</span>
-                <select class="select w-fit" v-model="cardType">
+                <select class="select w-fit" v-model="store.cardType">
                     <option :value="CardType.Minion">{{ $t("minion")}}</option>
                     <option :value="CardType.Spell">{{ $t("spell") }}</option>
                     <option :value="CardType.BattlegroundMinion">{{ $t("battlegroundsMinion") }}</option>
@@ -29,7 +29,7 @@
                 <p align="center" :class="`m-5px color-yellow ${locale === 'en' && 'font-size-12px'}`">{{ $t("cardHint") }}</p>
                 <p class="flex justify-center items-center hover:cursor-pointer m-5px">
                     <span>{{ $t("lockAspectRatio") }}</span>
-                    <input type="checkbox" v-model="lockAspectRatio"
+                    <input type="checkbox" v-model="store.lockAspectRatio"
                         class="w-20px h-20px"/>
                 </p>
                 <input type="file"
@@ -87,17 +87,6 @@ window.addEventListener("resize", () => {
     }
 })
 
-// card type 卡牌类型：随从(Minion)等
-const cardType = ref<CardType>(store.cardType)
-watch(() => cardType.value, newVal => {
-    store.setCardType(newVal)
-})
-
-// 卡面缩放锁定纵横比
-const lockAspectRatio = ref<boolean>(store.lockAspectRatio)
-watch(() => lockAspectRatio.value, newVal => {
-    store.setLockAspectRatio(newVal)
-})
 
 // 上传卡牌配图
 // 上传按钮遮罩样式
@@ -134,6 +123,11 @@ function generateImage(){
         store.setShowMask(false)
     })
 }
+
+// cardType切换时清空description, 否则也会将正则匹配替换的结果显示到菜单中
+watch(() => store.cardType, () => {
+    store.setDescription("")
+})
 
 </script>
 

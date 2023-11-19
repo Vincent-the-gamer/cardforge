@@ -53,65 +53,14 @@ export const useStore = defineStore("card", {
         }
     },
     actions: {
-        setCardType(cardType: CardType) {
-            this.cardType = cardType
-        },
-        setCardClass(cardClass: CardClass){
-            this.cardClass = cardClass
-        },
-        setDualCardClass(left: CardClass, right: CardClass){
-            this.dualCardClass.left = left
-            this.dualCardClass.right = right
-        },
-        setKindType(kindType: KindType){
-            this.kindType = kindType
-        },
-        setCardKind(cardKind: string){
-            this.cardKind = cardKind
-        },
-        setDualCardKind(up: string, down: string) {
-            this.dualCardKind.up = up
-            this.dualCardKind.down = down
-        },
-        setClassType(classType: ClassType){
-            this.classType = classType
-        },
-        setRarity(rarity: Rarity) {
-            this.rarity = rarity
-        },
-        setCost(cost: number) {
-            this.cost = cost
-        },
-        setName(name: string) {
-            this.name = name
-        },
         setDescription(description: string) {
             this.description = description
-        },
-        setAttack(attack: number){
-            this.attack = attack
-        },
-        setVitality(vitality: number){
-            this.vitality = vitality
-        },
-        setDesFontSize(desFontSize: number){
-            this.desFontSize = desFontSize
-        },
-        setLockAspectRatio(lockAspectRatio: boolean){
-            this.lockAspectRatio = lockAspectRatio
-        },
-        setShowMask(showMask: boolean){
-            this.showMask = showMask
         },
         setBattlegroundLevel(level: number){
             this.battlegroundLevel = level
         },
-        setFlag(flag: Flag){
-            this.flag = flag
-        },
-        setShowDragon(showDragon: boolean){
-            this.showDragon = showDragon
+        setShowMask(showMask: boolean){
+            this.showMask = showMask
         }
-
     }
 })

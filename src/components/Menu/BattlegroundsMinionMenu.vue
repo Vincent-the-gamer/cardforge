@@ -88,7 +88,7 @@
         <p class="m-b-1px flex justify-center">
             <span>{{ $t("description") }}</span>
             <textarea class="input-text w-300px h-100px resize-none m-l-5px"
-                        v-model="store.description"></textarea>
+                        v-model="description"></textarea>
         </p>
         
         <p class="w-fit h-fit m-b-1px font-size-13px color-yellow">
@@ -160,6 +160,12 @@ watch(() => battlegroundLevel.value, newVal => {
     } else {
         store.setBattlegroundLevel(newVal)
     }
+})
+
+// 对描述特殊处理, 否则会将正则匹配替换的结果显示到菜单中
+const description = ref<string>(store.description)
+watch(() => description.value, newVal => {
+    store.setDescription(newVal)
 })
 
 </script>
