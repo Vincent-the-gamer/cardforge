@@ -4,6 +4,7 @@
     "cardType": "卡牌类型: ",
     "minion": "随从",
     "spell": "法术",
+    "battlegroundsMinion": "酒馆战棋随从",
     "class": "职业：",
     "singleClass": "单职业",
     "dualClasses": "双职业",
@@ -47,8 +48,15 @@
     "spellCost": "法力值：",
     "attack": "攻击力：",
     "vitality": "生命值：",
+    "battlegroundLevel": "酒馆战棋等级: ",
     "cardHint": "提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取",
     "lockAspectRatio": "锁定缩放纵横比：",
     "uploadCardFace": "上传卡面图片",
-    "generatePicture": "生成图片"
+    "generatePicture": "生成图片",
+    "flag": "旗帜：",
+    "tradeable": "可交易",
+    "forge": "锻造",
+    "showDragon": "是否展示龙框？：",
+    "yes": "是",
+    "no": "否"
 }

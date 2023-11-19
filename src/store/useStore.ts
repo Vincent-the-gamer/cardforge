@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { CardType, Rarity } from "@/datatypes/cardType"
 import { CardClass, ClassType, KindType } from "@/datatypes/cardClass"
+import { Flag } from "@/datatypes/flag";
 
 export const useStore = defineStore("card", {
     state: () => {
@@ -42,7 +43,13 @@ export const useStore = defineStore("card", {
             // 卡面缩放锁定纵横比
             lockAspectRatio: false as boolean,
             // 遮罩开启/关闭
-            showMask: false as boolean
+            showMask: false as boolean,
+            // 旗帜
+            flag: Flag.None,
+            // 酒馆战旗随从等级
+            battlegroundLevel: 1 as number,
+            // 酒馆战旗随从无稀有度时，是否展示龙框
+            showDragon: false as boolean
         }
     },
     actions: {
@@ -95,6 +102,15 @@ export const useStore = defineStore("card", {
         },
         setShowMask(showMask: boolean){
             this.showMask = showMask
+        },
+        setBattlegroundLevel(level: number){
+            this.battlegroundLevel = level
+        },
+        setFlag(flag: Flag){
+            this.flag = flag
+        },
+        setShowDragon(showDragon: boolean){
+            this.showDragon = showDragon
         }
 
     }

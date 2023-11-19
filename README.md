@@ -12,6 +12,7 @@
 This repo is not final, now it can only generate 
 - `Minion Cards`
 - `Spell Cards`
+- `Battleground Minions`
 
 # Features
 - 💪 Real-time card part switching --- Card is built by tiny parts instead of pre-exported pictures.
@@ -32,10 +33,19 @@ View Changelog:  [Changelog](./CHANGELOG.md)
 
 PS: Not final.
 
-UI:
+UI: (`i18n` is supported now!!)
+
+English:
 
 ![preview](./.github/preview.png)
+
+Simplified Chinese(简体中文):
+![preview-cn](./.github/preview-cn.png)
+
 
 Generated Card:
 
 ![card](./.github/generated-card.png)
+
+# License
+[MIT](./LICENSE)

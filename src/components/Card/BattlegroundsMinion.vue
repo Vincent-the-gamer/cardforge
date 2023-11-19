@@ -1,5 +1,5 @@
 <template>
-    <!-- 随从牌 -->
+    <!-- 酒馆战棋随从 -->
 
     <!-- 卡底 -->
     <!-- 单职业 随从牌 -->
@@ -72,12 +72,12 @@
         <!-- 稀有度宝石 -->
         <img :src="rarityCrystalURL"
             class="position-absolute top-381px translate-x-6.5px z-3 pointer-events-none"/>
-        
-        <!-- 橙卡龙框 -->
-        <img src="@/assets/materials/minion/minion-dragon.png"
-            class="position-absolute top-21px translate-x-50px z-6 pointer-events-none"
-            v-if="store.rarity === Rarity.Legandary"/>
     </template>
+
+    <!-- 橙卡龙框 -->
+    <img src="@/assets/materials/minion/minion-dragon.png"
+             class="position-absolute top-21px translate-x-50px z-6 pointer-events-none"
+             v-if="store.rarity === Rarity.Legandary || (store.rarity === Rarity.None && store.showDragon)"/>
 
     <!-- 随从名称框 -->
     <img src="@/assets/materials/minion/minion-name.png"
@@ -98,21 +98,9 @@
         </div>
     </template>
 
-    <!-- 法力值消耗水晶 -->
-    <img src="@/assets/materials/cost/cost-crystal.png"
-        class="position-absolute top-60px translate-x--160px z-2 pointer-events-none"/>
-
-    <!-- 法力值消耗数值 -->
-    <div :class="
-    `position-absolute top--30px z-3 font-size-57px pointer-events-none
-    ${store.cost < 10 && `translate-x--160px`}
-    ${store.cost >= 10 && `translate-x--165px`}`">
-        <Number :num="store.cost"/>
-    </div>
-
-    <!-- 左上角旗帜 -->
-    <img :src="flagPicture" v-if="store.flag !== Flag.None"
-        class="position-absolute top-70px translate-x--159px z-1 pointer-events-none"/>
+    <!-- 酒馆战旗等级 -->
+    <img :src="level"
+        class="position-absolute top-60px translate-x--148px z-7 pointer-events-none"/>
 
     <!-- 攻击力，生命值底框 -->
     <img src="@/assets/materials/common/attack.png"
@@ -147,7 +135,6 @@
 <script lang="ts" setup>
 import { ClassType, KindType } from '@/datatypes/cardClass';
 import { CardType, Rarity } from '@/datatypes/cardType';
-import { Flag } from "@/datatypes/flag"
 import CardFace from '@/components/CardFace.vue';
 import Number from '@/components/Number.vue';
 import ArcText from "@/components/ArcText.vue"
@@ -185,9 +172,9 @@ const rarityCrystalURL = computed<string>(
     }
 )
 
-// 旗帜
-const flagPicture = computed<string>(
-    () => new URL(`../../assets/materials/flag/${store.flag}-flag.png`, import.meta.url).href
+// 酒馆战旗等级框
+const level = computed<string>(
+    () => new URL(`../../assets/materials/battlegrounds/level-${store.battlegroundLevel}.png`, import.meta.url).href
 )
 
 // 对描述的字体进行关键词等标记的特殊样式处理

@@ -12,12 +12,15 @@
             class="form-layout m-r-5px z-8 p-t-20px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7">
             <p class="m-b-2px">
                 <span>{{ $t("cardType") }}</span>
-                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>{{ $t("minion")}} </span>
-                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Spell"/><span>{{ $t("spell") }}</span>
-                <!-- <input type="radio" name="card-type" v-model="cardType" :value="CardType.Weapon"/><span>武器</span>  -->
+                <select class="select w-fit" v-model="cardType">
+                    <option :value="CardType.Minion">{{ $t("minion")}}</option>
+                    <option :value="CardType.Spell">{{ $t("spell") }}</option>
+                    <option :value="CardType.BattlegroundMinion">{{ $t("battlegroundsMinion") }}</option>
+                </select>
             </p>
            <MinionMenu v-if="store.cardType === CardType.Minion"/>
            <SpellMenu v-else-if="store.cardType === CardType.Spell"/>
+           <BattlegroundMinionMenu v-else-if="store.cardType === CardType.BattlegroundMinion"/>
         </FormLayout>
     
         <CardLayout class="card-layout flex justify-center items-center flex-col h-100% w-500px overflow-hidden">
@@ -56,6 +59,7 @@ import CardLayout from "./CardLayout.vue"
 import Card from "@/components/Card/Card.vue"
 import MinionMenu from '@/components/Menu/MinionMenu.vue'
 import SpellMenu from "@/components/Menu/SpellMenu.vue"
+import BattlegroundMinionMenu from "@/components/Menu/BattlegroundsMinionMenu.vue"
 import { useStore } from "@/store/useStore"
 import { provide, ref, watch } from 'vue';
 import { CardType } from '@/datatypes/cardType'

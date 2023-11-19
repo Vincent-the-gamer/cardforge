@@ -5,6 +5,7 @@ export enum CardType {
     Minion = "minion", // 随从
     Spell = "spell",  // 法术
     Weapon = "weapon", // 武器
+    BattlegroundMinion = "battleground-minion" // 酒馆战旗随从
 }
 
 /**

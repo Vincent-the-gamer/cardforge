@@ -1,5 +1,5 @@
 <template>
-    <!-- 随从菜单 -->
+    <!-- 酒馆战棋随从菜单 -->
     <div class="flex justify-center items-center flex-col">
         <p class="m-b-2px">
             <span>{{ $t("classType") }}</span>
@@ -32,16 +32,6 @@
                 </select>
             </p>
         </template>
-
-        <!-- 旗帜 -->
-        <p class="m-b-2px">
-            <span>{{ $t("flag") }}</span>
-            <select class="select" v-model="store.flag">
-                <option :value="Flag.None">{{ $t("none") }}</option>
-                <option :value="Flag.Tradeable">{{  $t("tradeable") }}</option>
-                <option :value="Flag.Forge">{{  $t("forge") }}</option>
-            </select>
-        </p>
         
         <!-- 稀有度 -->
         <p class="m-b-2px">
@@ -54,6 +44,15 @@
                 <option :value="Rarity.Legandary">{{ $t("legendary") }}</option>
             </select>
         </p>
+
+        <!-- 稀有度无时，是否展示龙框？ -->
+        <p class="m-b-2px" v-if="store.rarity === Rarity.None">
+            <span>{{ $t("showDragon") }}</span>
+            <input type="radio" name="show-dragon" v-model="store.showDragon" :value="false"/><span>{{ $t("no") }}</span>
+            <input type="radio" name="show-dragon" v-model="store.showDragon" :value="true"/><span>{{ $t("yes") }}</span>
+        </p>
+
+        <!-- 名称 -->
         <p class="m-b-2px">
             <span>{{ $t("name") }}</span>
             <input type="text" class="input-text"
@@ -104,9 +103,9 @@
         </p>
 
         <p class="m-b-2px">
-            <span>{{ $t("spellCost") }}</span>
-            <input type="number" min="0" class="input-text w-120px"
-                    v-model="store.cost"/>
+            <span>{{ $t("battlegroundLevel") }}</span>
+            <input type="number" min="1" max="6" class="input-text w-120px"
+                    v-model="battlegroundLevel"/>
         </p>
         <p class="m-b-2px">
             <span>{{ $t("attack") }}</span>
@@ -125,9 +124,9 @@
 import { useStore } from "@/store/useStore"
 import { CardClass, ClassType, KindType } from "@/datatypes/cardClass"
 import { Rarity } from "@/datatypes/cardType"
+import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { computed } from "vue";
-import { Flag } from "@/datatypes/flag";
 
 // store
 const store = useStore()
@@ -150,5 +149,17 @@ const cardClassMap = {
     [CardClass.DemonHunter]: computed(() => t("demonhunter")),
     [CardClass.DeathKnight]: computed(() => t("deathknight"))
 }
+
+// battleground level 酒馆战棋等级
+const battlegroundLevel = ref<number>(store.battlegroundLevel)
+watch(() => battlegroundLevel.value, newVal => {
+    if(newVal > 6){
+        store.setBattlegroundLevel(6)
+    } else if (newVal < 1) {
+        store.setBattlegroundLevel(1)
+    } else {
+        store.setBattlegroundLevel(newVal)
+    }
+})
 
 </script>
