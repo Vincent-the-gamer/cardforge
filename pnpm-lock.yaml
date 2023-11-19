@@ -14,6 +14,9 @@ dependencies:
   vue:
     specifier: ^3.3.8
     version: 3.3.8(typescript@5.2.2)
+  vue-i18n:
+    specifier: ^9.7.0
+    version: 9.7.0(vue@3.3.8)
   vue3-draggable-resizable:
     specifier: ^1.6.5
     version: 1.6.5
@@ -302,6 +305,27 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@intlify/core-base@9.7.0:
+    resolution: {integrity: sha512-1tBnfnCI23jXqGW15cagCjn2GgD487VST1dMG8P5LRzrSfx+kUzqFyTrjMNIwgq1tVaF4HnDpFMUuyrzTLKphw==}
+    engines: {node: '>= 16'}
+    dependencies:
+      '@intlify/message-compiler': 9.7.0
+      '@intlify/shared': 9.7.0
+    dev: false
+
+  /@intlify/message-compiler@9.7.0:
+    resolution: {integrity: sha512-/YdZCio2L2tCM5bZ2eMHbSEIQNPh1QqvZIOLI/yCVKXLscis7O0SsR2nmuU/DfCJ3iSeI8juw82C2wLvfsAeww==}
+    engines: {node: '>= 16'}
+    dependencies:
+      '@intlify/shared': 9.7.0
+      source-map-js: 1.0.2
+    dev: false
+
+  /@intlify/shared@9.7.0:
+    resolution: {integrity: sha512-PUkEuk//YKu4CHS5ah3mNa3XL/+TZj6rAY/6yYN+GCNFd2u+uWUkeuwE4Q6t8dydRWlErOePHHS0KyNoof/oBw==}
+    engines: {node: '>= 16'}
+    dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}
@@ -1380,6 +1404,18 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
+      vue: 3.3.8(typescript@5.2.2)
+    dev: false
+
+  /vue-i18n@9.7.0(vue@3.3.8):
+    resolution: {integrity: sha512-8Z8kSz9U2juzuAf+6mjW1HTd5pIlYuFJZkC+HvYOglFdpzwc2rTUGjxKwN8xGdtGur1MFnyJ44TSr+TksJtY8A==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@intlify/core-base': 9.7.0
+      '@intlify/shared': 9.7.0
+      '@vue/devtools-api': 6.5.1
       vue: 3.3.8(typescript@5.2.2)
     dev: false
 

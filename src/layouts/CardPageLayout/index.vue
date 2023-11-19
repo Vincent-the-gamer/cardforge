@@ -11,9 +11,9 @@
         <FormLayout v-show="showFormLayout"
             class="form-layout m-r-5px z-8 p-t-20px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7">
             <p class="m-b-2px">
-                <span>卡牌类型：</span>
-                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>随从</span>
-                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Spell"/><span>法术</span>
+                <span>{{ $t("cardType") }}</span>
+                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Minion"/><span>{{ $t("minion")}} </span>
+                <input type="radio" name="card-type" v-model="cardType" :value="CardType.Spell"/><span>{{ $t("spell") }}</span>
                 <!-- <input type="radio" name="card-type" v-model="cardType" :value="CardType.Weapon"/><span>武器</span>  -->
             </p>
            <MinionMenu v-if="store.cardType === CardType.Minion"/>
@@ -23,9 +23,9 @@
         <CardLayout class="card-layout flex justify-center items-center flex-col h-100% w-500px overflow-hidden">
             <Card class="position-absolute h-650px"/>
             <div class="position-absolute m-0 z-2 bottom-0">
-                <p class="m-5px">提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取</p>
+                <p align="center" :class="`m-5px color-yellow ${locale === 'en' && 'font-size-12px'}`">{{ $t("cardHint") }}</p>
                 <p class="flex justify-center items-center hover:cursor-pointer m-5px">
-                    <span>锁定缩放纵横比：</span>
+                    <span>{{ $t("lockAspectRatio") }}</span>
                     <input type="checkbox" v-model="lockAspectRatio"
                         class="w-20px h-20px"/>
                 </p>
@@ -36,10 +36,10 @@
                     class="button h-38px w-98px m-0 font-size-0 position-absolute translate-x-130px z-1 opacity-0"/>
                 <div class="flex justify-center items-center m-0">
                     <button :class="`button h-40px w-100px z-0 hover:cursor-pointer ${mask}`">
-                     上传卡面图片
+                       {{ $t("uploadCardFace") }}
                     </button>
                     <button class="button h-40px w-90px m-l-7px" @click="generateImage">
-                        生成图片
+                        {{ $t("generatePicture") }}
                     </button>
                 </div>
             </div>
@@ -59,9 +59,13 @@ import SpellMenu from "@/components/Menu/SpellMenu.vue"
 import { useStore } from "@/store/useStore"
 import { provide, ref, watch } from 'vue';
 import { CardType } from '@/datatypes/cardType'
+import { useI18n } from 'vue-i18n'
 
 // store
 const store = useStore();
+
+// i18n
+const { locale } = useI18n()
 
 
 // 窄视图显示/隐藏菜单
@@ -146,8 +150,8 @@ function generateImage(){
     }
     .form-layout {
         position: fixed;
-        top: 100px;
-        left: 20px;
+        top: 50px;
+        left: 60px;
     }
     .card-layout {
         overflow: auto;

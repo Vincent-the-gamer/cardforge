@@ -42,11 +42,11 @@ export default defineConfig({
         },
         {
             "select": `bg-transparent color-white border-rd-4px border-1px border-solid 
-            border-white w-90px h-30px`
+            border-white w-90px h-30px font-family-BlizzardGlobal`
         },
         {
             "input-text": `bg-transparent w-200px h-30px border-white border-1px 
-            border-solid border-rd-5px color-white`
+            border-solid border-rd-5px color-white font-family-BlizzardGlobal`
         }
     ]
 })

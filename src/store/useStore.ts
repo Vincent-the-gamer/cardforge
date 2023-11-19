@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { CardType, Rarity } from "@/datatypes/cardType"
 import { CardClass, ClassType, KindType } from "@/datatypes/cardClass"
 
-export const useStore = defineStore("cardtype", {
+export const useStore = defineStore("card", {
     state: () => {
         return {
             // 卡牌类型：随从 法术等

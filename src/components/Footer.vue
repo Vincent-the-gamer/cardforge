@@ -7,6 +7,7 @@
                Vincent-the-gamer
             </a>
             | {{ props.isAlpha ? "Alpha " : "" }} Version: v{{ version }}
+            | MIT Licensed
         </h4>
     </footer>
 </template>

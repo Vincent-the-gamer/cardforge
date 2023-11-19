@@ -18,3 +18,9 @@ html {
 a{
     text-decoration: none;
 }
+
+select option {
+    background-color: black;
+    color: white;
+    font-family: BlizzardGlobal;
+}
