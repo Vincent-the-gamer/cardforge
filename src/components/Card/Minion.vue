@@ -84,8 +84,12 @@
     class="position-absolute top-323px z-3 pointer-events-none"/>
 
     <!-- 随从描述底框 -->
-    <img src="@/assets/materials/minion/minion-description-area.png"
+    <!-- 无水印时 -->
+    <img v-if="store.watermark === WaterMark.None" src="@/assets/materials/minion/minion-description-area.png"
         class="position-absolute top-407px z-2 pointer-events-none"/>
+    <!-- 有水印时 -->
+    <Watermark v-else :card-type="CardType.Minion"
+               class="position-absolute top-407px z-2 pointer-events-none"/>
 
     <!-- 随从描述内容 -->
     <template v-if="store.description">
@@ -148,16 +152,20 @@
 import { ClassType, KindType } from '@/datatypes/cardClass';
 import { CardType, Rarity } from '@/datatypes/cardType';
 import { Flag } from "@/datatypes/flag"
+import { WaterMark } from "@/datatypes/watermark"
 import CardFace from '@/components/CardFace.vue';
 import Number from '@/components/Number.vue';
 import ArcText from "@/components/ArcText.vue"
 import { useStore } from '@/store/useStore';
 import { Ref, computed, inject, ref } from 'vue';
 import Mask from './Mask.vue';
+import useStyledDescription from "@/hooks/useStyledDescription"
+import Watermark from './Watermark.vue';
 
 const imageUrl: Ref<string> = inject("imageUrl") || ref("")
 
 const store = useStore()
+
 
 // 单职业随从
 // 卡底
@@ -191,31 +199,6 @@ const flagPicture = computed<string>(
 )
 
 // 对描述的字体进行关键词等标记的特殊样式处理
-const styledDescription = computed<string>(() => {
-    // 加粗
-    const boldPattern = /\*\*(.*?)\*\*/g
-    const matchBold: RegExpMatchArray | null = store.description.match(boldPattern)
-    // 斜体
-    const italicPattern = /\*(.*?)\*/g
-    const matchItalic: RegExpMatchArray | null = store.description.match(italicPattern)
-
-    if(matchBold){
-        for (let i = 0; i < matchBold.length; i++) {
-            store.description = store.description.replaceAll(
-                matchBold[i], 
-                `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchBold[i]}</span>`.replaceAll("*", "")
-            )
-        }
-    } 
-    if(matchItalic){
-        for (let i = 0; i < matchItalic.length; i++) {
-            store.description = store.description.replaceAll(
-                matchItalic[i], 
-                `<span style="font-style: italic;">${matchItalic[i]}</span>`.replaceAll("*", "")
-            )
-        }
-    }
-    return store.description
-})
+const styledDescription = useStyledDescription()
 
 </script>

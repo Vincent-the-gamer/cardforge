@@ -1,13 +1,22 @@
 import { createI18n } from "vue-i18n"
 
 // 简体中文(Simplified Chinese)
-import ZH from "./zh.json"
+import ZH from "./zh/zh.json"
+import ZH_Watermark from "./zh/zh_watermark.json"
+
 // English
-import EN from "./en.json"
+import EN from "./en/en.json"
+import EN_Watermark from "./en/en_watermark.json"
 
 const messages = {
-    zh: ZH,
-    en: EN
+    zh: {
+        ...ZH,
+        ...ZH_Watermark
+    },
+    en: {
+        ...EN,
+        ...EN_Watermark
+    }
 }
 
 const i18n = createI18n({

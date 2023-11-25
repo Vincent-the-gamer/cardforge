@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { CardType, Rarity } from "@/datatypes/cardType"
 import { CardClass, ClassType, KindType } from "@/datatypes/cardClass"
 import { Flag } from "@/datatypes/flag";
+import { WaterMark } from "@/datatypes/watermark";
 
 export const useStore = defineStore("card", {
     state: () => {
@@ -49,7 +50,9 @@ export const useStore = defineStore("card", {
             // 酒馆战旗随从等级
             battlegroundLevel: 1 as number,
             // 酒馆战旗随从无稀有度时，是否展示龙框
-            showDragon: false as boolean
+            showDragon: false as boolean,
+            // 水印
+            watermark: WaterMark.None
         }
     },
     actions: {

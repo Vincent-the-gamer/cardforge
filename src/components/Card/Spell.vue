@@ -29,7 +29,7 @@
             <ArcText width="400px" height="200px" 
                      text-path="M -28 110 C 40 100 250 0 490 165"
                      assist-path="M 30 150 C0 110 240 0 500 190"
-                     class="font-family-GBJenLei color-white hearth-stroke-1.2px top-312px z-4 font-size-28px position-absolute
+                     class="font-family-GBJenLei color-white hearth-stroke-1.2px top-312px z-4 font-size-30px position-absolute
     translate-x--234px translate-y--40px rotate--5deg">
                 {{ store.name }}
             </ArcText>
@@ -97,8 +97,12 @@
     class="position-absolute top-316px z-3 pointer-events-none"/>
 
     <!-- 法术描述底框 -->
-    <img src="@/assets/materials/spell/spell-description-area.png"
-         class="position-absolute top-407px z-2 pointer-events-none"/>
+    <!-- 无水印时 -->
+    <img v-if="store.watermark === WaterMark.None" src="@/assets/materials/spell/spell-description-area.png"
+         class="position-absolute top--20px z-2 pointer-events-none"/>
+    <!-- 有水印时 -->
+    <Watermark v-else :card-type="CardType.Spell"
+               class="position-absolute top-390px z-2 pointer-events-none"/>
 
     <!-- 法术描述内容 -->
     <template v-if="store.description">
@@ -128,6 +132,9 @@ import ArcText from "@/components/ArcText.vue"
 import { useStore } from '@/store/useStore';
 import { Ref, computed, inject, ref } from 'vue';
 import Mask from './Mask.vue';
+import useStyledDescription from '@/hooks/useStyledDescription';
+import Watermark from './Watermark.vue';
+import { WaterMark } from '@/datatypes/watermark';
 
 const imageUrl: Ref<string> = inject("imageUrl") || ref("")
 
@@ -160,31 +167,6 @@ const rarityCrystalURL = computed<string>(
 )
 
 // 对描述的字体进行关键词等标记的特殊样式处理
-const styledDescription = computed<string>(() => {
-    // 加粗
-    const boldPattern = /\*\*(.*?)\*\*/g
-    const matchBold: RegExpMatchArray | null = store.description.match(boldPattern)
-    // 斜体
-    const italicPattern = /\*(.*?)\*/g
-    const matchItalic: RegExpMatchArray | null = store.description.match(italicPattern)
-
-    if(matchBold){
-        for (let i = 0; i < matchBold.length; i++) {
-            store.description = store.description.replaceAll(
-                matchBold[i], 
-                `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchBold[i]}</span>`.replaceAll("*", "")
-            )
-        }
-    } 
-    if(matchItalic){
-        for (let i = 0; i < matchItalic.length; i++) {
-            store.description = store.description.replaceAll(
-                matchItalic[i], 
-                `<span style="font-style: italic;">${matchItalic[i]}</span>`.replaceAll("*", "")
-            )
-        }
-    }
-    return store.description
-})
+const styledDescription = useStyledDescription()
 
 </script>

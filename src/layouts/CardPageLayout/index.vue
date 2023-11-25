@@ -9,9 +9,9 @@
             <div class="i-grommet-icons-menu position-relative w-100% h-100%"></div>
         </button>
         <FormLayout v-show="showFormLayout"
-            class="form-layout m-r-5px z-8 p-t-20px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7">
+            class="form-layout m-r-5px z-8 p-t-55px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7">
             <p class="m-b-2px">
-                <span>{{ $t("cardType") }}</span>
+                <span>{{ $t("cardType") }}：</span>
                 <select class="select w-fit" v-model="store.cardType">
                     <option :value="CardType.Minion">{{ $t("minion")}}</option>
                     <option :value="CardType.Spell">{{ $t("spell") }}</option>
@@ -28,7 +28,7 @@
             <div class="position-absolute m-0 z-2 bottom-0">
                 <p align="center" :class="`m-5px color-yellow ${locale === 'en' && 'font-size-12px'}`">{{ $t("cardHint") }}</p>
                 <p class="flex justify-center items-center hover:cursor-pointer m-5px">
-                    <span>{{ $t("lockAspectRatio") }}</span>
+                    <span>{{ $t("lockAspectRatio") }}: </span>
                     <input type="checkbox" v-model="store.lockAspectRatio"
                         class="w-20px h-20px"/>
                 </p>
