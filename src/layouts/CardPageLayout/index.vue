@@ -87,7 +87,7 @@ const showFormLayout = ref<boolean>(
 // 根据页面宽度来控制控件的显示
 window.addEventListener("resize", () => {
     let width = window.innerWidth
-    if(width >= 800){
+    if(width >= 1024){
         showFormLayout.value = true
         showToggleButton.value = false
     } else {
