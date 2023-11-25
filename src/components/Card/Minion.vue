@@ -95,7 +95,8 @@
     <template v-if="store.description">
         <div class="position-absolute top-420px w-280px h-141px z-5 flex justify-center items-center">
             <h3 :class="`position-relative top-0 left-0 m-0 m-auto w-fit h-fit white-space-pre-wrap 
-            font-family-BlizzardGlobal color-black font-100 text-center pointer-events-none`"
+             color-black font-100 text-center pointer-events-none 
+             ${locale === 'zh' ? 'font-family-BlizzardGlobal' : 'font-family-FranklinGothic'}`"
             :style="{ fontSize: `${store.desFontSize}px` }"
             v-html="styledDescription">
             </h3>
@@ -161,11 +162,13 @@ import { Ref, computed, inject, ref } from 'vue';
 import Mask from './Mask.vue';
 import useStyledDescription from "@/hooks/useStyledDescription"
 import Watermark from './Watermark.vue';
+import { useI18n } from 'vue-i18n';
 
 const imageUrl: Ref<string> = inject("imageUrl") || ref("")
 
 const store = useStore()
 
+const { locale } = useI18n()
 
 // 单职业随从
 // 卡底

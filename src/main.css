@@ -9,6 +9,13 @@
     src: url("@/assets/fonts/BlizzardGlobal.ttf");
 }
 
+@font-face {
+    font-family: FranklinGothic;
+    src: url("@/assets/fonts/FranklinGothic/FranklinGothic-MediumCond.woff") format("woff"),
+         url("@/assets/fonts/FranklinGothic/FranklinGothic-MediumCond.woff2") format("woff2");
+    font-weight: lighter;
+}
+
 html {
     background-color: black;
     color: white;
