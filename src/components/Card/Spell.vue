@@ -102,7 +102,7 @@
          class="position-absolute top--20px z-2 pointer-events-none"/>
     <!-- 有水印时 -->
     <Watermark v-else :card-type="CardType.Spell"
-               class="position-absolute top-390px z-2 pointer-events-none"/>
+               class="position-absolute top-390px translate-x--1px z-2 pointer-events-none"/>
 
     <!-- 法术描述内容 -->
     <template v-if="store.description">

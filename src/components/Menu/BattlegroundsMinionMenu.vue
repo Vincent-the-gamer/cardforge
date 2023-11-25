@@ -105,9 +105,10 @@
         <!-- 描述水印 -->
         <p class="m-b-2px">
             <span>{{ $t("watermark") }}: </span>
-            <select class="select w-fit" v-model="store.watermark">
-                <option :value="WaterMark.None">{{ $t("none") }}</option>
-                <option :value="WaterMark.YearOfTheWolf">{{ $t("year-of-the-wolf") }}</option>
+            <select class="select w-fit p-1px" v-model="store.watermark">
+                <option v-for="[key, value] of Object.entries(waterMarkMap)" :value="key" :key="key">
+                    {{ value.value }}
+                </option>
             </select>
         </p>
 
@@ -131,34 +132,21 @@
 
 <script lang="ts" setup>
 import { useStore } from "@/store/useStore"
-import { CardClass, ClassType, KindType } from "@/datatypes/cardClass"
+import { ClassType, KindType } from "@/datatypes/cardClass"
 import { Rarity } from "@/datatypes/cardType"
 import { ref, watch } from "vue";
-import { useI18n } from "vue-i18n";
-import { computed } from "vue";
-import { WaterMark } from "@/datatypes/watermark";
+import useWaterMarkMap from "@/hooks/useWaterMarkMap";
+import useCardClassMap from "@/hooks/useCardClassMap"
 
 // store
 const store = useStore()
 
-// i18n
-const { t } = useI18n()
 
 // card class map 卡牌类型和名称映射
-const cardClassMap = {
-    [CardClass.Neutral]: computed(() => t("neutral")),
-    [CardClass.Warrior]: computed(() => t("warrior")),
-    [CardClass.Druid]: computed(() => t("druid")),
-    [CardClass.Hunter]: computed(() => t("hunter")),
-    [CardClass.Mage]: computed(() => t("mage")),
-    [CardClass.Paladin]: computed(() => t("paladin")),
-    [CardClass.Priest]: computed(() => t("priest")),
-    [CardClass.Rogue]: computed(() => t("rogue")),
-    [CardClass.Shaman]: computed(() => t("shaman")),
-    [CardClass.Warlock]: computed(() => t("warlock")),
-    [CardClass.DemonHunter]: computed(() => t("demonhunter")),
-    [CardClass.DeathKnight]: computed(() => t("deathknight"))
-}
+const cardClassMap = useCardClassMap()
+
+// watermark map 水印类型和名称映射
+const waterMarkMap = useWaterMarkMap()
 
 // battleground level 酒馆战棋等级
 const battlegroundLevel = ref<number>(store.battlegroundLevel)

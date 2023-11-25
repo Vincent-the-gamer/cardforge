@@ -5,7 +5,7 @@
             {{ $t("headerTitle") }}
         </h2>
         <div class="position-absolute top-0 right-0 h-100% flex items-center">
-            <span class="m-r-5px">{{ $t("lang") }}:</span>
+            <span class="m-r-5px">{{ $t("lang") }}：</span>
             <!-- Switch Language 切换语言 -->
             <select v-model="locale"
                     class="position-relative h-90% m-r-8px select"

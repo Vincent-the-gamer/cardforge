@@ -9,7 +9,9 @@
             <div class="i-grommet-icons-menu position-relative w-100% h-100%"></div>
         </button>
         <FormLayout v-show="showFormLayout"
-            class="form-layout m-r-5px z-8 p-t-55px p-b-20px position-relative top-0 overflow-y-auto min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7">
+            class="form-layout m-r-5px z-8 p-t-55px p-b-20px position-relative top-0 overflow-y-auto 
+            min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7"
+            :class="currentPlatform === 'mobile' ? 'w-fit' : ''">
             <p class="m-b-2px">
                 <span>{{ $t("cardType") }}：</span>
                 <select class="select w-fit" v-model="store.cardType">
@@ -23,7 +25,8 @@
            <BattlegroundMinionMenu v-else-if="store.cardType === CardType.BattlegroundMinion"/>
         </FormLayout>
     
-        <CardLayout class="card-layout flex justify-center items-center flex-col h-100% w-500px overflow-hidden">
+        <CardLayout class="card-layout flex justify-center items-center flex-col h-100% w-500px overflow-hidden"
+            :class="currentPlatform === 'mobile' ? 'left-17% translate-y-60px flex-1' : ''">
             <Card class="position-absolute h-650px"/>
             <div class="position-absolute m-0 z-2 bottom-0">
                 <p align="center" :class="`m-5px color-yellow ${locale === 'en' && 'font-size-12px'}`">{{ $t("cardHint") }}</p>
@@ -64,6 +67,7 @@ import { useStore } from "@/store/useStore"
 import { provide, ref, watch } from 'vue';
 import { CardType } from '@/datatypes/cardType'
 import { useI18n } from 'vue-i18n'
+import useCurrentPlatform from "@/hooks/useCurrentPlatform"
 
 // store
 const store = useStore();
@@ -73,8 +77,13 @@ const { locale } = useI18n()
 
 
 // 窄视图显示/隐藏菜单
-const showToggleButton = ref<boolean>(false)
-const showFormLayout = ref<boolean>(true)
+const currentPlatform = useCurrentPlatform()
+const showToggleButton = ref<boolean>(
+    currentPlatform === "mobile" ? true : false
+)
+const showFormLayout = ref<boolean>(
+    currentPlatform === "mobile" ? false : true
+)
 // 根据页面宽度来控制控件的显示
 window.addEventListener("resize", () => {
     let width = window.innerWidth
@@ -140,7 +149,7 @@ watch(() => store.cardType, () => {
 }
 
 /* 窄视图样式调整 */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
     .toggle-menu {
         position: fixed;
         top: 50px;
