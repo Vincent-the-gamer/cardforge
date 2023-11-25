@@ -5,7 +5,7 @@
 
 <p align="center">A HearthStone card DIY tool.</p>
 
-<p align="center" style="font-style: italic;">Alpha Version: V0.0.3</p>
+<p align="center" style="font-style: italic;">Alpha Version: V0.0.4</p>
 
 # Notice
 
@@ -18,6 +18,7 @@ This repo is not final, now it can only generate
 - 💪 Real-time card part switching --- Card is built by tiny parts instead of pre-exported pictures.
 - 🌏 i18n --- multi-language support.
 - 👀 Sync with latest version of HearthStone game.
+- 😁 High Similarity --- try my best to make the cards look like those in game.
 
 # Play
 

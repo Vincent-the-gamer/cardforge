@@ -1,5 +1,10 @@
 # Changelog
 
+## Alpha Ver. v0.0.4
+- Add `Watermark` of cards.
+- Add English description font.
+- Fix bugs
+
 ## Alpha Ver. v0.0.3
 - Add `i18n`
 - Add `Battlegrounds Minion` generation.
