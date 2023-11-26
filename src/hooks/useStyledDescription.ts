@@ -1,9 +1,11 @@
+import { CardType } from "@/datatypes/cardType"
 import { useStore } from "@/store/useStore"
 import { computed } from "vue"
 
-export default function useStyledDescription() {
+export default function useStyledDescription(cardType: CardType) {
     const store = useStore()
     // 对描述的字体进行关键词等标记的特殊样式处理
+    // 武器牌描述文字颜色为白色
     const styledDescription = computed<string>(() => {
         // 加粗
         const boldPattern = /\*\*(.*?)\*\*/g
@@ -17,10 +19,18 @@ export default function useStyledDescription() {
 
         if(matchBold){
             for (let i = 0; i < matchBold.length; i++) {
-                store.description = store.description.replaceAll(
-                    matchBold[i], 
-                    `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchBold[i]}</span>`.replaceAll("*", "")
-                )
+                if(cardType === CardType.Weapon){
+                    store.description = store.description.replaceAll(
+                        matchBold[i], 
+                        `<span style="font-weight: bold; text-shadow: 0 0 1px white;">${matchBold[i]}</span>`.replaceAll("*", "")
+                    )
+                }
+                else {
+                    store.description = store.description.replaceAll(
+                        matchBold[i], 
+                        `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchBold[i]}</span>`.replaceAll("*", "")
+                    )
+                }  
             }
         } 
         if(matchItalic){
@@ -33,11 +43,20 @@ export default function useStyledDescription() {
         }
         if(matchBoldItalic){
             for (let i = 0; i < matchBoldItalic.length; i++) {
-                store.description = store.description.replaceAll(
-                    matchBoldItalic[i], 
-                    `<span style="font-weight: bold; text-shadow: 0 0 1px black; font-style: italic;">${matchBoldItalic[i]}</span>`
-                    .replaceAll("~", "")
-                )
+                if(cardType === CardType.Weapon) {
+                    store.description = store.description.replaceAll(
+                        matchBoldItalic[i], 
+                        `<span style="font-weight: bold; text-shadow: 0 0 1px white; font-style: italic;">${matchBoldItalic[i]}</span>`
+                        .replaceAll("~", "")
+                    )
+                }
+                else {
+                    store.description = store.description.replaceAll(
+                        matchBoldItalic[i], 
+                        `<span style="font-weight: bold; text-shadow: 0 0 1px black; font-style: italic;">${matchBoldItalic[i]}</span>`
+                        .replaceAll("~", "")
+                    )
+                }
             }
         }
 

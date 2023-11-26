@@ -171,6 +171,6 @@ const rarityCrystalURL = computed<string>(
 )
 
 // 对描述的字体进行关键词等标记的特殊样式处理
-const styledDescription = useStyledDescription()
+const styledDescription = useStyledDescription(store.cardType)
 
 </script>

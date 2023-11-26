@@ -39,7 +39,7 @@ export const useStore = defineStore("card", {
             desFontSize: 20 as number,
             // 攻击力
             attack: 1 as number,
-            // 生命值
+            // 生命值 或 武器耐久度 或 英雄护甲值
             vitality: 1 as number,
             // 卡面缩放锁定纵横比
             lockAspectRatio: false as boolean,

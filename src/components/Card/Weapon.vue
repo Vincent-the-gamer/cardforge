@@ -1,13 +1,13 @@
 <template>
-    <!-- 随从牌 -->
+    <!-- 武器牌 -->
 
     <!-- 卡底 -->
-    <!-- 单职业 随从牌 -->
-    <img :src="minionBaseURL"
+    <!-- 单职业 -->
+    <img :src="weaponBaseURL"
         class="position-absolute top--20px z-1 pointer-events-none"
         v-if="store.classType === ClassType.Single"/>
 
-    <!-- 双职业 随从牌 -->
+    <!-- 双职业 -->
     <template v-else>
         <!-- 左边 -->
         <img :src="dualClassMinionLeftURL"
@@ -15,87 +15,66 @@
 
         <!-- 分割线 -->
         <img src="@/assets/materials/minion/dual-classes-split.png"
-            class="position-absolute translate-x-2px top-395px z-2 pointer-events-none"/>
+            class="position-absolute translate-x-1px top-398px z-2 pointer-events-none"/>
     
         <!-- 右边 -->
         <img :src="dualClassMinionRightURL"
             class="position-absolute top--20px z-1 translate-x--0.5px pointer-events-none"/>
     </template>
 
-    <!-- 随从名称 -->
+    <!-- 名称 -->
     <template v-if="store.name">
         <p class="position-absolute pointer-events-none">
-            <!-- SVG绘制弧线文字 -->
-            <ArcText width="400px" height="200px" 
-                     text-path="M 6 60 C0 160 250 0 490 140"
-                     class="font-family-GBJenLei color-white hearth-stroke-1.2px top-312px z-4 font-size-28px position-absolute
-    translate-x--234px translate-y--40px rotate--5deg">
-                {{ store.name }}
-            </ArcText>
+            <span class="font-family-GBJenLei color-white hearth-stroke-1.2px top-314px z-4 font-size-30px position-absolute
+    translate-x--200px w-400px h-40px flex justify-center items-center">
+                <span>{{ store.name }}</span>
+            </span>
         </p>
     </template>
 
-    <!-- 随从种族：野兽，元素等 -->
-    <!-- 单种族 -->
+    <!-- 武器派系 -->
     <template v-if="store.kindType === KindType.Single && store.cardKind.length > 0">
-        <img src="@/assets/materials/minion/minion-kind.png"
-        class="position-absolute top-546px translate-x-7px z-4 pointer-events-none"/>
-        <!-- 种族文字 -->
-        <p class="position-absolute top-550px color-white translate-x-5px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
+        <img src="@/assets/materials/weapon/weapon-kind.png"
+        class="position-absolute top-556px z-4 pointer-events-none translate-x--1px"/>
+        <!-- 派系文字 -->
+        <p class="position-absolute top-542px color-white translate-x-1px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
             {{ store.cardKind }}
-        </p>
-    </template>
-
-    <!-- 双种族 -->
-    <template v-else-if="
-        store.kindType === KindType.Dual &&
-        (store.dualCardKind.up !== '' || store.dualCardKind.down !== '')
-    ">
-        <img src="@/assets/materials/minion/dual-minion-kind.png"
-        class="position-absolute top-560px translate-x-7px z-4 pointer-events-none"/>
-        <!-- 种族1文字 -->
-        <p class="position-absolute top-550px color-white translate-x-5px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
-            {{ store.dualCardKind.up }}
-        </p>
-        <!-- 种族2文字 -->
-        <p class="position-absolute top-570px color-white translate-x-5px z-4 font-size-22px font-family-GBJenLei hearth-stroke-1.2px pointer-events-none">
-            {{ store.dualCardKind.down }}
         </p>
     </template>
 
     <!-- 稀有度 -->
     <template v-if="store.rarity !== Rarity.None">
         <!-- 稀有度遮罩 -->
-        <img src="@/assets/materials/minion/minion-rarity-mask.png"
-            class="position-absolute top-370px translate-x-13px z-2 pointer-events-none"/>
+        <img src="@/assets/materials/weapon/weapon-rarity-mask.png"
+            class="position-absolute top-364px translate-x-1px z-3 pointer-events-none"/>
 
         <!-- 稀有度宝石 -->
         <img :src="rarityCrystalURL"
-            class="position-absolute top-381px translate-x-6.5px z-3 pointer-events-none"/>
+            class="position-absolute top-384px translate-x-1px z-3 pointer-events-none"/>
         
         <!-- 橙卡龙框 -->
-        <img src="@/assets/materials/minion/minion-dragon.png"
-            class="position-absolute top-21px translate-x-50px z-6 pointer-events-none"
+        <img src="@/assets/materials/weapon/weapon-dragon.png"
+            class="position-absolute top-28.5px translate-x-51px z-6 pointer-events-none"
             v-if="store.rarity === Rarity.Legandary"/>
     </template>
 
     <!-- 随从名称框 -->
-    <img src="@/assets/materials/minion/minion-name.png"
+    <img src="@/assets/materials/weapon/weapon-name.png"
     class="position-absolute top-323px z-3 pointer-events-none"/>
 
-    <!-- 随从描述底框 -->
+    <!-- 武器描述底框 -->
     <!-- 无水印时 -->
-    <img v-if="store.watermark === WaterMark.None" src="@/assets/materials/minion/minion-description-area.png"
+    <img v-if="store.watermark === WaterMark.None" src="@/assets/materials/weapon/weapon-description-area.png"
         class="position-absolute top-407px z-2 pointer-events-none"/>
     <!-- 有水印时 -->
-    <Watermark v-else :card-type="CardType.Minion"
+    <Watermark v-else :card-type="CardType.Weapon"
                class="position-absolute top-407px z-2 pointer-events-none"/>
 
-    <!-- 随从描述内容 -->
+    <!-- 武器描述内容 -->
     <template v-if="store.description">
-        <div class="position-absolute top-420px w-280px h-141px z-5 flex justify-center items-center">
+        <div class="position-absolute top-430px w-278px h-135px z-5 flex justify-center items-center">
             <h3 :class="`position-relative top-0 left-0 m-0 m-auto w-fit h-fit white-space-pre-wrap 
-             color-black font-100 text-center pointer-events-none 
+             color-white font-100 text-center pointer-events-none
              ${locale === 'zh' ? 'font-family-BlizzardGlobal' : 'font-family-FranklinGothic'}`"
             :style="{ fontSize: `${store.desFontSize}px` }"
             v-html="styledDescription">
@@ -119,24 +98,24 @@
     <img :src="flagPicture" v-if="store.flag !== Flag.None"
         class="position-absolute top-70px translate-x--159px z-1 pointer-events-none"/>
 
-    <!-- 攻击力，生命值底框 -->
-    <img src="@/assets/materials/common/attack.png"
-        class="position-absolute top-505px translate-x--170px z-4 pointer-events-none"/>
+    <!-- 攻击力，耐久底框 -->
+    <img src="@/assets/materials/weapon/weapon-attack.png"
+        class="position-absolute top-530px translate-x--160px z-4 pointer-events-none"/>
 
-    <img src="@/assets/materials/common/vitality.png"
-        class="position-absolute top-511px translate-x-156px z-4 pointer-events-none"/> 
+    <img src="@/assets/materials/weapon/weapon-durability.png"
+        class="position-absolute top-525px translate-x-158px z-4 pointer-events-none"/> 
 
-    <!-- 攻击力，生命值数值 -->
+    <!-- 攻击力，耐久数值 -->
     <div :class="`position-absolute top-457px z-4 font-size-48px pointer-events-none
     ${store.attack < 10 && `translate-x--160px`}
-    ${store.attack >= 10 && `translate-x--167px`}
+    ${store.attack >= 10 && `translate-x--161px`}
     `">
         <Number :num="store.attack"/>
     </div>
 
     <div :class="`position-absolute top-457px z-4 font-size-48px
     ${store.vitality < 10 && `translate-x-156px`}
-    ${store.vitality >= 10 && `translate-x-155px`}
+    ${store.vitality >= 10 && `translate-x-156px`}
     `">
         <Number :num="store.vitality"/>
     </div>
@@ -145,8 +124,8 @@
     <CardFace v-if="imageUrl" :url="imageUrl"/>
     <!-- 遮罩 -->
     <Mask class="position-absolute z--2"
-          :card-type="CardType.Minion"
-          v-show="store.cardType === CardType.Minion && store.showMask"/>
+          :card-type="CardType.Weapon"
+          v-show="store.cardType === CardType.Weapon && store.showMask"/>
 </template>
 
 <script lang="ts" setup>
@@ -156,7 +135,6 @@ import { Flag } from "@/datatypes/flag"
 import { WaterMark } from "@/datatypes/watermark"
 import CardFace from '@/components/CardFace.vue';
 import Number from '@/components/Number.vue';
-import ArcText from "@/components/ArcText.vue"
 import { useStore } from '@/store/useStore';
 import { Ref, computed, inject, ref } from 'vue';
 import Mask from './Mask.vue';
@@ -170,20 +148,20 @@ const store = useStore()
 
 const { locale } = useI18n()
 
-// 单职业随从
+// 单职业武器
 // 卡底
-const minionBaseURL = computed<string>(
-    () => new URL(`../../assets/minions/single-class/${store.cardClass}-minion.png`, import.meta.url).href
+const weaponBaseURL = computed<string>(
+    () => new URL(`../../assets/weapons/single-class/${store.cardClass}-weapon.png`, import.meta.url).href
 )
 
-// 双职业随从
+// 双职业武器
 // 左卡底
 const dualClassMinionLeftURL = computed<string>(
-    () => new URL(`../../assets/minions/dual-class/left/${store.dualCardClass.left}-minion-left.png`, import.meta.url).href
+    () => new URL(`../../assets/weapons/dual-class/left/${store.dualCardClass.left}-weapon-left.png`, import.meta.url).href
 )
 // 右卡底
 const dualClassMinionRightURL = computed<string>(
-    () => new URL(`../../assets/minions/dual-class/right/${store.dualCardClass.right}-minion-right.png`, import.meta.url).href
+    () => new URL(`../../assets/weapons/dual-class/right/${store.dualCardClass.right}-weapon-right.png`, import.meta.url).href
 )
 
 // 稀有度

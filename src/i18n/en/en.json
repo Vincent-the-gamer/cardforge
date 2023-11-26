@@ -4,6 +4,7 @@
     "cardType": "Card Type",
     "minion": "Minion",
     "spell": "Spell",
+    "weapon": "Weapon",
     "battlegroundsMinion": "Battlegrounds Minion",
     "class": "Class",
     "singleClass": "Single Class",
@@ -42,6 +43,7 @@
     "kind2": "Kind 2",
     "spellKind1": "Spell Kind 1",
     "spellKind2": "Spell Kind 2",
+    "weaponKind": "Weapon Kind",
     "description": "Description",
     "descriptionHint": "Hint: **text** for bold text, *text* for italic text， ~text~ for italic and bold text",
     "descriptionFontSize": "Description Font Size",
@@ -59,5 +61,6 @@
     "showDragon": "Show Dragon?",
     "yes": "Yes",
     "no": "No",
-    "watermark": "Watermark"
+    "watermark": "Watermark",
+    "durability": "Durability"
 }

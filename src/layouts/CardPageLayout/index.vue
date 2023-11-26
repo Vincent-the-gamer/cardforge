@@ -17,11 +17,13 @@
                 <select class="select w-fit" v-model="store.cardType">
                     <option :value="CardType.Minion">{{ $t("minion")}}</option>
                     <option :value="CardType.Spell">{{ $t("spell") }}</option>
+                    <option :value="CardType.Weapon">{{ $t("weapon") }}</option>
                     <option :value="CardType.BattlegroundMinion">{{ $t("battlegroundsMinion") }}</option>
                 </select>
             </p>
            <MinionMenu v-if="store.cardType === CardType.Minion"/>
            <SpellMenu v-else-if="store.cardType === CardType.Spell"/>
+           <WeaponMenu v-else-if="store.cardType === CardType.Weapon"/>
            <BattlegroundMinionMenu v-else-if="store.cardType === CardType.BattlegroundMinion"/>
         </FormLayout>
     
@@ -68,6 +70,8 @@ import { provide, ref, watch } from 'vue';
 import { CardType } from '@/datatypes/cardType'
 import { useI18n } from 'vue-i18n'
 import useCurrentPlatform from "@/hooks/useCurrentPlatform"
+import WeaponMenu from '@/components/Menu/WeaponMenu.vue'
+import { KindType } from '@/datatypes/cardClass'
 
 // store
 const store = useStore();
@@ -136,6 +140,10 @@ function generateImage(){
 // cardType切换时清空description, 否则也会将正则匹配替换的结果显示到菜单中
 watch(() => store.cardType, () => {
     store.setDescription("")
+    // 武器没有双派系
+    if(store.cardType === CardType.Weapon) {
+        store.kindType = KindType.Single
+    }
 })
 
 </script>

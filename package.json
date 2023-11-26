@@ -3,7 +3,7 @@
   "description": "HearthStone card DIY Tool.  炉石卡牌制作器",
   "author": "Vincent-the-gamer <https://github.com/Vincent-the-gamer>",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "scripts": {
     "serve": "vite",

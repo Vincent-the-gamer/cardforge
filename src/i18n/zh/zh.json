@@ -4,6 +4,7 @@
     "cardType": "卡牌类型",
     "minion": "随从",
     "spell": "法术",
+    "weapon": "武器",
     "battlegroundsMinion": "酒馆战棋随从",
     "class": "职业",
     "singleClass": "单职业",
@@ -42,6 +43,7 @@
     "kind2": "种族2",
     "spellKind1": "派系1",
     "spellKind2": "派系2",
+    "weaponKind": "派系",
     "description": "描述",
     "descriptionHint": "提示：**内容**则加粗， *内容*则斜体, ~内容~则斜体加粗。",
     "descriptionFontSize": "描述字体大小",
@@ -59,5 +61,6 @@
     "showDragon": "是否展示龙框? ",
     "yes": "是",
     "no": "否",
-    "watermark": "水印"
+    "watermark": "水印",
+    "durability": "耐久度"
 }
