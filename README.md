@@ -5,14 +5,15 @@
 
 <p align="center">A HearthStone card DIY tool.</p>
 
-<p align="center" style="font-style: italic;">Alpha Version: V0.0.4</p>
+<p align="center" style="font-style: italic;">Alpha Version: V0.0.5</p>
 
 # Notice
 
 This repo is not final, now it can only generate 
 - `Minion Cards`
 - `Spell Cards`
-- `Battleground Minions`
+- `Battlegrounds Minion Cards`
+- `Weapon Cards`
 
 # Features
 - 💪 Real-time card part switching --- Card is built by tiny parts instead of pre-exported pictures.
@@ -34,7 +35,8 @@ View Changelog:  [Changelog](./CHANGELOG.md)
 
 PS: Not final.
 
-UI: (`i18n` is supported now!!)
+## UI
+`i18n` is supported now!!
 
 English:
 
@@ -43,10 +45,26 @@ English:
 Simplified Chinese(简体中文):
 ![preview-cn](./.github/preview-cn.png)
 
+## Minion
+| Chinese | English |
+|  -      |   -     | 
+|  ![minion-zh](./.github/cards/minion-zh.png)        |  ![minion-en](./.github/cards/minion-en.png)        |
 
-Generated Card:
+## Spell
+| Chinese | English |
+|  -      |   -     | 
+|  ![spell-zh](./.github/cards/spell-zh.png)        |  ![spell-en](./.github/cards/spell-en.png)        |
 
-![card](./.github/generated-card.png)
+## Weapon
+| Chinese | English |
+|  -      |   -     | 
+|  ![weapon-zh](./.github/cards/weapon-zh.png)       |   ![weapon-en](./.github/cards/weapon-en.png)  |
+
+
+## Battlegrounds Minion
+| Chinese | English |
+|  -      |   -     | 
+|  ![battlegrounds-zh](./.github/cards/battlegrounds-zh.png)       |   ![battlegrounds-en](./.github/cards/battlegrounds-en.png)  |
 
 # License
 [MIT](./LICENSE)
