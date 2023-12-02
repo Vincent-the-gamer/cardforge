@@ -29,6 +29,17 @@
     
         <CardLayout class="card-layout flex justify-center items-center flex-col h-100% w-500px overflow-hidden"
             :class="currentPlatform === 'mobile' ? 'left-17% translate-y-60px flex-1' : ''">
+
+            <!-- WebSocket Connect -->
+            <div class="w-fit h-fit position-fixed z-5 top-50px right-19px p-4px
+            border-1px border-solid border-white border-rd-5px hover:bg-white hover:color-black
+            hover:cursor-pointer transition-all-200" @click="showWebSocket = !showWebSocket">
+                <div class="i-grommet-icons-connect"></div>
+                <span>WebSocket连接</span>
+            </div>
+            <WebSocket v-show="showWebSocket" 
+                       @close="showWebSocket = false"/>
+
             <Card class="position-absolute h-650px"/>
             <div class="position-absolute m-0 z-2 bottom-0">
                 <p align="center" :class="`m-5px color-yellow ${locale === 'en' && 'font-size-12px'}`">{{ $t("cardHint") }}</p>
@@ -72,6 +83,7 @@ import { useI18n } from 'vue-i18n'
 import useCurrentPlatform from "@/hooks/useCurrentPlatform"
 import WeaponMenu from '@/components/Menu/WeaponMenu.vue'
 import { KindType } from '@/datatypes/cardClass'
+import WebSocket from '@/components/WebSocket.vue'
 
 // store
 const store = useStore();
@@ -79,6 +91,8 @@ const store = useStore();
 // i18n
 const { locale } = useI18n()
 
+// show websocket menu
+const showWebSocket = ref<boolean>(false)
 
 // 窄视图显示/隐藏菜单
 const currentPlatform = useCurrentPlatform()

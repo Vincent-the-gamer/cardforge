@@ -56,6 +56,9 @@ export const useStore = defineStore("card", {
         }
     },
     actions: {
+        setCardType(cardType: CardType) {
+            this.cardType = cardType
+        },
         setDescription(description: string) {
             this.description = description
         },

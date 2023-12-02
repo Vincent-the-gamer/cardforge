@@ -32,6 +32,10 @@ export default defineConfig({
         [
             /^white-space-([a-zA-Z_-]+)$/,
             ([_, whiteSpace]) => ({ "white-space": whiteSpace })
+        ],
+        [
+            /^box-shadow-([\.\d]+)px-([\.\d]+)px-([\.\d]+)px-([a-zA-Z_-]+)$/,
+            ([_, offsetX, offsetY, blur, color]) => ({ "box-shadow": `${offsetX}px ${offsetY}px ${blur}px ${color}` })
         ]
     ],
     shortcuts: [
