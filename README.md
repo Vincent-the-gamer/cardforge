@@ -20,7 +20,11 @@ This repo is not final, now it can only generate
 - 🌏 i18n --- multi-language support.
 - 👀 Keep Newest --- Sync with latest version of HearthStone game.
 - 😁 High Similarity --- try my best to make the cards look like those in game.
+
+## Todo: V0.0.6-alpha
 - 🆒 Remote Control --- use your code to call websocket server for controlling page, then get your picture^_^
+- Hero Cards
+- ...
 
 # Play
 
