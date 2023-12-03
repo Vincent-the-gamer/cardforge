@@ -1,11 +1,11 @@
 import { CardClass } from "@/datatypes/cardClass"
-import { computed } from "vue"
+import { ComputedRef, computed } from "vue"
 import { useI18n } from "vue-i18n"
 
 export default function useCardClassMap() {
     const { t } = useI18n()
     // card class map 卡牌类型和名称映射
-    const cardClassMap = {
+    const cardClassMap: Record<CardClass, ComputedRef<string>> = {
         [CardClass.Neutral]: computed(() => t("neutral")),
         [CardClass.Warrior]: computed(() => t("warrior")),
         [CardClass.Druid]: computed(() => t("druid")),

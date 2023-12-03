@@ -23,8 +23,9 @@ This repo is not final, now it can only generate
 
 ## Todo: V0.0.6-alpha
 - 🆒 Remote Control --- use your code to call websocket server for controlling page, then get your picture^_^
-- Hero Cards
+- 😃 Hero Cards
 - ...
+
 
 # Play
 

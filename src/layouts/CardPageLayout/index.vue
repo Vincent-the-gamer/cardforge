@@ -31,14 +31,17 @@
             :class="currentPlatform === 'mobile' ? 'left-17% translate-y-60px flex-1' : ''">
 
             <!-- WebSocket Connect -->
-            <div class="w-fit h-fit position-fixed z-5 top-50px right-19px p-4px
-            border-1px border-solid border-white border-rd-5px hover:bg-white hover:color-black
-            hover:cursor-pointer transition-all-200" @click="showWebSocket = !showWebSocket">
-                <div class="i-grommet-icons-connect"></div>
-                <span>WebSocket连接</span>
-            </div>
-            <WebSocket v-show="showWebSocket" 
-                       @close="showWebSocket = false"/>
+            <Teleport to="body">
+                <div class="w-fit h-fit position-fixed z-5 top-50px right-19px p-4px
+                border-1px border-solid border-white border-rd-5px hover:bg-white hover:color-black
+                hover:cursor-pointer transition-all-200" @click="showWebSocket = !showWebSocket">
+                    <div class="i-grommet-icons-connect"></div>
+                    <span>WebSocket连接</span>
+                </div>
+                <WebSocket v-show="showWebSocket" 
+                           @close="showWebSocket = false"/>
+            </Teleport>
+            <!-- WebSocket Connect End-->
 
             <Card class="position-absolute h-650px"/>
             <div class="position-absolute m-0 z-2 bottom-0">

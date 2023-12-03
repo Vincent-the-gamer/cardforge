@@ -59,6 +59,27 @@ export const useStore = defineStore("card", {
         setCardType(cardType: CardType) {
             this.cardType = cardType
         },
+        setClassType(classType: ClassType){
+            this.classType = classType
+        },
+        setCardClass(cardClass: CardClass){
+            this.cardClass = cardClass
+        },
+        setFlag(flag: Flag){
+            this.flag = flag
+        },
+        setRarity(rarity: Rarity){
+            this.rarity = rarity
+        },
+        setName(name: string){
+            this.name = name
+        },
+        setKindType(kindType: KindType){
+            this.kindType = kindType
+        },
+        setCardKind(cardKind: string){
+            this.cardKind = cardKind
+        },
         setDescription(description: string) {
             this.description = description
         },
