@@ -30,13 +30,15 @@ This repo is not final, now it can only generate
 ### Passive Control Demo
 Send JSON message to websocket server to control your webpage. (Please do not close your webpage.)
 
-🚧 Warning: the card face picture will have a fixed position and size in `Passive Control Mode` , so please
-adjust picture yourselves. 🚧
+🚧 Warning: 🚧
+1. the card face picture will have a fixed position and size in `Passive Control Mode` , so please
+adjust picture yourselves. 
+2. the following JSON structure will differ in release.
 
 ```json
 {
     "cardType": "minion",
-    "classType": 0,  // planning to give a string.
+    "classType": 0, 
     "cardClass": "priest",
     "cost": 7,
     "attack": 7,
@@ -45,7 +47,7 @@ adjust picture yourselves. 🚧
 }
 ```
 
-<video src="./.github/cardforge-demo.mp4" controls="controls" width="500" height="300"></video>
+![passive-control-demo](./.github/passive-control-demo.gif)
 
 
 # Play
