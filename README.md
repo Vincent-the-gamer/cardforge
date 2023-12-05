@@ -44,8 +44,8 @@ adjust picture yourselves. 🚧
     "rarity": "legendary"
 }
 ```
-<video src="./.github/cardforge-demo.mp4" controls="controls" width="500" height="300"></video>
 
+<video src="./.github/cardforge-demo.mp4" controls="controls" width="500" height="300"></video>
 
 
 # Play
