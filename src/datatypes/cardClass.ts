@@ -20,14 +20,14 @@ export enum CardClass {
  * 职业类型 Class Type
  */
 export enum ClassType {
-    Single, // 单职业
-    Dual    // 双职业
+    Single = "single", // 单职业
+    Dual = "dual"   // 双职业
 }
 
 /**
  * 种族类型 Kind Type
  */
 export enum KindType {
-    Single,
-    Dual
+    Single = "single",
+    Dual = "dual"
 }

@@ -22,9 +22,30 @@ This repo is not final, now it can only generate
 - 😁 High Similarity --- try my best to make the cards look like those in game.
 
 ## Todo: V0.0.6-alpha
-- 🆒 Remote Control --- use your code to call websocket server for controlling page, then get your picture^_^
 - 😃 Hero Cards
+- 🆒 Passive Control --- call websocket server to control your web page, then get your picture^_^.
+    - Demo see: [Passive Control Demo](#passive-control-demo)
 - ...
+
+### Passive Control Demo
+Send JSON message to websocket server to control your webpage. (Please do not close your webpage.)
+
+🚧 Warning: the card face picture will have a fixed position and size in `Passive Control Mode` , so please
+adjust picture yourselves. 🚧
+
+```json
+{
+    "cardType": "minion",
+    "classType": 0,  // planning to give a string.
+    "cardClass": "priest",
+    "cost": 7,
+    "attack": 7,
+    "vitality": 7,
+    "rarity": "legendary"
+}
+```
+<video src="./.github/cardforge-demo.mp4" controls="controls" width="500" height="300"></video>
+
 
 
 # Play

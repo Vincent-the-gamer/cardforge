@@ -65,6 +65,12 @@ export const useStore = defineStore("card", {
         setCardClass(cardClass: CardClass){
             this.cardClass = cardClass
         },
+        setDualCardClassLeft(left: CardClass){
+            this.dualCardClass.left = left
+        },
+        setDualCardClassRight(right: CardClass){
+            this.dualCardClass.right = right
+        },
         setFlag(flag: Flag){
             this.flag = flag
         },
@@ -80,8 +86,29 @@ export const useStore = defineStore("card", {
         setCardKind(cardKind: string){
             this.cardKind = cardKind
         },
+        setDualCardKindUp(up: string){
+            this.dualCardKind.up = up
+        },
+        setDualCardKindDown(down: string){
+            this.dualCardKind.down = down
+        },
         setDescription(description: string) {
             this.description = description
+        },
+        setDesFontSize(desFontSize: number) {
+            this.desFontSize = desFontSize
+        },
+        setWatermark(watermark: WaterMark){
+            this.watermark = watermark
+        },
+        setCost(cost: number){
+            this.cost = cost
+        },
+        setAttack(attack: number) {
+            this.attack = attack
+        },
+        setVitality(vitality: number) {
+            this.vitality = vitality
         },
         setBattlegroundLevel(level: number){
             this.battlegroundLevel = level

@@ -11,9 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "modern-screenshot": "^4.4.34",
+    "modern-screenshot": "^4.4.36",
     "pinia": "^2.1.7",
-    "vue": "^3.3.9",
+    "vue": "^3.3.10",
     "vue-i18n": "^9.8.0",
     "vue3-draggable-resizable": "^1.6.5"
   },
@@ -22,7 +22,7 @@
     "@vitejs/plugin-vue": "^4.5.1",
     "typescript": "^5.3.2",
     "unocss": "^0.57.7",
-    "vite": "^4.5.0",
+    "vite": "^4.5.1",
     "vue-tsc": "^1.8.24"
   }
 }

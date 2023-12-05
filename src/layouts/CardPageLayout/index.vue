@@ -36,7 +36,7 @@
                 border-1px border-solid border-white border-rd-5px hover:bg-white hover:color-black
                 hover:cursor-pointer transition-all-200" @click="showWebSocket = !showWebSocket">
                     <div class="i-grommet-icons-connect"></div>
-                    <span>WebSocket连接</span>
+                    <span>被动控制连接</span>
                 </div>
                 <WebSocket v-show="showWebSocket" 
                            @close="showWebSocket = false"/>

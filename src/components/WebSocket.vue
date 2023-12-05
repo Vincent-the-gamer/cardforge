@@ -2,7 +2,7 @@
     <div class="position-fixed z-8 w-80% h-80% left-10% top-10%
     bg-rgba-0-0-0-0.8 box-shadow-0px-0px-18px-deeppink border-rd-9px">
         <div class="flex flex-col justify-center items-center">
-            <h1>连接WebSocket</h1>
+            <h1>被动控制功能</h1>
             <p>用于其它客户端给服务端发请求，反向控制页面输出图片。</p>
             <span>WebSocket地址:</span>
             <input class="input-text w-40%" type="text" v-model="wsUrl"/>
@@ -41,6 +41,7 @@
 import { CardClass, ClassType, KindType } from '@/datatypes/cardClass';
 import { CardType, Rarity } from '@/datatypes/cardType';
 import { Flag } from '@/datatypes/flag';
+import { WaterMark } from '@/datatypes/watermark';
 import useCardClassMap from '@/hooks/useCardClassMap';
 import { useStore } from '@/store/useStore';
 import { ref } from 'vue';
@@ -87,28 +88,38 @@ function connectWebSocket() {
                 // cardType
                 if(jsonData.cardType) {
                     let cardType = jsonData.cardType
-                    if([CardType.Minion,CardType.Spell,CardType.Weapon,CardType.BattlegroundMinion].includes(cardType)){
-                        store.setCardType(cardType as CardType)
+                    if(Object.values(CardType).includes(cardType)){
+                        store.setCardType(cardType)
                     }
                 }
                 // classType
                 if(jsonData.classType){
                     let classType = jsonData.classType
-                    if([ClassType.Single, ClassType.Dual].includes(classType)){
+                    if(Object.values(ClassType).includes(classType)){
                         store.setClassType(classType)
                     }
                 }
                 // cardClass
                 if(jsonData.cardClass){
-                    let cardClass = jsonData.cardClass
-                    if(cardClassMap[cardClass as CardClass] !== undefined){
-                        store.setCardClass(cardClass)
+                    if(jsonData.classType === ClassType.Single){
+                        let cardClass = jsonData.cardClass
+                        if(cardClassMap[cardClass as CardClass] !== undefined){
+                            store.setCardClass(cardClass)
+                        }
+                    } else if(jsonData.classType === ClassType.Dual) {
+                        if(jsonData.leftClass) {
+                            store.setDualCardClassLeft(jsonData.leftClass)
+                        }
+                        if(jsonData.rightClass) {
+                            store.setDualCardClassRight(jsonData.rightClass)
+                        }
                     }
                 }
+
                 // flag
                 if(jsonData.flag){
                     let flag = jsonData.flag
-                    if([Flag.None, Flag.Forge, Flag.Tradeable].includes(flag)){
+                    if(Object.values(Flag).includes(flag)){
                         store.setFlag(flag)
                     }
                 }
@@ -116,7 +127,7 @@ function connectWebSocket() {
                 // rarity
                 if(jsonData.rarity){
                     let rarity = jsonData.rarity
-                    if([Rarity.None, Rarity.Common, Rarity.Rare, Rarity.Epic, Rarity.Legandary].includes(rarity)){
+                    if(Object.values(Rarity).includes(rarity)){
                         store.setRarity(rarity)
                     }
                 }
@@ -129,21 +140,59 @@ function connectWebSocket() {
                 // kindType
                 if(jsonData.kindType){
                     let kindType = jsonData.kindType
-                    if([KindType.Single, KindType.Dual].includes(kindType)){
+                    if(Object.values(KindType).includes(kindType)){
                         store.setKindType(kindType)
                     }
                 }
 
                 // cardKind
                 if(jsonData.cardKind){
-                    store.setCardKind(jsonData.cardKind)
+                    if(jsonData.kindType === KindType.Single){
+                        store.setCardKind(jsonData.cardKind)
+                    } else if(jsonData.kindType === KindType.Dual){
+                        if(jsonData.upKind) {
+                            store.setDualCardKindUp(jsonData.upKind)
+                        }
+                        if(jsonData.downKind) {
+                            store.setDualCardKindDown(jsonData.downKind)
+                        }
+                    }
                 }
 
                 // description
                 if(jsonData.description){
                     store.setDescription(jsonData.description)
                 }
+
+                // watermark
+                if(jsonData.watermark){
+                    if(Object.values(WaterMark).includes(jsonData.watermark)) {
+                        store.setWatermark(jsonData.watermark)
+                    }
+                }
+
+                // desFontSize
+                if(jsonData.desFontSize) {
+                    store.setDesFontSize(jsonData.desFontSize)
+                }
+
+                // cost
+                if(jsonData.cost){
+                    store.setCost(jsonData.cost)
+                }
+
+                // attack
+                if(jsonData.attack){
+                    store.setAttack(jsonData.attack)
+                }
                 
+                // vitality / durability(weapon) / armor(hero)
+                if(jsonData.vitality || jsonData.durability || jsonData.armor){
+                    jsonData.vitality && store.setVitality(jsonData.vitality)
+                    jsonData.durability && store.setVitality(jsonData.durability)
+                    jsonData.armor && store.setVitality(jsonData.armor)
+                }
+
             } catch (err) {
                 log.value += "格式不正确！消息必须是json格式！\n"
             }
