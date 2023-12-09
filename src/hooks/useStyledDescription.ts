@@ -2,7 +2,7 @@ import { CardType } from "@/datatypes/card"
 import { useStore } from "@/store/useStore"
 import { computed } from "vue"
 
-export default function useStyledDescription(cardType: CardType) {
+export default function useStyledDescription() {
     const store = useStore()
     // 对描述的字体进行关键词等标记的特殊样式处理
     // 武器牌描述文字颜色为白色
@@ -19,7 +19,7 @@ export default function useStyledDescription(cardType: CardType) {
 
         if(matchBold){
             for (let i = 0; i < matchBold.length; i++) {
-                if(cardType === CardType.Weapon){
+                if(store.cardType === CardType.Weapon){
                     store.description = store.description.replaceAll(
                         matchBold[i], 
                         `<span style="font-weight: bold; text-shadow: 0 0 1px white;">${matchBold[i]}</span>`.replaceAll("*", "")
@@ -43,7 +43,7 @@ export default function useStyledDescription(cardType: CardType) {
         }
         if(matchBoldItalic){
             for (let i = 0; i < matchBoldItalic.length; i++) {
-                if(cardType === CardType.Weapon) {
+                if(store.cardType === CardType.Weapon) {
                     store.description = store.description.replaceAll(
                         matchBoldItalic[i], 
                         `<span style="font-weight: bold; text-shadow: 0 0 1px white; font-style: italic;">${matchBoldItalic[i]}</span>`

@@ -186,6 +186,6 @@ const level = computed<string>(
 )
 
 // 对描述的字体进行关键词等标记的特殊样式处理
-const styledDescription = useStyledDescription(store.cardType)
+const styledDescription = useStyledDescription()
 
 </script>

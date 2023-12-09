@@ -169,12 +169,7 @@ function connectWebSocket() {
                 if(jsonData.downKind) {
                     store.setDualCardKindDown(jsonData.downKind)
                 }
-                    
-                // description
-                if(jsonData.description){
-                    store.setDescription(jsonData.description.replaceAll(" ",""))
-                }
-
+                
                 // watermark
                 if(jsonData.watermark){
                     if(Object.values(WaterMark).includes(jsonData.watermark)) {
@@ -221,6 +216,11 @@ function connectWebSocket() {
 
                 // generate picture after a while
                 setTimeout(() => {
+                    // description add later because of Regex replacement, 
+                    // otherwise it may not added correctly.
+                    if(jsonData.description){
+                        store.setDescription(jsonData.description)
+                    }
                     // 截图
                     const card = document.getElementById("card") as HTMLElement
                     card.style.color = "black"
