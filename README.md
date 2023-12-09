@@ -23,7 +23,7 @@ This repo is not final, now it can only generate
 
 ## Todo: V0.0.6-alpha
 - 😃 Hero Cards
-- 🆒 Passive Control --- call websocket server to control your web page, then get your picture^_^.
+- \[Finished\] 🆒 Passive Control --- call websocket server to control your web page, then get your picture^_^.
     - Demo see: [Passive Control Demo](#passive-control-demo)
 - ...
 
@@ -31,19 +31,32 @@ This repo is not final, now it can only generate
 Send JSON message to websocket server to control your webpage. (Please do not close your webpage.)
 
 🚧 Warning: 🚧
-1. the card face picture will have a fixed position and size in `Passive Control Mode` , so please
+the card face picture will have a fixed position and size in `Passive Control Mode` , so please
 adjust picture yourselves. 
-2. the following JSON structure will differ in release.
 
+Using this data structure to control the page.
 ```json
 {
-    "cardType": "minion",
-    "classType": 0, 
-    "cardClass": "priest",
-    "cost": 7,
-    "attack": 7,
-    "vitality": 7,
-    "rarity": "legendary"
+    "language": "en",
+    "cardType": "spell",
+    "classType": "dual",
+    "cardClass": "mage",    // Only work while classType === "single"
+    "leftClass": "warrior", // Only work while classType === "dual"
+    "rightClass": "hunter", // Only work while classType === "dual"
+    "rarity": "rare",
+    "name": "Test",
+    "kindType": "dual",
+    "cardKind": "kind",  // Only work while cardKind === "single"
+    "upKind": "kind1",   // Only work while cardKind === "dual"
+    "downKind": "kind2", // Only work while cardKind === "dual"
+    "description": "**Battlecry**: Testing.",
+    "watermark": "year-of-the-wolf",
+    "desFontSize": 20,
+    "cost": 3,
+    "vitality": 3, // Work in Minion, Battleground Minion, Hero(Armor) 
+    "armor": 3,  // Alias of vitality on Hero Cards
+    "durability": 3, // Alias of vitality on Weapon Cards
+    "cardFaceUrl": "https://image-static.segmentfault.com/596/308/596308474-6389c86c5126c_cover"
 }
 ```
 
