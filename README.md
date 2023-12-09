@@ -40,22 +40,22 @@ Using this data structure to control the page.
     "language": "en",
     "cardType": "spell",
     "classType": "dual",
-    "cardClass": "mage",    // Only work while classType === "single"
-    "leftClass": "warrior", // Only work while classType === "dual"
-    "rightClass": "hunter", // Only work while classType === "dual"
+    "cardClass": "mage",    # Only work while classType === "single"
+    "leftClass": "warrior", # Only work while classType === "dual"
+    "rightClass": "hunter", # Only work while classType === "dual"
     "rarity": "rare",
     "name": "Test",
     "kindType": "dual",
-    "cardKind": "kind",  // Only work while cardKind === "single"
-    "upKind": "kind1",   // Only work while cardKind === "dual"
-    "downKind": "kind2", // Only work while cardKind === "dual"
+    "cardKind": "kind",  # Only work while cardKind === "single"
+    "upKind": "kind1",   # Only work while cardKind === "dual"
+    "downKind": "kind2", # Only work while cardKind === "dual"
     "description": "**Battlecry**: Testing.",
     "watermark": "year-of-the-wolf",
     "desFontSize": 20,
     "cost": 3,
-    "vitality": 3, // Work in Minion, Battleground Minion, Hero(Armor) 
-    "armor": 3,  // Alias of vitality on Hero Cards
-    "durability": 3, // Alias of vitality on Weapon Cards
+    "vitality": 3, # Work in Minion, Battleground Minion, Hero(Armor) 
+    "armor": 3,  # Alias of vitality on Hero Cards
+    "durability": 3, # Alias of vitality on Weapon Cards
     "cardFaceUrl": "https://image-static.segmentfault.com/596/308/596308474-6389c86c5126c_cover"
 }
 ```
