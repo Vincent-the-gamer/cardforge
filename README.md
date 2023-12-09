@@ -57,7 +57,8 @@ Using this data structure to control the page.
     "cardFaceUrl": "https://image-static.segmentfault.com/596/308/596308474-6389c86c5126c_cover"
 }
 ```
-![passive-control-demo](./.github/passive-control-demo.gif)
+
+https://github.com/Vincent-the-gamer/static/blob/main/passive-control-demo.mp4
 
 # Play
 
