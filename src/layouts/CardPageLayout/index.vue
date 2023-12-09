@@ -18,12 +18,14 @@
                     <option :value="CardType.Minion">{{ $t("minion")}}</option>
                     <option :value="CardType.Spell">{{ $t("spell") }}</option>
                     <option :value="CardType.Weapon">{{ $t("weapon") }}</option>
+                    <option :value="CardType.Hero">{{ $t("hero") }}</option>
                     <option :value="CardType.BattlegroundMinion">{{ $t("battlegroundsMinion") }}</option>
                 </select>
             </p>
            <MinionMenu v-if="store.cardType === CardType.Minion"/>
            <SpellMenu v-else-if="store.cardType === CardType.Spell"/>
            <WeaponMenu v-else-if="store.cardType === CardType.Weapon"/>
+           <HeroMenu v-else-if="store.cardType === CardType.Hero"/>
            <BattlegroundMinionMenu v-else-if="store.cardType === CardType.BattlegroundMinion"/>
         </FormLayout>
     
@@ -92,6 +94,7 @@ import useCurrentPlatform from "@/hooks/useCurrentPlatform"
 import WeaponMenu from '@/components/Menu/WeaponMenu.vue'
 import WebSocket from '@/components/WebSocket.vue'
 import { WebSocketState } from '@/datatypes/websocket'
+import HeroMenu from '@/components/Menu/HeroMenu.vue'
 
 // store
 const store = useStore();

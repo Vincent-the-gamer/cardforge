@@ -1,5 +1,9 @@
 # Changelog
 
+## Alpha Ver. v0.0.6
+- Add `Hero Cards`.
+- Add Feature `Passive Control`.
+
 ## Alpha Ver. v0.0.5
 - Add `Weapon Cards`.
 

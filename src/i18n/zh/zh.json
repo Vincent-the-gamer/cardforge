@@ -5,6 +5,7 @@
     "minion": "随从",
     "spell": "法术",
     "weapon": "武器",
+    "hero": "英雄",
     "battlegroundsMinion": "酒馆战棋随从",
     "class": "职业",
     "singleClass": "单职业",
@@ -50,6 +51,7 @@
     "spellCost": "法力值",
     "attack": "攻击力",
     "vitality": "生命值",
+    "armor": "护甲值",
     "battlegroundLevel": "酒馆战棋等级",
     "cardHint": "提示：使用鼠标拖拽/缩放上传的卡面， 图片生成时会自动截取",
     "lockAspectRatio": "锁定缩放纵横比",
@@ -62,5 +64,6 @@
     "yes": "是",
     "no": "否",
     "watermark": "水印",
-    "durability": "耐久度"
+    "durability": "耐久度",
+    "heroAttackHint": "英雄牌攻击力为0时, 自动隐藏图标"
 }

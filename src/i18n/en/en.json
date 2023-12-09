@@ -5,6 +5,7 @@
     "minion": "Minion",
     "spell": "Spell",
     "weapon": "Weapon",
+    "hero": "Hero",
     "battlegroundsMinion": "Battlegrounds Minion",
     "class": "Class",
     "singleClass": "Single Class",
@@ -50,6 +51,7 @@
     "spellCost": "Spell Cost",
     "attack": "Attack",
     "vitality": "Vitality",
+    "armor": "Armor",
     "battlegroundLevel": "Battleground Level",
     "cardHint": "Hint: Use mouse to Drag/Resize your uploaded card face, it'll be cut while generating.",
     "lockAspectRatio": "Lock Aspect Ratio",
@@ -62,5 +64,6 @@
     "yes": "Yes",
     "no": "No",
     "watermark": "Watermark",
-    "durability": "Durability"
+    "durability": "Durability",
+    "heroAttackHint": "Hero card will hide attack logo while attack is 0."
 }

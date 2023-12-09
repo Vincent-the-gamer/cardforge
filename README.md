@@ -5,7 +5,7 @@
 
 <p align="center">A HearthStone card DIY tool.</p>
 
-<p align="center" style="font-style: italic;">Alpha Version: V0.0.5</p>
+<p align="center" style="font-style: italic;">Alpha Version: V0.0.6</p>
 
 # Notice
 
@@ -14,19 +14,17 @@ This repo is not final, now it can only generate
 - `Spell Cards`
 - `Battlegrounds Minion Cards`
 - `Weapon Cards`
+- `Hero Cards`
 
 # Features
 - 💪 Real-time card part switching --- Card is built by tiny parts instead of pre-exported pictures.
 - 🌏 i18n --- multi-language support.
 - 👀 Keep Newest --- Sync with latest version of HearthStone game.
 - 😁 High Similarity --- try my best to make the cards look like those in game.
-
-## Todo: V0.0.6-alpha
-- 😃 Hero Cards
-- \[Finished\] 🆒 Passive Control --- call websocket server to control your web page, then get your picture^_^.
+- 🆒 Passive Control --- call websocket server to control your web page, then get your picture^_^.
     - Demo see: [Passive Control Demo](#passive-control-demo)
-- ...
 
+## Feature Details
 ### Passive Control Demo
 Send JSON message to websocket server to control your webpage. (Please do not close your webpage.)
 
@@ -59,9 +57,7 @@ Using this data structure to control the page.
     "cardFaceUrl": "https://image-static.segmentfault.com/596/308/596308474-6389c86c5126c_cover"
 }
 ```
-
 ![passive-control-demo](./.github/passive-control-demo.gif)
-
 
 # Play
 
@@ -107,6 +103,11 @@ Simplified Chinese(简体中文):
 | Chinese | English |
 |  -      |   -     | 
 |  ![battlegrounds-zh](./.github/cards/battlegrounds-zh.png)       |   ![battlegrounds-en](./.github/cards/battlegrounds-en.png)  |
+
+## Hero
+| Chinese | English |
+|  -      |   -     | 
+|  ![hero-zh](./.github/cards/hero-zh.png)       |   ![hero-en](./.github/cards/hero-en.png)  |
 
 # License
 [MIT](./LICENSE)
