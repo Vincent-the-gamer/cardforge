@@ -172,7 +172,7 @@ function connectWebSocket() {
                     
                 // description
                 if(jsonData.description){
-                    store.setDescription(jsonData.description)
+                    store.setDescription(jsonData.description.replaceAll(" ",""))
                 }
 
                 // watermark
@@ -188,19 +188,29 @@ function connectWebSocket() {
                 }
 
                 // cost
-                if(jsonData.cost){
+                if(jsonData.cost && typeof jsonData.cost === "number"){
                     store.setCost(jsonData.cost)
                 }
 
                 // attack
-                if(jsonData.attack){
+                if(jsonData.attack && typeof jsonData.attack === "number"){
                     store.setAttack(jsonData.attack)
                 }
                 
                 // vitality / durability(weapon) / armor(hero)
-                if(jsonData.vitality || jsonData.durability || jsonData.armor){
+                const isVitalityValid: boolean = jsonData.vitality && typeof jsonData.vitality === "number"
+                const isDurabilityValid: boolean = jsonData.durability && typeof jsonData.durability === "number"
+                const isArmorValid: boolean = jsonData.armor && typeof jsonData.armor === "number"
+
+                if(isVitalityValid){
                     jsonData.vitality && store.setVitality(jsonData.vitality)
+                }
+
+                if(isDurabilityValid){
                     jsonData.durability && store.setVitality(jsonData.durability)
+                }
+
+                if(isArmorValid){
                     jsonData.armor && store.setVitality(jsonData.armor)
                 }
 
