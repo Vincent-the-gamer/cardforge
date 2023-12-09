@@ -58,7 +58,7 @@ Using this data structure to control the page.
 }
 ```
 
-<video src="https://github.com/Vincent-the-gamer/static/blob/main/passive-control-demo.mp4"></video>
+![passive-control-demo](./.github/passive-control-demo.gif)
 
 # Play
 
