@@ -85,7 +85,7 @@ function connectWebSocket() {
             try {
                 const { data } = msgEvent
                 const jsonData = JSON.parse(data)
-                
+   
                 // Language
                 if(jsonData.language){
                     let lang = jsonData.language
