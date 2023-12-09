@@ -32,11 +32,16 @@
 
             <!-- WebSocket Connect -->
             <Teleport to="body">
-                <div class="w-fit h-fit position-fixed z-5 top-50px right-19px p-4px
+                <div :class="`w-fit h-fit position-fixed z-5 top-50px right-19px p-4px
                 border-1px border-solid border-white border-rd-5px hover:bg-white hover:color-black
-                hover:cursor-pointer transition-all-200" @click="showWebSocket = !showWebSocket">
+                hover:cursor-pointer transition-all-200 ${store.websocketState === WebSocketState.Connected ? 'bg-green' : ''}`" @click="showWebSocket = !showWebSocket">
                     <div class="i-grommet-icons-connect"></div>
-                    <span>被动控制连接</span>
+                    <span v-if="store.websocketState === WebSocketState.Disconnected">
+                        {{ $t("passiveControlShort") }} {{ $t("passiveDisconnected") }}
+                    </span>
+                    <span v-else-if="store.websocketState === WebSocketState.Connected">
+                        {{ $t("passiveControlShort") }} {{ $t("passiveConnected") }}
+                    </span>
                 </div>
                 <WebSocket v-show="showWebSocket" 
                            @close="showWebSocket = false"/>
@@ -80,13 +85,13 @@ import MinionMenu from '@/components/Menu/MinionMenu.vue'
 import SpellMenu from "@/components/Menu/SpellMenu.vue"
 import BattlegroundMinionMenu from "@/components/Menu/BattlegroundsMinionMenu.vue"
 import { useStore } from "@/store/useStore"
-import { provide, ref, watch } from 'vue';
-import { CardType } from '@/datatypes/cardType'
+import { ref, watch } from 'vue';
+import { CardType, KindType } from '@/datatypes/card'
 import { useI18n } from 'vue-i18n'
 import useCurrentPlatform from "@/hooks/useCurrentPlatform"
 import WeaponMenu from '@/components/Menu/WeaponMenu.vue'
-import { KindType } from '@/datatypes/cardClass'
 import WebSocket from '@/components/WebSocket.vue'
+import { WebSocketState } from '@/datatypes/websocket'
 
 // store
 const store = useStore();
@@ -123,15 +128,12 @@ window.addEventListener("resize", () => {
 const mask = ref<string>("")
 
 // 处理上传逻辑
-const imageUrl = ref<string>("")
-provide("imageUrl", imageUrl)
-
 function handleUpload(e: any){
     const file = e.target.files[0]
     if(file){
         const reader = new FileReader()
         reader.onload = (e: any) => {
-            imageUrl.value = e.target.result
+            store.setCardFaceUrl(e.target.result)
         }
         reader.readAsDataURL(file)
     }

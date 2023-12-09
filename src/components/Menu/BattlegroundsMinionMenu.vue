@@ -132,8 +132,7 @@
 
 <script lang="ts" setup>
 import { useStore } from "@/store/useStore"
-import { ClassType, KindType } from "@/datatypes/cardClass"
-import { Rarity } from "@/datatypes/cardType"
+import { ClassType, KindType, Rarity } from "@/datatypes/card"
 import { ref, watch } from "vue";
 import useWaterMarkMap from "@/hooks/useWaterMarkMap";
 import useCardClassMap from "@/hooks/useCardClassMap"

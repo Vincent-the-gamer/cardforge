@@ -2,65 +2,65 @@
     <div class="position-fixed z-8 w-80% h-80% left-10% top-10%
     bg-rgba-0-0-0-0.8 box-shadow-0px-0px-18px-deeppink border-rd-9px">
         <div class="flex flex-col justify-center items-center">
-            <h1>被动控制功能</h1>
-            <p>用于其它客户端给服务端发请求，反向控制页面输出图片。</p>
-            <span>WebSocket地址:</span>
+            <h1>{{ $t("passiveControl") }}</h1>
+            <p>{{ $t("passiveDescription") }}</p>
+            <span>{{ $t("passiveWs") }}: </span>
             <input class="input-text w-40%" type="text" v-model="wsUrl"/>
             <button class="button m-t-10px p-9px font-size-16px"
                       @click="connectWebSocket"
                       v-if="wsState !== WebSocketState.Connected">
-                连接
+                {{ $t("passiveConnect") }}
             </button>
             <button class="button m-t-10px p-9px font-size-16px"
                       @click="() => ws?.close()" v-else>
-                关闭连接
+                {{ $t("passiveCloseConnect") }}
             </button>
             <p>
-                <span>连接状态：</span>
-                <span class="color-green" v-if="wsState === WebSocketState.Connected">已连接</span>
-                <span class="color-yellow" v-else-if="wsState === WebSocketState.Disconnected">已断开</span>
-                <span class="color-red" v-else-if="wsState === WebSocketState.Error">错误</span>
+                <span>{{ $t("passiveConnState") }}：</span>
+                <span class="color-green" v-if="wsState === WebSocketState.Connected">{{ $t("passiveConnected") }}</span>
+                <span class="color-yellow" v-else-if="wsState === WebSocketState.Disconnected">{{ $t("passiveDisconnected") }}</span>
+                <span class="color-red" v-else-if="wsState === WebSocketState.Error">{{ $t("passiveError") }}</span>
             </p>
 
             <p class="position-relative w-60% h-fit">
-                <p class="m-1px" align="center">日志</p>
+                <p class="m-1px" align="center">{{ $t("passiveLog") }}</p>
                 <div class="border-2px border-solid border-white border-rd-5px p-5px max-h-200px 
                 white-space-pre-wrap overflow-auto">
-                    <h4 class="m-0">{{ log === "" ? "无日志" : log }}</h4>
+                    <h4 class="m-0">{{ log === "" ? t("passiveNoLog") : log }}</h4>
                 </div>
             </p>
 
             <button class="button position-absolute bottom-40px p-7px w-120px h-60px 
             bg-rgba-255-0-0-1 hover:bg-violet hover:color-white font-size-18px"
-                      @click="() => emitter('close')">关闭窗口</button>
+                      @click="() => emitter('close')">{{ $t("passiveCloseWindow") }}</button>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { CardClass, ClassType, KindType } from '@/datatypes/cardClass';
-import { CardType, Rarity } from '@/datatypes/cardType';
-import { Flag } from '@/datatypes/flag';
-import { WaterMark } from '@/datatypes/watermark';
+import { CardClass, ClassType, KindType, CardType, Rarity, Flag, WaterMark } from '@/datatypes/card';
+import { WebSocketState } from '@/datatypes/websocket';
 import useCardClassMap from '@/hooks/useCardClassMap';
 import { useStore } from '@/store/useStore';
+import { domToPng } from 'modern-screenshot';
+import { watch } from 'vue';
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const emitter = defineEmits(["close"])
 
-enum WebSocketState {
-    Connected,
-    Disconnected,
-    Error
-}
+const { t, locale } = useI18n()
 
 const store = useStore()
 const cardClassMap = useCardClassMap()
 
 const wsUrl = ref<string>("ws://localhost:8081")
 const wsState = ref<WebSocketState>(WebSocketState.Disconnected)
-const log = ref<string>("")
+watch(() => wsState.value, newVal => {
+    store.setWebsocketState(newVal)
+})
 
+const log = ref<string>("")
 
 /**
  * WebSocket
@@ -71,7 +71,7 @@ function connectWebSocket() {
         ws.value = new WebSocket(wsUrl.value)
         ws.value.onopen = () => {
             wsState.value = WebSocketState.Connected
-            log.value += "WebSocket 连接成功！！\n"
+            log.value += t("passiveMsgSuccess") + "\n"
         }
         ws.value.onerror = (err: any) => {
             wsState.value = WebSocketState.Error
@@ -79,12 +79,21 @@ function connectWebSocket() {
         }
         ws.value.onclose = () => {
             wsState.value = WebSocketState.Disconnected
-            log.value += "已关闭连接\n"
+            log.value += t("passiveMsgClose") + "\n"
         }
         ws.value.onmessage = (msgEvent: MessageEvent) => {
             try {
                 const { data } = msgEvent
                 const jsonData = JSON.parse(data)
+                
+                // Language
+                if(jsonData.language){
+                    let lang = jsonData.language
+                    if(["zh", "en"].includes(lang)){
+                        locale.value = lang
+                    }
+                }
+
                 // cardType
                 if(jsonData.cardType) {
                     let cardType = jsonData.cardType
@@ -101,18 +110,22 @@ function connectWebSocket() {
                 }
                 // cardClass
                 if(jsonData.cardClass){
-                    if(jsonData.classType === ClassType.Single){
-                        let cardClass = jsonData.cardClass
-                        if(cardClassMap[cardClass as CardClass] !== undefined){
-                            store.setCardClass(cardClass)
-                        }
-                    } else if(jsonData.classType === ClassType.Dual) {
-                        if(jsonData.leftClass) {
-                            store.setDualCardClassLeft(jsonData.leftClass)
-                        }
-                        if(jsonData.rightClass) {
-                            store.setDualCardClassRight(jsonData.rightClass)
-                        }
+                    let cardClass = jsonData.cardClass
+                    if(cardClassMap[cardClass as CardClass] !== undefined){
+                        store.setCardClass(cardClass)
+                    }
+                }
+
+                if(jsonData.leftClass) {
+                    let leftClass = jsonData.leftClass
+                    if(cardClassMap[leftClass as CardClass] !== undefined){
+                        store.setDualCardClassLeft(leftClass)
+                    }
+                }
+                if(jsonData.rightClass) {
+                    let rightClass = jsonData.rightClass
+                    if(cardClassMap[rightClass as CardClass] !== undefined){
+                        store.setDualCardClassRight(rightClass)
                     }
                 }
 
@@ -147,18 +160,16 @@ function connectWebSocket() {
 
                 // cardKind
                 if(jsonData.cardKind){
-                    if(jsonData.kindType === KindType.Single){
-                        store.setCardKind(jsonData.cardKind)
-                    } else if(jsonData.kindType === KindType.Dual){
-                        if(jsonData.upKind) {
-                            store.setDualCardKindUp(jsonData.upKind)
-                        }
-                        if(jsonData.downKind) {
-                            store.setDualCardKindDown(jsonData.downKind)
-                        }
-                    }
+                    store.setCardKind(jsonData.cardKind)
                 }
-
+                   
+                if(jsonData.upKind) {
+                    store.setDualCardKindUp(jsonData.upKind)
+                }
+                if(jsonData.downKind) {
+                    store.setDualCardKindDown(jsonData.downKind)
+                }
+                    
                 // description
                 if(jsonData.description){
                     store.setDescription(jsonData.description)
@@ -172,7 +183,7 @@ function connectWebSocket() {
                 }
 
                 // desFontSize
-                if(jsonData.desFontSize) {
+                if(jsonData.desFontSize && typeof jsonData.desFontSize === "number") {
                     store.setDesFontSize(jsonData.desFontSize)
                 }
 
@@ -193,8 +204,25 @@ function connectWebSocket() {
                     jsonData.armor && store.setVitality(jsonData.armor)
                 }
 
+                // cardFaceUrl
+                if(jsonData.cardFaceUrl) {
+                    store.setCardFaceUrl(jsonData.cardFaceUrl)
+                }
+
+                // generate picture after a while
+                setTimeout(() => {
+                    // 截图
+                    const card = document.getElementById("card") as HTMLElement
+                    card.style.color = "black"
+                    // 开启遮罩
+                    store.setShowMask(true)
+                    domToPng(card).then(dataUrl => {
+                        ws.value?.send(dataUrl)
+                        store.setShowMask(false)
+                    })
+                }, 800)
+
             } catch (err) {
-                log.value += "格式不正确！消息必须是json格式！\n"
             }
         }
     } catch(err: any) {

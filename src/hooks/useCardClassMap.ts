@@ -1,4 +1,4 @@
-import { CardClass } from "@/datatypes/cardClass"
+import { CardClass } from "@/datatypes/card"
 import { ComputedRef, computed } from "vue"
 import { useI18n } from "vue-i18n"
 

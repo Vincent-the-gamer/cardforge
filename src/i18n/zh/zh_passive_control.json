@@ -1,0 +1,17 @@
+{
+    "passiveControlShort": "被动控制",
+    "passiveControl": "被动控制功能",
+    "passiveDescription": "用于其它客户端给服务端发请求，反向控制页面输出图片",
+    "passiveWs": "WebSocket地址",
+    "passiveConnect": "连接",
+    "passiveCloseConnect": "关闭连接",
+    "passiveConnState": "连接状态",
+    "passiveConnected": "已连接",
+    "passiveDisconnected": "已断开",
+    "passiveError": "错误",
+    "passiveLog": "日志",
+    "passiveNoLog": "无日志",
+    "passiveCloseWindow": "关闭窗口",
+    "passiveMsgSuccess": "WebSocket连接成功!!!",
+    "passiveMsgClose": "已关闭连接"
+}

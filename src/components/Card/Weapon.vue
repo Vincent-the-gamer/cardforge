@@ -121,7 +121,7 @@
     </div>
 
     <!-- 卡面图片 -->
-    <CardFace v-if="imageUrl" :url="imageUrl"/>
+    <CardFace v-if="store.cardFaceUrl" :url="store.cardFaceUrl"/>
     <!-- 遮罩 -->
     <Mask class="position-absolute z--2"
           :card-type="CardType.Weapon"
@@ -129,20 +129,15 @@
 </template>
 
 <script lang="ts" setup>
-import { ClassType, KindType } from '@/datatypes/cardClass';
-import { CardType, Rarity } from '@/datatypes/cardType';
-import { Flag } from "@/datatypes/flag"
-import { WaterMark } from "@/datatypes/watermark"
+import { ClassType, KindType, CardType, Rarity, Flag, WaterMark } from '@/datatypes/card';
 import CardFace from '@/components/CardFace.vue';
 import Number from '@/components/Number.vue';
 import { useStore } from '@/store/useStore';
-import { Ref, computed, inject, ref } from 'vue';
+import { computed } from 'vue';
 import Mask from './Mask.vue';
 import useStyledDescription from "@/hooks/useStyledDescription"
 import Watermark from './Watermark.vue';
 import { useI18n } from 'vue-i18n';
-
-const imageUrl: Ref<string> = inject("imageUrl") || ref("")
 
 const store = useStore()
 

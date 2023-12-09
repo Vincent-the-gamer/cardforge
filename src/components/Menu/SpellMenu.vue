@@ -116,8 +116,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ClassType, KindType } from '@/datatypes/cardClass';
-import { Rarity } from '@/datatypes/cardType';
+import { ClassType, KindType, Rarity } from '@/datatypes/card';
 import { useStore } from '@/store/useStore';
 import { ref, watch } from 'vue';
 import useWaterMarkMap from '@/hooks/useWaterMarkMap';

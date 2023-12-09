@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { CardType } from '@/datatypes/cardType';
+import { CardType } from '@/datatypes/card';
 import { useStore } from '@/store/useStore';
 import { computed } from 'vue';
 

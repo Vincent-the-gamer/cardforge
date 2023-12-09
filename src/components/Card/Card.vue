@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { CardType } from '@/datatypes/cardType';
+import { CardType } from '@/datatypes/card';
 import { useStore } from '@/store/useStore';
 import Minion from '@/components/Card/Minion.vue';
 import Spell from '@/components/Card/Spell.vue';

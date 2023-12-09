@@ -1,8 +1,14 @@
 import { defineStore } from "pinia";
-import { CardType, Rarity } from "@/datatypes/cardType"
-import { CardClass, ClassType, KindType } from "@/datatypes/cardClass"
-import { Flag } from "@/datatypes/flag";
-import { WaterMark } from "@/datatypes/watermark";
+import { 
+    CardType, 
+    Rarity, 
+    Flag, 
+    CardClass, 
+    ClassType, 
+    KindType, 
+    WaterMark 
+} from "@/datatypes/card"
+import { WebSocketState } from "@/datatypes/websocket";
 
 export const useStore = defineStore("card", {
     state: () => {
@@ -52,7 +58,11 @@ export const useStore = defineStore("card", {
             // 酒馆战旗随从无稀有度时，是否展示龙框
             showDragon: false as boolean,
             // 水印
-            watermark: WaterMark.None
+            watermark: WaterMark.None,
+            // Websocket连接状态
+            websocketState: WebSocketState.Disconnected,
+            // 卡面图片Url
+            cardFaceUrl: "" as string
         }
     },
     actions: {
@@ -115,6 +125,12 @@ export const useStore = defineStore("card", {
         },
         setShowMask(showMask: boolean){
             this.showMask = showMask
+        },
+        setWebsocketState(webSocketState: WebSocketState){
+            this.websocketState = webSocketState
+        },
+        setCardFaceUrl(cardFaceUrl: string){
+            this.cardFaceUrl = cardFaceUrl
         }
     }
 })

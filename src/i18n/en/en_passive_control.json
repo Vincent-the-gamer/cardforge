@@ -1,0 +1,17 @@
+{
+    "passiveControlShort": "Passive Control",
+    "passiveControl": "Passive Control Mode",
+    "passiveDescription": "Send message to websocket server, then the page will be automatically change.",
+    "passiveWs": "WebSocket server address",
+    "passiveConnect": "Connect",
+    "passiveCloseConnect": "Disconnect",
+    "passiveConnState": "Connect Status",
+    "passiveConnected": "Connected",
+    "passiveDisconnected": "Disconnected",
+    "passiveError": "Error",
+    "passiveLog": "Log",
+    "passiveNoLog": "No log",
+    "passiveCloseWindow": "Close Window",
+    "passiveMsgSuccess": "Connected~~~~",
+    "passiveMsgClose": "Disconnected"
+}

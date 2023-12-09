@@ -34,10 +34,10 @@ const props = defineProps<{
 
 // 卡面图片尺寸数据，用于拖拽和缩放
 const cardPicData = reactive({
-    x: 100,
-    y: 100,
-    h: 250,
-    w: 250,
+    x: 125,
+    y: 60,
+    h: 300,
+    w: 300,
     active: false
 })
 </script>
