@@ -22,6 +22,7 @@ This repo is not final, now it can only generate
 - 👀 Keep Newest --- Sync with latest version of HearthStone game.
 - 😁 High Similarity --- try my best to make the cards look like those in game.
 - 🆒 Passive Control --- call websocket server to control your web page, then get your picture^_^.
+    - Server Required. Download it in [v0.0.6 Alpha Release](https://github.com/Vincent-the-gamer/cardforge/releases/tag/v0.0.6-alpha)
     - Demo see: [Passive Control Demo](#passive-control-demo)
 
 ## Feature Details
