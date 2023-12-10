@@ -1,0 +1,31 @@
+name: Passive Server CI
+ 
+on:
+  push:
+    tags:
+      - 'v*'
+ 
+jobs:
+  release:
+    name: Release Packaging
+    env:
+      PROJECT_NAME_UNDERSCORE: rust_ci_github_actions_workflow
+    matrix:
+        platform: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: Release Build
+        run: cd websocket-server && cargo build --release
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.PROJECT_NAME_UNDERSCORE }}
+          path: websocket-server/target/release/${{ env.PROJECT_NAME_UNDERSCORE }}

@@ -50,7 +50,7 @@
             </Teleport>
             <!-- WebSocket Connect End-->
 
-            <Card class="position-absolute h-650px"/>
+            <Card class="position-absolute h-650px translate-y-5px"/>
             <div class="position-absolute m-0 z-2 bottom-0">
                 <p align="center" :class="`m-5px color-yellow ${locale === 'en' && 'font-size-12px'}`">{{ $t("cardHint") }}</p>
                 <p class="flex justify-center items-center hover:cursor-pointer m-5px">
