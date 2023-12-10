@@ -7,6 +7,12 @@
 
 <p align="center" style="font-style: italic;">Alpha Version: V0.0.6</p>
 
+<p align="center">
+    <a href="https://github.com/vincent-the-gamer/cardforge/blob/main/LICENSE" target="_blank">
+        <img src="https://img.shields.io/github/license/vincent-the-gamer/cardforge?style=flat-square"/>
+    </a>
+</p>
+
 # Notice
 
 This repo is not final, now it can only generate 
