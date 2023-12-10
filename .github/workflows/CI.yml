@@ -15,24 +15,24 @@ jobs:
           - os_name: Linux-x86_64
             os: ubuntu-20.04
             target: x86_64-unknown-linux-musl
-            bin: passive-server
-            name: passive-server-Linux-x86_64-musl.tar.gz
+            bin: cardforge-passive-server
+            name: cardforge-passive-server-Linux-x86_64-musl.tar.gz
             cross: false
             cargo_command: cargo
 
           - os_name: Windows-x86_64
             os: windows-latest
             target: x86_64-pc-windows-msvc
-            bin: passive-server.exe
-            name: passive-server-Windows-x86_64.zip
+            bin: cardforge-passive-server.exe
+            name: cardforge-passive-server-Windows-x86_64.zip
             cross: false
             cargo_command: cargo
 
           - os_name: macOS-x86_64
             os: macOS-latest
             target: x86_64-apple-darwin
-            bin: passive-server
-            name: passive-server-Darwin-x86_64.tar.gz
+            bin: cardforge-passive-server
+            name: cardforge-passive-server-Darwin-x86_64.tar.gz
             cross: false
             cargo_command: cargo
 
@@ -58,22 +58,23 @@ jobs:
           set -e
           export TARGET="$HOME/bin"
           mkdir -p "$TARGET"
-          ./bootstrap/bootstrap-passive-server.sh
-          "$HOME/bin/passive-server" --project cross-rs/cross --matching musl --in .          
+          ./bootstrap/bootstrap-cardforge-passive-server.sh
+          "$HOME/bin/cardforge-passive-server" --project cross-rs/cross --matching musl --in .          
         if: matrix.platform.cross && !contains(matrix.platform.os, 'windows')
 
       - name: Install cross if cross-compiling (Windows)
         id: cross-windows
         shell: powershell
         run: |
-          .\bootstrap\bootstrap-passive-server.ps1
-          .\passive-server --project cross-rs/cross --in .          
+          .\bootstrap\bootstrap-cardforge-passive-server.ps1
+          .\cardforge-passive-server --project cross-rs/cross --in .          
         if: matrix.platform.cross && contains(matrix.platform.os, 'windows')
 
       - name: Build binary (*nix)
         shell: bash
         run: |
-          cd websocket-server && ${{ matrix.platform.cargo_command }} build --locked --release --target ${{ matrix.platform.target }}          
+          cd websocket-server
+          ${{ matrix.platform.cargo_command }} build --locked --release --target ${{ matrix.platform.target }}          
         if: ${{ !contains(matrix.platform.os, 'windows') }}
 
       - name: Build binary (Windows)
@@ -82,7 +83,8 @@ jobs:
         # the platform's native paths and refuses to build.
         shell: powershell
         run: |
-          & cd websocket-server && ${{ matrix.platform.cargo_command }} build --locked --release --target ${{ matrix.platform.target }}          
+          & cd websocket-server
+          & ${{ matrix.platform.cargo_command }} build --locked --release --target ${{ matrix.platform.target }}          
         if: contains(matrix.platform.os, 'windows')
 
       - name: Strip binary
@@ -106,14 +108,14 @@ jobs:
       - name: Publish release artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: passive-server-${{ matrix.platform.os_name }}
-          path: "passive-server*"
+          name: cardforge-passive-server-${{ matrix.platform.os_name }}
+          path: "cardforge-passive-server*"
         if: github.ref == 'refs/tags/test-release'
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          files: "passive-server*"
+          files: "cardforge-passive-server*"
           body_path: Changes.md
         if: startsWith( github.ref, 'refs/tags/v' )
