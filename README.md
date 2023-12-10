@@ -36,9 +36,29 @@ Server required. Download it in [v0.0.6 Alpha Release](https://github.com/Vincen
 #### How to use `Passive Control Server`
 - [Download](https://github.com/Vincent-the-gamer/cardforge/releases/tag/v0.0.6-alpha).
 
-- Run! Server uses port 8081. 
+- Run!
+  ```shell
+  # Run at default port 8081
+  ./cardforge-passive-server
+  cardforge-passive-server.exe
 
-PS: Server will allow user to choose a port in the future.
+  # Run at custom port
+  ./cardforge-passive-server 9000
+  cardforge-passive-server.exe 9000
+  ```
+
+
+#### Interact with Koishi Plugin
+
+What is Koishi? A bot framework for multiple chatting platform. 
+
+Link: [Koishi.js](https://koishi.chat/zh-CN/)
+
+Use `Passive Control Server` above for implementation.
+
+![cardforge-koishi](./.github/cardforge-koishi.png)
+
+Plugin is coming soon.
 
 #### Demo
 Send JSON message to websocket server to control your webpage. (Please do not close your webpage.)
