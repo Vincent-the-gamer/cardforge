@@ -50,7 +50,7 @@ Server required. Download it in [v0.0.6 Alpha Release](https://github.com/Vincen
 
 #### Interact with Koishi Plugin
 
-What is Koishi? A bot framework for multiple chatting platform. 
+What is Koishi? A bot framework for multiple chatting platforms. 
 
 Link: [Koishi.js](https://koishi.chat/zh-CN/)
 
