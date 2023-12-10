@@ -21,12 +21,20 @@ This repo is not final, now it can only generate
 - 🌏 i18n --- multi-language support.
 - 👀 Keep Newest --- Sync with latest version of HearthStone game.
 - 😁 High Similarity --- try my best to make the cards look like those in game.
-- 🆒 Passive Control --- call websocket server to control your web page, then get your picture^_^.
-    - Server Required. Download it in [v0.0.6 Alpha Release](https://github.com/Vincent-the-gamer/cardforge/releases/tag/v0.0.6-alpha)
-    - Demo see: [Passive Control Demo](#passive-control-demo)
+- 🆒 [Passive Control](#passive-control) --- call websocket server to control your web page, then get your picture^_^.
 
 ## Feature Details
-### Passive Control Demo
+### Passive Control 
+Server required. Download it in [v0.0.6 Alpha Release](https://github.com/Vincent-the-gamer/cardforge/releases/tag/v0.0.6-alpha).
+
+#### How to use `Passive Control Server`
+- [Download](https://github.com/Vincent-the-gamer/cardforge/releases/tag/v0.0.6-alpha).
+
+- Run! Server uses port 8081. 
+
+PS: Server will allow user to choose a port in the future.
+
+#### Demo
 Send JSON message to websocket server to control your webpage. (Please do not close your webpage.)
 
 🚧 Warning: 🚧
