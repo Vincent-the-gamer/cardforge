@@ -73,7 +73,7 @@ jobs:
       - name: Build binary (*nix)
         shell: bash
         run: |
-          ${{ matrix.platform.cargo_command }} build --locked --release --target ${{ matrix.platform.target }}          
+          cd websocket-server && ${{ matrix.platform.cargo_command }} build --locked --release --target ${{ matrix.platform.target }}          
         if: ${{ !contains(matrix.platform.os, 'windows') }}
 
       - name: Build binary (Windows)
@@ -82,7 +82,7 @@ jobs:
         # the platform's native paths and refuses to build.
         shell: powershell
         run: |
-          & ${{ matrix.platform.cargo_command }} build --locked --release --target ${{ matrix.platform.target }}          
+          & cd websocket-server && ${{ matrix.platform.cargo_command }} build --locked --release --target ${{ matrix.platform.target }}          
         if: contains(matrix.platform.os, 'windows')
 
       - name: Strip binary
