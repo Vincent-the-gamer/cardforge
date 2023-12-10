@@ -7,12 +7,35 @@ on:
  
 jobs:
   release:
-    name: Release Packaging
-    env:
-      PROJECT_NAME_UNDERSCORE: rust_ci_github_actions_workflow
-    matrix:
-        platform: [macos-latest, ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.platform }}
+    name: Release ${{ matrix.platform.os_name }}
+    strategy:
+      matrix:
+        platform: 
+          - os_name: Linux-x86_64
+            os: ubuntu-20.04
+            target: x86_64-unknown-linux-musl
+            bin: passive-server
+            name: passive-server-Linux-x86_64-musl.tar.gz
+            cross: false
+            cargo_command: cargo
+
+          - os_name: Windows-aarch64
+            os: windows-latest
+            target: aarch64-pc-windows-msvc
+            bin: passive-server.exe
+            name: passive-server-Windows-aarch64.zip
+            cross: false
+            cargo_command: cargo
+
+          - os_name: macOS-x86_64
+            os: macOS-latest
+            target: x86_64-apple-darwin
+            bin: passive-server
+            name: passive-server-Darwin-x86_64.tar.gz
+            cross: false
+            cargo_command: cargo
+
+    runs-on: ${{ matrix.platform.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
