@@ -105,12 +105,14 @@ jobs:
           fi
           cd -          
 
-      - name: Publish release artifacts
+      - name: Upload release artifacts
         uses: actions/upload-artifact@v3
         with:
           name: cardforge-passive-server-${{ matrix.platform.os_name }}
           path: "cardforge-passive-server*"
         if: startsWith( github.ref, 'refs/tags/v' )
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v1
@@ -119,3 +121,5 @@ jobs:
           files: "cardforge-passive-server*"
           body_path: CHANGELOG.md
         if: startsWith( github.ref, 'refs/tags/v' )
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
