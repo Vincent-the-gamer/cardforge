@@ -4,6 +4,12 @@
         <div class="flex flex-col justify-center items-center">
             <h1>{{ $t("passiveControl") }}</h1>
             <p>{{ $t("passiveDescription") }}</p>
+            <p>
+                {{ $t("passiveServerHint") }}: <a class="color-cyan hover:color-violet" 
+                href="https://github.com/Vincent-the-gamer/cardforge/releases/tag/v0.0.6-alpha"
+                target="_blank"
+                >{{ $t("download") }}</a>
+            </p>
             <span>{{ $t("passiveWs") }}: </span>
             <input class="input-text w-40%" type="text" v-model="wsUrl"/>
             <button class="button m-t-10px p-9px font-size-16px"

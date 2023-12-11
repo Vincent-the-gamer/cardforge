@@ -2,6 +2,7 @@
     "passiveControlShort": "被动控制",
     "passiveControl": "被动控制功能",
     "passiveDescription": "用于其它客户端给服务端发请求，反向控制页面输出图片",
+    "passiveServerHint": "本功能需要连接Cardforge Passive Server, 没有的请",
     "passiveWs": "WebSocket地址",
     "passiveConnect": "连接",
     "passiveCloseConnect": "关闭连接",

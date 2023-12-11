@@ -9,24 +9,27 @@
             <div class="i-grommet-icons-menu position-relative w-100% h-100%"></div>
         </button>
         <FormLayout v-show="showFormLayout"
-            class="form-layout m-r-5px z-8 p-t-55px p-b-20px position-relative top-0 overflow-y-auto 
-            min-w-500px w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7"
+            class="form-layout m-r-5px z-8 p-t-10px p-b-25px position-relative top-0 overflow-y-auto 
+            w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7"
             :class="currentPlatform === 'mobile' ? 'w-fit' : ''">
-            <p class="m-b-2px">
-                <span>{{ $t("cardType") }}：</span>
-                <select class="select w-fit" v-model="store.cardType">
-                    <option :value="CardType.Minion">{{ $t("minion")}}</option>
-                    <option :value="CardType.Spell">{{ $t("spell") }}</option>
-                    <option :value="CardType.Weapon">{{ $t("weapon") }}</option>
-                    <option :value="CardType.Hero">{{ $t("hero") }}</option>
-                    <option :value="CardType.BattlegroundMinion">{{ $t("battlegroundsMinion") }}</option>
-                </select>
-            </p>
-           <MinionMenu v-if="store.cardType === CardType.Minion"/>
-           <SpellMenu v-else-if="store.cardType === CardType.Spell"/>
-           <WeaponMenu v-else-if="store.cardType === CardType.Weapon"/>
-           <HeroMenu v-else-if="store.cardType === CardType.Hero"/>
-           <BattlegroundMinionMenu v-else-if="store.cardType === CardType.BattlegroundMinion"/>
+            <div class="h-100%">
+                <p class="flex justify-center items-center m-0">
+                    <span>{{ $t("cardType") }}：</span>
+                    <select class="select w-fit" v-model="store.cardType">
+                        <option :value="CardType.Minion">{{ $t("minion")}}</option>
+                        <option :value="CardType.Spell">{{ $t("spell") }}</option>
+                        <option :value="CardType.Weapon">{{ $t("weapon") }}</option>
+                        <option :value="CardType.Hero">{{ $t("hero") }}</option>
+                        <option :value="CardType.BattlegroundMinion">{{ $t("battlegroundsMinion") }}</option>
+                    </select>
+                </p>
+                <MinionMenu v-if="store.cardType === CardType.Minion"/>
+                <SpellMenu v-else-if="store.cardType === CardType.Spell"/>
+                <WeaponMenu v-else-if="store.cardType === CardType.Weapon"/>
+                <HeroMenu v-else-if="store.cardType === CardType.Hero"/>
+                <BattlegroundMinionMenu v-else-if="store.cardType === CardType.BattlegroundMinion"/>
+            </div>
+           
         </FormLayout>
     
         <CardLayout class="card-layout flex justify-center items-center flex-col h-100% w-500px overflow-hidden"

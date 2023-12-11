@@ -65,5 +65,6 @@
     "no": "No",
     "watermark": "Watermark",
     "durability": "Durability",
-    "heroAttackHint": "Hero card will hide attack logo while attack is 0."
+    "heroAttackHint": "Hero card will hide attack logo while attack is 0.",
+    "download": "Download"
 }
