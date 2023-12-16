@@ -21,6 +21,7 @@
                         <option :value="CardType.Weapon">{{ $t("weapon") }}</option>
                         <option :value="CardType.Hero">{{ $t("hero") }}</option>
                         <option :value="CardType.BattlegroundMinion">{{ $t("battlegroundsMinion") }}</option>
+                        <option :value="CardType.Location">{{ $t("location") }}</option>
                     </select>
                 </p>
                 <MinionMenu v-if="store.cardType === CardType.Minion"/>
@@ -28,6 +29,7 @@
                 <WeaponMenu v-else-if="store.cardType === CardType.Weapon"/>
                 <HeroMenu v-else-if="store.cardType === CardType.Hero"/>
                 <BattlegroundMinionMenu v-else-if="store.cardType === CardType.BattlegroundMinion"/>
+                <LocationMenu v-else-if="store.cardType === CardType.Location"/>
             </div>
            
         </FormLayout>
@@ -53,7 +55,7 @@
             </Teleport>
             <!-- WebSocket Connect End-->
 
-            <Card class="position-absolute h-650px translate-y-0.1px"/>
+            <Card class="position-absolute h-655px translate-y-10px"/>
             <div class="position-fixed m-0 z-2 bottom-40px">
                 <p align="center" :class="`m-5px color-yellow ${locale === 'en' && 'font-size-12px'}`">{{ $t("cardHint") }}</p>
                 <p class="flex justify-center items-center hover:cursor-pointer m-5px">
@@ -98,6 +100,7 @@ import WeaponMenu from '@/components/Menu/WeaponMenu.vue'
 import WebSocket from '@/components/WebSocket.vue'
 import { WebSocketState } from '@/datatypes/websocket'
 import HeroMenu from '@/components/Menu/HeroMenu.vue'
+import LocationMenu from '@/components/Menu/LocationMenu.vue'
 
 // store
 const store = useStore();

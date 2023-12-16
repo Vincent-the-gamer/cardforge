@@ -40,7 +40,8 @@ export enum CardType {
     Spell = "spell",  // 法术
     Weapon = "weapon", // 武器
     Hero = "hero",    // 英雄
-    BattlegroundMinion = "battleground-minion" // 酒馆战旗随从
+    BattlegroundMinion = "battleground-minion", // 酒馆战旗随从
+    Location = "location"  // 地标卡
 }
 
 /**

@@ -7,6 +7,7 @@
     "weapon": "Weapon",
     "hero": "Hero",
     "battlegroundsMinion": "Battlegrounds Minion",
+    "location": "Location",
     "class": "Class",
     "singleClass": "Single Class",
     "dualClasses": "Dual Classes",

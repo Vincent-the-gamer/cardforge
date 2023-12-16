@@ -123,7 +123,7 @@
         <Number :num="store.attack"/>
     </div>
 
-    <div :class="`position-absolute top-457px z-4 font-size-48px
+    <div :class="`position-absolute top-459px z-4 font-size-48px
     ${store.vitality < 10 && `translate-x-156px`}
     ${store.vitality >= 10 && `translate-x-155px`}
     `">
