@@ -1,5 +1,8 @@
 # Changelog
 
+## Alpha Ver. v0.1.0
+- Add `Location Cards`.
+
 ## Alpha Ver. v0.0.6
 - Add `Hero Cards`.
 - Add Feature `Passive Control`.

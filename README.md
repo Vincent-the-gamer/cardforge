@@ -3,9 +3,9 @@
 </p>
 <h1 align="center">CardForge</h1>
 
-<p align="center">A HearthStone card DIY tool.</p>
+<p align="center">A HearthStone card maker.</p>
 
-<p align="center" style="font-style: italic;">Alpha Version: V0.0.6</p>
+<p align="center" style="font-style: italic;">Alpha Version: V0.1.0</p>
 
 <p align="center">
     <a href="https://github.com/vincent-the-gamer/cardforge/blob/main/LICENSE" target="_blank">
@@ -15,12 +15,7 @@
 
 # Notice
 
-This repo is not final, now it can only generate 
-- `Minion Cards`
-- `Spell Cards`
-- `Battlegrounds Minion Cards`
-- `Weapon Cards`
-- `Hero Cards`
+This repo is not final, some details will be added in the future.
 
 # Features
 - 💪 Real-time card part switching --- Card is built by tiny parts instead of pre-exported pictures.
