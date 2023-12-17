@@ -13,6 +13,12 @@
     </a>
 </p>
 
+<p align="center">
+    <span>English</span>
+    <span>|</span>
+    <a href="./README_zh.md">中文文档</a>
+</p>
+
 # Notice
 
 This repo is not final, some details will be added in the future.
@@ -42,19 +48,6 @@ Server required. Download it in [v0.0.6 Alpha Release](https://github.com/Vincen
   cardforge-passive-server.exe 9000
   ```
 
-
-#### Interact with Koishi Plugin
-
-What is Koishi? A bot framework for multiple chatting platforms. 
-
-Link: [Koishi.js](https://koishi.chat/zh-CN/)
-
-Use `Passive Control Server` above for implementation.
-
-![cardforge-koishi](./.github/cardforge-koishi.png)
-
-Plugin is coming soon.
-
 #### Demo
 Send JSON message to websocket server to control your webpage. (Please do not close your webpage.)
 
@@ -63,6 +56,9 @@ the card face picture will have a fixed position and size in `Passive Control Mo
 adjust picture yourselves. 
 
 Using this data structure to control the page.
+
+PS: you shouldn't bring the comments while sending message to server.(JSON doesn't allow comments).
+
 ```js
 {
     "language": "en",
@@ -81,14 +77,26 @@ Using this data structure to control the page.
     "watermark": "year-of-the-wolf",
     "desFontSize": 20,
     "cost": 3,
-    "vitality": 3, // Work in Minion, Battleground Minion, Hero(Armor) 
+    "vitality": 3, // Work in Minion, Battleground Minion, Hero(armor), Weapon(durability), Location(durability)
     "armor": 3,  // Alias of vitality on Hero Cards
-    "durability": 3, // Alias of vitality on Weapon Cards
-    "cardFaceUrl": "https://image-static.segmentfault.com/596/308/596308474-6389c86c5126c_cover"
+    "durability": 3, // Alias of vitality on Weapon Cards/Location Cards
+    "cardFaceUrl": "https://image-static.segmentfault.com/596/308/596308474-6389c86c5126c_cover" // web picture is available.
 }
 ```
 
 ![passive-control-demo](./.github/passive-control-demo.gif)
+
+#### Interact with Koishi Plugin
+
+What is Koishi? A bot framework for multiple chatting platforms. 
+
+Link: [Koishi.js](https://koishi.chat/zh-CN/)
+
+Use `Passive Control Server` above for implementation.
+
+![cardforge-koishi](./.github/cardforge-koishi.png)
+
+Plugin is coming soon.
 
 # Play
 
