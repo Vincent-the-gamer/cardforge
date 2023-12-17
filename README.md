@@ -140,5 +140,10 @@ Simplified Chinese(简体中文):
 |  -      |   -     | 
 |  ![hero-zh](./.github/cards/hero-zh.png)       |   ![hero-en](./.github/cards/hero-en.png)  |
 
+## Location
+| Chinese | English |
+|  -      |   -     | 
+|  ![hero-zh](./.github/cards/location-zh.png)       |   ![hero-en](./.github/cards/location-en.png)  |
+
 # License
 [MIT](./LICENSE)
