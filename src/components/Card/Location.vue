@@ -10,16 +10,21 @@
     <!-- 双职业 地标牌 -->
     <template v-else>
         <!-- 左边 -->
-        <img :src="dualClassSpellLeftURL"
+        <img :src="dualClassLocationLeftURL"
             class="position-absolute top--20px z-1 pointer-events-none"/>
 
         <!-- 分割线 -->
-        <img src="@/assets/materials/spell/spell-dual-classes-split.png"
-            class="position-absolute top-88px z-2 pointer-events-none"/>
+        <img src="@/assets/materials/location/location-dual-classes-split.png"
+            class="position-absolute top-372px z-2 pointer-events-none"/>
     
         <!-- 右边 -->
-        <img :src="dualClassSpellRightURL"
+        <img :src="dualClassLocationRightURL"
             class="position-absolute top--20px z-1 translate-x--0.5px pointer-events-none"/>
+
+        <!-- 原画框 -->
+        <img src="@/assets/materials/location/location-picture-frame.png"
+            class="position-absolute top-12px z-1 pointer-events-none"/>
+
     </template>
 
     <!-- 地标名称 -->
@@ -54,11 +59,11 @@
 
     <!-- 法力值消耗水晶 -->
     <img src="@/assets/materials/cost/cost-crystal.png"
-        class="position-absolute top-60px translate-x--160px z-2 pointer-events-none"/>
+        class="position-absolute top-69px translate-x--160px z-2 pointer-events-none"/>
 
     <!-- 法力值消耗数值 -->
     <div :class="
-    `position-absolute top--30px z-3 font-size-57px pointer-events-none
+    `position-absolute top--22px z-3 font-size-57px pointer-events-none
     ${store.cost < 10 && `translate-x--160px`}
     ${store.cost >= 10 && `translate-x--165px`}`">
         <Number :num="store.cost"/>
@@ -78,7 +83,7 @@
 
     <!-- 左上角旗帜 -->
     <img :src="flagPicture" v-if="store.flag !== Flag.None"
-         class="position-absolute top-70px translate-x--159px z-1 pointer-events-none"/>
+         class="position-absolute top-78px translate-x--159px z-1 pointer-events-none"/>
 
     <!-- 法术描述内容 -->
     <template v-if="store.description">
@@ -137,12 +142,12 @@ const locationBaseURL = computed<string>(
 
 // 双职业地标
 // 左卡底
-const dualClassSpellLeftURL = computed<string>(
-    () => new URL(`../../assets/spells/dual-class/left/${store.dualCardClass.left}-spell-left.png`, import.meta.url).href
+const dualClassLocationLeftURL = computed<string>(
+    () => new URL(`../../assets/locations/dual-class/left/${store.dualCardClass.left}-location-left.png`, import.meta.url).href
 )
 // 右卡底
-const dualClassSpellRightURL = computed<string>(
-    () => new URL(`../../assets/spells/dual-class/right/${store.dualCardClass.right}-spell-right.png`, import.meta.url).href
+const dualClassLocationRightURL = computed<string>(
+    () => new URL(`../../assets/locations/dual-class/right/${store.dualCardClass.right}-location-right.png`, import.meta.url).href
 )
 
 // 稀有度

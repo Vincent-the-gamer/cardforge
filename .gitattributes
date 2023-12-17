@@ -1,2 +1,1 @@
-*.rs linguist-language=Rust
-*.md linguist-language=Markdown
+*.rs linguist-detectable=true
