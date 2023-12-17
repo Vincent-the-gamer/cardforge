@@ -1,5 +1,5 @@
 <template>
-    <div :class="`bg-black color-transparent w-100% h-670px overflow-hidden ${props.cardType}-mask-hole`"></div>
+    <div :class="`bg-black color-transparent w-100% h-680px translate-y--10px overflow-hidden ${props.cardType}-mask-hole`"></div>
 </template>
 
 <script lang="ts" setup>
@@ -90,7 +90,7 @@ const props = defineProps<{
         0% 100%, 
         50% 100%, 
         17% 40%, 
-        23% 10%, 
+        23% 15%, 
         50% 8%,
         70% 10%, 
         80% 18%, 
