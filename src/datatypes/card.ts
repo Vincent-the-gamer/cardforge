@@ -68,5 +68,9 @@ export enum WaterMark {
     YearOfTheWolf = "year-of-the-wolf", // 独狼年
     FestivalOfLegends = "festival-of-legends",  // 传奇音乐节
     Audiopocalypse = "audiopocalypse", // 音乐之劫
-    Titans = "titans" // 泰坦诸神
+    Titans = "titans", // 泰坦诸神
+    YearOfTheHydra = "year-of-the-hydra", // 多头蛇年
+    VoyageToTheSunkenCity = "voyage-to-the-sunken-city", // 探寻沉没之城
+    ThroneOfTheTides = "throne-of-the-tides", // 潮汐王座
+    MurderAtCastleNathria = "murder-at-castle-nathria" // 纳斯利亚堡的悬案
 }
