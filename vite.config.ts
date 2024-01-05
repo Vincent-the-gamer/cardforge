@@ -4,7 +4,7 @@ import UnoCSS from 'unocss/vite'
 
 // vite.config.ts
 export default defineConfig({
-  base: "/cardforge-live-page/",
+  base: "./",
   plugins: [
     vue(),
     UnoCSS()
