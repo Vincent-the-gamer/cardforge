@@ -2,8 +2,8 @@ name: Passive Server CI
  
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - CI
  
 jobs:
   release:
