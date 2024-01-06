@@ -15,6 +15,10 @@ export default function useWaterMarkMap() {
         [WaterMark.VoyageToTheSunkenCity]: computed(() => t("voyage-to-the-sunken-city")),
         [WaterMark.ThroneOfTheTides]: computed(() => t("throne-of-the-tides")),
         [WaterMark.MurderAtCastleNathria]: computed(() => t("murder-at-castle-nathria")),
+        [WaterMark.TheMawAndDisorder]: computed(() => t("the-maw-and-disorder")),
+        [WaterMark.PathOfArthas]: computed(() => t("path-of-arthas")),
+        [WaterMark.MarchOfTheLichKing]: computed(() => t("march-of-the-lich-king")),
+        [WaterMark.ReturnToNaxxramas]: computed(() => t("return-to-naxxramas"))
     }
 
     return watermarkMap

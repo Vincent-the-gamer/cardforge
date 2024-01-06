@@ -1,5 +1,8 @@
 # Changelog
 
+## Alpha Ver. v0.1.1
+- Add more `watermarks`.
+
 ## Alpha Ver. v0.1.0
 - Add `Location Cards`.
 

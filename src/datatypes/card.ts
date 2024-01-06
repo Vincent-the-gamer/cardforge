@@ -72,5 +72,9 @@ export enum WaterMark {
     YearOfTheHydra = "year-of-the-hydra", // 多头蛇年
     VoyageToTheSunkenCity = "voyage-to-the-sunken-city", // 探寻沉没之城
     ThroneOfTheTides = "throne-of-the-tides", // 潮汐王座
-    MurderAtCastleNathria = "murder-at-castle-nathria" // 纳斯利亚堡的悬案
+    MurderAtCastleNathria = "murder-at-castle-nathria", // 纳斯利亚堡的悬案
+    TheMawAndDisorder = "the-maw-and-disorder", // 混乱噬渊
+    PathOfArthas = "path-of-arthas", // 阿尔萨斯之路
+    MarchOfTheLichKing = "march-of-the-lich-king",  // 巫妖王的进军
+    ReturnToNaxxramas = "return-to-naxxramas",  // 重返纳克萨玛斯
 }
