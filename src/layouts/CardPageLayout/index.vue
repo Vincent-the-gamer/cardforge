@@ -10,8 +10,8 @@
         </button>
         <FormLayout v-show="showFormLayout"
             class="form-layout m-r-5px z-8 p-t-10px p-b-25px position-relative top-0 overflow-y-auto 
-            w-500px flex flex-col justify-center items-center bg-rgba-63-63-63-0.7"
-            :class="currentPlatform === 'mobile' ? 'w-fit' : ''">
+            w-500px flex flex-col justify-center items-center"
+            :class="`${currentPlatform === 'mobile' ? 'w-fit' : ''} ${isDark ? 'bg-rgba-63-63-63-0.4' : 'bg-rgba-63-63-63-0.8'}`">
             <div class="h-100%">
                 <p class="flex justify-center items-center m-0">
                     <span>{{ $t("cardType") }}：</span>
@@ -101,9 +101,13 @@ import WebSocket from '@/components/WebSocket.vue'
 import { WebSocketState } from '@/datatypes/websocket'
 import HeroMenu from '@/components/Menu/HeroMenu.vue'
 import LocationMenu from '@/components/Menu/LocationMenu.vue'
+import { useDark } from '@vueuse/core'
 
 // store
 const store = useStore();
+
+// theme
+const isDark = useDark()
 
 // i18n
 const { locale } = useI18n()

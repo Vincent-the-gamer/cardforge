@@ -17,17 +17,27 @@
 }
 
 html {
+    background-color: white;
+    color: black;
+    overflow-x: hidden;
+}
+
+html.dark{
     background-color: black;
     color: white;
-    overflow-x: hidden;
 }
 
 a{
     text-decoration: none;
 }
 
-select option {
+html select option {
+    font-family: BlizzardGlobal;
+    background-color: white;
+    color: black;
+}
+
+html.dark select option {
     background-color: black;
     color: white;
-    font-family: BlizzardGlobal;
 }
