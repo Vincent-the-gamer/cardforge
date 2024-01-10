@@ -1,5 +1,5 @@
 <template>
-    <div :class="`${isDark ? 'bg-black' : 'bg-white'} color-transparent w-100% h-680px translate-y--10px overflow-hidden ${props.cardType}-mask-hole`"></div>
+    <div :class="`${isDark ? 'bg-black' : 'bg-pink'} color-transparent w-100% h-680px translate-y--10px overflow-hidden ${props.cardType}-mask-hole`"></div>
 </template>
 
 <script lang="ts" setup>
@@ -23,7 +23,7 @@ const isDark = useDark()
         50% 100%, 
         20% 30%, 
         23% 20%, 
-        50% 8%,
+        50% 10%,
         65% 14%, 
         79% 30%, 
         40% 90%, 
@@ -41,7 +41,7 @@ const isDark = useDark()
         50% 100%, 
         16% 40%, 
         20% 20%, 
-        50% 13%,
+        50% 15%,
         65% 14%, 
         79% 20%, 
         80% 50%, 
@@ -77,7 +77,7 @@ const isDark = useDark()
         50% 100%, 
         17% 40%, 
         20% 20%, 
-        50% 8%,
+        50% 10%,
         65% 14%, 
         79% 20%, 
         80% 50%, 
@@ -96,7 +96,7 @@ const isDark = useDark()
         17% 40%, 
         23% 15%, 
         50% 8%,
-        70% 10%, 
+        70% 12%, 
         80% 18%, 
         80% 50%, 
         40% 100%,
