@@ -1,5 +1,8 @@
 # Changelog
 
+## Alpha Ver. v0.1.2
+- Add `themes`.
+
 ## Alpha Ver. v0.1.1
 - Add more `watermarks`.
 

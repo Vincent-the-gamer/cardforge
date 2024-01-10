@@ -5,7 +5,7 @@
 
 <p align="center">A HearthStone card maker.</p>
 
-<p align="center" style="font-style: italic;">Alpha Version: V0.1.1</p>
+<p align="center" style="font-style: italic;">Alpha Version: V0.1.2</p>
 
 <p align="center">
     <a href="https://github.com/vincent-the-gamer/cardforge/blob/main/LICENSE" target="_blank">
