@@ -1,5 +1,5 @@
-<p align="center" style="height: 100px;">
- <img src="./.github/logo/cardforge-logo.png"/>
+<p align="center">
+ <img src="./.github/cardforge.png"/>
 </p>
 <h1 align="center">CardForge</h1>
 
