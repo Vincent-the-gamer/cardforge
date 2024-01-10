@@ -4,7 +4,7 @@
         <h4 class="position-absolute top--16px font-light">
             @2023-present
             <a href="https://github.com/vincent-the-gamer" target="_blank"
-               :class="`${ isDark ? 'color-white': 'color-black'} hover:color-pink transition-all-250`">
+               class="hover:color-pink transition-all-250">
                Vincent-the-gamer
             </a>
             | {{ props.isAlpha ? "Alpha " : "" }} Version: v{{ version }}
@@ -14,11 +14,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useDark } from "@vueuse/core";
 import { version } from "~/package.json"
 const props = defineProps<{
     isAlpha: boolean
 }>()
 
-const isDark = useDark()
+
 </script>

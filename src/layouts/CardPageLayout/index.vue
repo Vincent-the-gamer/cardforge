@@ -11,7 +11,7 @@
         <FormLayout v-show="showFormLayout"
             class="form-layout m-r-5px z-8 p-t-10px p-b-25px position-relative top-0 overflow-y-auto 
             w-500px flex flex-col justify-center items-center"
-            :class="`${currentPlatform === 'mobile' ? 'w-fit' : ''} ${isDark ? 'bg-rgba-63-63-63-0.4' : 'bg-rgba-63-63-63-0.8'}`">
+            :class="`${currentPlatform === 'mobile' ? 'w-fit' : ''} ${isDark ? 'bg-rgba-63-63-63-0.4' : 'bg-rgba-0-0-0-0.4'}`">
             <div class="h-100%">
                 <p class="flex justify-center items-center m-0">
                     <span>{{ $t("cardType") }}：</span>
@@ -40,7 +40,7 @@
             <!-- WebSocket Connect -->
             <Teleport to="body">
                 <div :class="`w-fit h-fit position-fixed z-5 top-50px right-19px p-4px
-                border-1px border-solid border-white border-rd-5px hover:bg-white hover:color-black
+                border-1px border-solid border-rd-5px hover:bg-white hover:color-black
                 hover:cursor-pointer transition-all-200 ${store.websocketState === WebSocketState.Connected ? 'bg-green' : ''}`" @click="showWebSocket = !showWebSocket">
                     <div class="i-grommet-icons-connect"></div>
                     <span v-if="store.websocketState === WebSocketState.Disconnected">
@@ -64,7 +64,7 @@
                         class="w-20px h-20px"/>
                 </p>
                 <input type="file"
-                    @mouseenter="() => mask = 'bg-white color-black cursor-pointer'"
+                    @mouseenter="() => mask = `cursor-pointer upload-input-mask`"
                     @mouseleave="() => mask = ''"
                     @change="handleUpload"
                     class="button h-38px w-98px m-0 font-size-0 position-absolute translate-x-130px z-1 opacity-0"/>
@@ -72,7 +72,7 @@
                     <button :class="`button h-40px w-100px z-0 hover:cursor-pointer ${mask}`">
                        {{ $t("uploadCardFace") }}
                     </button>
-                    <button class="button h-40px w-90px m-l-7px" @click="generateImage">
+                    <button :class="`button h-40px w-90px m-l-7px `" @click="generateImage">
                         {{ $t("generatePicture") }}
                     </button>
                 </div>

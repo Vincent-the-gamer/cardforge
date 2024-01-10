@@ -31,6 +31,16 @@ a{
     text-decoration: none;
 }
 
+html select {
+    border-color: black;
+    color: black;
+}
+
+html.dark select {
+    border-color: white;
+    color: white;
+}
+
 html select option {
     font-family: BlizzardGlobal;
     background-color: white;
@@ -38,6 +48,54 @@ html select option {
 }
 
 html.dark select option {
+    font-family: BlizzardGlobal;
     background-color: black;
+    color: white;
+}
+
+
+html button, 
+html input,
+html textarea {
+    color: black;
+    border-color: black;
+}
+
+html.dark button, 
+html.dark input,
+html.dark textarea {
+    color: white;
+    border-color: white;
+}
+
+html button:hover {
+    background-color: black;
+    border-color: white;
+    color: white;
+}
+
+html.dark button:hover {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+html .upload-input-mask {
+    background-color: black;
+    border-color: white;
+    color: white;
+}
+
+html.dark .upload-input-mask {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+html a {
+    color: black;
+}
+
+html.dark a {
     color: white;
 }

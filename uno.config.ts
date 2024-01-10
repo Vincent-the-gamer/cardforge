@@ -40,17 +40,16 @@ export default defineConfig({
     ],
     shortcuts: [
         { 
-            "button": `bg-transparent color-white border-rd-4px
-            border-1px border-solid border-white hover:bg-white hover:color-black 
-            transition-all-250 hover:cursor-pointer` 
+            "button": `bg-transparent border-rd-4px
+            border-1px border-solid transition-all-250 hover:cursor-pointer` 
         },
         {
-            "select": `bg-transparent color-white border-rd-4px border-1px border-solid 
-            border-white w-90px h-30px font-family-BlizzardGlobal`
+            "select": `bg-transparent border-rd-4px border-1px border-solid
+             w-90px h-30px font-family-BlizzardGlobal`
         },
         {
-            "input-text": `bg-transparent w-200px h-30px border-white border-1px 
-            border-solid border-rd-5px color-white font-family-BlizzardGlobal`
+            "input-text": `bg-transparent w-200px h-30px border-1px 
+            border-solid border-rd-5px font-family-BlizzardGlobal`
         }
     ]
 })
