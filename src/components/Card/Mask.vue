@@ -1,5 +1,5 @@
 <template>
-    <div :class="`${isDark ? 'bg-black' : 'bg-pink'} color-transparent w-100% h-680px translate-y--10px overflow-hidden ${props.cardType}-mask-hole`"></div>
+    <div :class="`${isDark ? 'bg-black' : 'bg-white'} color-transparent w-100% h-680px translate-y--10px overflow-hidden ${props.cardType}-mask-hole`"></div>
 </template>
 
 <script lang="ts" setup>
