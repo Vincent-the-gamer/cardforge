@@ -1,6 +1,7 @@
 <template>
     <div class="position-fixed z-8 w-80% h-80% left-10% top-10%
-    bg-rgba-0-0-0-0.8 box-shadow-0px-0px-18px-deeppink border-rd-9px">
+    box-shadow-0px-0px-18px-deeppink border-rd-9px"
+    :class="`${ isDark ? 'bg-rgba-0-0-0-0.8' : 'bg-rgba-255-255-255-0.8'}`">
         <div class="flex flex-col justify-center items-center">
             <h1>{{ $t("passiveControl") }}</h1>
             <p>{{ $t("passiveDescription") }}</p>
@@ -30,7 +31,7 @@
 
             <p class="position-relative w-60% h-fit">
                 <p class="m-1px" align="center">{{ $t("passiveLog") }}</p>
-                <div class="border-2px border-solid border-white border-rd-5px p-5px max-h-200px 
+                <div class="border-2px border-solid border-rd-5px p-5px max-h-200px 
                 white-space-pre-wrap overflow-auto">
                     <h4 class="m-0">{{ log === "" ? t("passiveNoLog") : log }}</h4>
                 </div>
@@ -48,6 +49,7 @@ import { CardClass, ClassType, KindType, CardType, Rarity, Flag, WaterMark } fro
 import { WebSocketState } from '@/datatypes/websocket';
 import useCardClassMap from '@/hooks/useCardClassMap';
 import { useStore } from '@/store/useStore';
+import { useDark } from '@vueuse/core';
 import { domToPng } from 'modern-screenshot';
 import { watch } from 'vue';
 import { ref } from 'vue';
@@ -56,6 +58,7 @@ import { useI18n } from 'vue-i18n';
 const emitter = defineEmits(["close"])
 
 const { t, locale } = useI18n()
+const isDark = useDark()
 
 const store = useStore()
 const cardClassMap = useCardClassMap()
