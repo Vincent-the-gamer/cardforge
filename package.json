@@ -2,6 +2,10 @@
   "name": "cardforge",
   "description": "HearthStone card DIY Tool.  炉石卡牌制作器",
   "author": "Vincent-the-gamer <https://github.com/Vincent-the-gamer>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vincent-the-gamer/cardforge"
+  },
   "private": true,
   "version": "0.1.2",
   "type": "module",
