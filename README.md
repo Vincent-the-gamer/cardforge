@@ -18,9 +18,8 @@
     <a href="./README_zh.md">中文文档</a>
 </p>
 
-# Notice
-
-This repo is not final, some details will be added in the future.
+> [!NOTE]
+> This repo is in progress, some details will be added in the future.
 
 # Features
 - 💪 Real-time card part switching --- Card is built by tiny parts instead of pre-exported pictures.
