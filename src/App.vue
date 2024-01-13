@@ -13,7 +13,18 @@ import Footer from "@/components/Footer.vue";
 import useCurrentPlatform from "./hooks/useCurrentPlatform";
 import MobileHeader from "./components/MobileHeader.vue";
 import Plum from "./components/Plum.vue";
+import { usePageLeave, useTitle } from "@vueuse/core";
+import { watch } from "vue";
+import { useI18n } from "vue-i18n";
 
 const currentPlatform = useCurrentPlatform()
+const { t } = useI18n()
+
+const title = useTitle()
+
+const isLeft = usePageLeave()
+watch(() => isLeft.value, newVal => {
+  newVal ? title.value = t("dontLeave") : title.value = t("headerTitle")
+})
 
 </script>

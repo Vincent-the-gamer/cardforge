@@ -39,9 +39,10 @@
 
             <!-- WebSocket Connect -->
             <Teleport to="body">
-                <div :class="`w-fit h-fit position-fixed z-5 top-50px right-19px p-4px
-                border-1px border-solid border-rd-5px hover:bg-white hover:color-black
-                hover:cursor-pointer transition-all-200 ${store.websocketState === WebSocketState.Connected ? 'bg-green' : ''}`" @click="showWebSocket = !showWebSocket">
+                <div :class="`ws-button w-fit h-fit position-fixed z-5 top-50px right-19px p-4px
+                border-1px border-solid border-rd-5px hover:cursor-pointer transition-all-200 
+                ${store.websocketState === WebSocketState.Connected ? 'bg-green' : ''}`" 
+                @click="showWebSocket = !showWebSocket">
                     <div class="i-grommet-icons-connect"></div>
                     <span v-if="store.websocketState === WebSocketState.Disconnected">
                         {{ $t("passiveControlShort") }} {{ $t("passiveDisconnected") }}
@@ -50,7 +51,8 @@
                         {{ $t("passiveControlShort") }} {{ $t("passiveConnected") }}
                     </span>
                 </div>
-                <WebSocket v-show="showWebSocket" 
+                <WebSocket ref="wsRef"
+                           v-show="showWebSocket" 
                            @close="showWebSocket = false"/>
             </Teleport>
             <!-- WebSocket Connect End-->
@@ -101,7 +103,15 @@ import WebSocket from '@/components/WebSocket.vue'
 import { WebSocketState } from '@/datatypes/websocket'
 import HeroMenu from '@/components/Menu/HeroMenu.vue'
 import LocationMenu from '@/components/Menu/LocationMenu.vue'
-import { useDark } from '@vueuse/core'
+import { useDark, useMouseInElement } from '@vueuse/core'
+
+// websocket menu hide & show
+const wsRef = ref<HTMLElement | null>(null)
+
+const { isOutside } = useMouseInElement(wsRef)
+watch(() => isOutside.value, newVal => {
+    newVal ? showWebSocket.value = false : showWebSocket.value = true
+})
 
 // store
 const store = useStore();

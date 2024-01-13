@@ -68,13 +68,15 @@ html.dark textarea {
     border-color: white;
 }
 
-html button:hover {
+html button:hover,
+html .ws-button:hover {
     background-color: black;
     border-color: white;
     color: white;
 }
 
-html.dark button:hover {
+html.dark button:hover,
+html.dark .ws-button:hover {
     background-color: white;
     border-color: black;
     color: black;
