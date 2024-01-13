@@ -1,6 +1,5 @@
-<p align="center" style="height: 100px;">
- <img src="./.github/logo/cardforge-logo.png"/>
-</p>
+![cardforge](https://socialify.git.ci/Vincent-the-gamer/cardforge/image?description=1&font=Rokkitt&language=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FVincent-the-gamer%2Fcardforge%2Fmain%2F.github%2Flogo%2Fcardforge-logo.png&name=1&owner=1&pattern=Formal%20Invitation&stargazers=1&theme=Auto)
+
 <h1 align="center">CardForge</h1>
 
 <p align="center">炉石传说卡牌制作器</p>
