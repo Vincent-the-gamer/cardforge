@@ -25,3 +25,7 @@ dist-ssr
 
 # Rust websocket server
 websocket-server/target
+
+# unplugin-auto-import
+auto-imports.d.ts
+components.d.ts

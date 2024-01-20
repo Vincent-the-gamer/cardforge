@@ -49,11 +49,7 @@ import { CardClass, ClassType, KindType, CardType, Rarity, Flag, WaterMark } fro
 import { WebSocketState } from '@/datatypes/websocket';
 import useCardClassMap from '@/hooks/useCardClassMap';
 import { useStore } from '@/store/useStore';
-import { useDark } from '@vueuse/core';
 import { domToPng } from 'modern-screenshot';
-import { watch } from 'vue';
-import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 
 const emitter = defineEmits(["close"])
 

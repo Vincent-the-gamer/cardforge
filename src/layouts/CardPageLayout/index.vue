@@ -87,23 +87,13 @@
 
 <script lang="ts" setup>
 import { domToPng } from 'modern-screenshot'
-import FormLayout from './FormLayout.vue'
-import CardLayout from "./CardLayout.vue"
-import Card from "@/components/Card/Card.vue"
-import MinionMenu from '@/components/Menu/MinionMenu.vue'
-import SpellMenu from "@/components/Menu/SpellMenu.vue"
-import BattlegroundMinionMenu from "@/components/Menu/BattlegroundsMinionMenu.vue"
-import { useStore } from "@/store/useStore"
-import { ref, watch } from 'vue';
-import { CardType, KindType } from '@/datatypes/card'
-import { useI18n } from 'vue-i18n'
-import useCurrentPlatform from "@/hooks/useCurrentPlatform"
-import WeaponMenu from '@/components/Menu/WeaponMenu.vue'
-import WebSocket from '@/components/WebSocket.vue'
-import { WebSocketState } from '@/datatypes/websocket'
-import HeroMenu from '@/components/Menu/HeroMenu.vue'
-import LocationMenu from '@/components/Menu/LocationMenu.vue'
-import { useDark, useMouseInElement } from '@vueuse/core'
+import { useStore } from '@/store/useStore';
+import useCurrentPlatform from '@/hooks/useCurrentPlatform';
+import { CardType, KindType } from '@/datatypes/card';
+import { WebSocketState } from '@/datatypes/websocket';
+import CardLayout from './CardLayout.vue';
+import FormLayout from './FormLayout.vue';
+import BattlegroundMinionMenu from '@/components/Menu/BattlegroundMinionMenu.vue';
 
 // websocket menu hide & show
 const wsRef = ref<HTMLElement | null>(null)

@@ -1,13 +1,33 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
+import AutoImport from "unplugin-auto-import/vite"
+import Components from "unplugin-vue-components/vite"
 
 // vite.config.ts
 export default defineConfig({
   base: "./",
+  optimizeDeps: {
+    include: [
+      'vue',
+      '@vueuse/core',
+    ],
+  },
   plugins: [
     vue(),
-    UnoCSS()
+    UnoCSS(),
+    AutoImport({
+      imports: [
+        "vue",
+        "@vueuse/core",
+        "vue-i18n"
+      ]
+    }),
+    Components({
+      extensions: ['vue', 'md', 'ts', 'json'],
+      dts: true,
+      include: [/\.vue$/, /\.vue\?vue/, /\.json$/, /\.ts$/],
+    })
   ],
   server: {
     host: "localhost",

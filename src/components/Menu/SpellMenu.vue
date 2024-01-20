@@ -118,7 +118,6 @@
 <script lang="ts" setup>
 import { ClassType, KindType, Rarity } from '@/datatypes/card';
 import { useStore } from '@/store/useStore';
-import { ref, watch } from 'vue';
 import useWaterMarkMap from '@/hooks/useWaterMarkMap';
 import useCardClassMap from '@/hooks/useCardClassMap';
 
