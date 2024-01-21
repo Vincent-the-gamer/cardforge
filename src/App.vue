@@ -8,9 +8,10 @@
 
 <script setup lang="ts">
 import CardPageLayout from "@/layouts/CardPageLayout/index.vue"
-import useCurrentPlatform from "./hooks/useCurrentPlatform";
-import { usePageLeave, useTitle } from "@vueuse/core";
-const currentPlatform = useCurrentPlatform()
+import { getCurrentPlatform } from "@vincent-the-gamer/utils";
+
+const currentPlatform = getCurrentPlatform()
+
 const { t } = useI18n()
 
 const title = useTitle()

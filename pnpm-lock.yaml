@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@vincent-the-gamer/utils':
+    specifier: ^0.1.0
+    version: 0.1.0
   '@vueuse/core':
     specifier: ^10.7.2
     version: 10.7.2(vue@3.4.15)
@@ -1215,6 +1218,10 @@ packages:
     transitivePeerDependencies:
       - rollup
     dev: true
+
+  /@vincent-the-gamer/utils@0.1.0:
+    resolution: {integrity: sha512-memb5OnGvp45lNsSnh8f+u9zx0wWf6vnakNN6TT5/8iUXpd9kvtm6yxv7Geiafv9+n0SfiSUyUTPOffUShBFaA==}
+    dev: false
 
   /@vitejs/plugin-vue@5.0.3(vite@5.0.12)(vue@3.4.15):
     resolution: {integrity: sha512-b8S5dVS40rgHdDrw+DQi/xOM9ed+kSRZzfm1T74bMmBDCd8XO87NKlFYInzCtwvtWwXZvo1QxE2OSspTATWrbA==}

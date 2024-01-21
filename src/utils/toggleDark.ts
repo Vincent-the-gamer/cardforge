@@ -1,6 +1,3 @@
-import { useDark } from "@vueuse/core"
-import { nextTick } from "vue"
-
 export default function toggleDark(event: MouseEvent) {
     const isDark = useDark()
 

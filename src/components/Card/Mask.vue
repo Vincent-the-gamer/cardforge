@@ -3,8 +3,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useDark } from '@vueuse/core';
-
 const props = defineProps<{
     cardType: string
 }>()

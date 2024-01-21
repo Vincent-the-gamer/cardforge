@@ -20,8 +20,13 @@ export default defineConfig({
       imports: [
         "vue",
         "@vueuse/core",
-        "vue-i18n"
-      ]
+        "vue-i18n",
+        {
+          from: '@vueuse/core',
+          imports: ['Fn'],
+          type: true,
+        },
+      ],
     }),
     Components({
       extensions: ['vue', 'md', 'ts', 'json'],

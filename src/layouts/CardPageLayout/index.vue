@@ -88,7 +88,7 @@
 <script lang="ts" setup>
 import { domToPng } from 'modern-screenshot'
 import { useStore } from '@/store/useStore';
-import useCurrentPlatform from '@/hooks/useCurrentPlatform';
+import { getCurrentPlatform } from "@vincent-the-gamer/utils";
 import { CardType, KindType } from '@/datatypes/card';
 import { WebSocketState } from '@/datatypes/websocket';
 import CardLayout from './CardLayout.vue';
@@ -116,7 +116,7 @@ const { locale } = useI18n()
 const showWebSocket = ref<boolean>(false)
 
 // 窄视图显示/隐藏菜单
-const currentPlatform = useCurrentPlatform()
+const currentPlatform = getCurrentPlatform()
 const showToggleButton = ref<boolean>(
     currentPlatform === "mobile" ? true : false
 )

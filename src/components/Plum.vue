@@ -1,7 +1,4 @@
 <script setup lang='ts'>
-import { useRafFn, useWindowSize, type Fn } from '@vueuse/core'
-import { ref, reactive, onMounted, computed } from 'vue';
-
 const r180 = Math.PI
 const r90 = Math.PI / 2
 const r15 = Math.PI / 12

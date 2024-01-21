@@ -16,6 +16,7 @@
     "dep": "taze major"
   },
   "dependencies": {
+    "@vincent-the-gamer/utils": "^0.1.0",
     "@vueuse/core": "^10.7.2",
     "modern-screenshot": "^4.4.37",
     "pinia": "^2.1.7",
