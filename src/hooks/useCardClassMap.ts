@@ -1,6 +1,4 @@
 import { CardClass } from "@/datatypes/card"
-import { ComputedRef, computed } from "vue"
-import { useI18n } from "vue-i18n"
 
 export default function useCardClassMap() {
     const { t } = useI18n()

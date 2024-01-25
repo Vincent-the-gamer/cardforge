@@ -21,7 +21,6 @@
  * 卡面图片
  */
 import { useStore } from '@/store/useStore';
-import { reactive } from 'vue';
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
 // 需引入默认样式
 import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'

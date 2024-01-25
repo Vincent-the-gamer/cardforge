@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@vincent-the-gamer/utils':
-    specifier: ^0.1.0
-    version: 0.1.0
+    specifier: ^0.1.5
+    version: 0.1.5
   '@vueuse/core':
     specifier: ^10.7.2
     version: 10.7.2(vue@3.4.15)
@@ -44,8 +44,8 @@ devDependencies:
     specifier: ^0.58.3
     version: 0.58.3(postcss@8.4.33)(vite@5.0.12)
   unplugin-auto-import:
-    specifier: ^0.17.3
-    version: 0.17.3(@vueuse/core@10.7.2)
+    specifier: ^0.17.4
+    version: 0.17.4(@vueuse/core@10.7.2)
   unplugin-vue-components:
     specifier: ^0.26.0
     version: 0.26.0(vue@3.4.15)
@@ -1219,8 +1219,10 @@ packages:
       - rollup
     dev: true
 
-  /@vincent-the-gamer/utils@0.1.0:
-    resolution: {integrity: sha512-memb5OnGvp45lNsSnh8f+u9zx0wWf6vnakNN6TT5/8iUXpd9kvtm6yxv7Geiafv9+n0SfiSUyUTPOffUShBFaA==}
+  /@vincent-the-gamer/utils@0.1.5:
+    resolution: {integrity: sha512-6LQNnBqfbB3TAFUVxy5/5wH0EfTSxdoS9v0X25DScIvMmFIlc8Rg2/4bdZ6OpRZjYfapYXQE3qUsEvjXo3n+uQ==}
+    dependencies:
+      aes-js: 3.1.2
     dev: false
 
   /@vitejs/plugin-vue@5.0.3(vite@5.0.12)(vue@3.4.15):
@@ -1394,6 +1396,10 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
+
+  /aes-js@3.1.2:
+    resolution: {integrity: sha512-e5pEa2kBnBOgR4Y/p20pskXI74UEz7de8ZGVo58asOtvSVG5YAbJeELPZxOmt+Bnz3rX753YKhfIn4X4l1PPRQ==}
+    dev: false
 
   /agent-base@7.1.0:
     resolution: {integrity: sha512-o/zjMZRhJxny7OyEF+Op8X+efiELC7k7yOjMzgfzVqOzXqkBkWI79YoTdOtsuWd5BWhAGAuOY/Xa6xpiaWXiNg==}
@@ -3059,8 +3065,8 @@ packages:
       - supports-color
     dev: true
 
-  /unplugin-auto-import@0.17.3(@vueuse/core@10.7.2):
-    resolution: {integrity: sha512-0cn0wr8X579TtdZKUAps0dDVrYzttx38ImdxZjmCeNlMDJX8UuSjO83vFqgS4ClNDIGWAute+xl9j5vRSX+vsw==}
+  /unplugin-auto-import@0.17.4(@vueuse/core@10.7.2):
+    resolution: {integrity: sha512-sInr7+UOeFMtiRCr7lYZXouTnVqXNUJtN5yN5GDzg6Sr2rwY5ZWZmqf4yvItYCm8mq1PdzPw3oojYHgZAJnTRQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@nuxt/kit': ^3.2.2

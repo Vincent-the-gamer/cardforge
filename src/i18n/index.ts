@@ -24,7 +24,7 @@ const messages = {
 }
 
 const i18n = createI18n({
-    locale: "zh",
+    locale: "en",
     legacy: false, // 如果要支持Composition API，此项必须false
     globalInjection: true, // 全局注册$t方法
     messages
