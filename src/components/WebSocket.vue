@@ -45,10 +45,6 @@
 </template>
 
 <script setup lang="ts">
-import { CardClass, ClassType, KindType, CardType, Rarity, Flag, WaterMark } from '@/datatypes/card';
-import { WebSocketState } from '@/datatypes/websocket';
-import useCardClassMap from '@/hooks/useCardClassMap';
-import { useStore } from '@/store/useStore';
 import { domToPng } from 'modern-screenshot';
 
 const emitter = defineEmits(["close"])

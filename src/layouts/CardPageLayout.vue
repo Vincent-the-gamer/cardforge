@@ -87,13 +87,9 @@
 
 <script lang="ts" setup>
 import { domToPng } from 'modern-screenshot'
-import { useStore } from '@/store/useStore';
 import { getCurrentPlatform } from "@vincent-the-gamer/utils";
-import { CardType, KindType } from '@/datatypes/card';
-import { WebSocketState } from '@/datatypes/websocket';
 import CardLayout from './CardLayout.vue';
 import FormLayout from './FormLayout.vue';
-import BattlegroundMinionMenu from '@/components/Menu/BattlegroundMinionMenu.vue';
 
 // websocket menu hide & show
 const wsRef = ref<HTMLElement | null>(null)

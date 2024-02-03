@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-import CardPageLayout from "@/layouts/CardPageLayout/index.vue"
 import { getCurrentPlatform } from "@vincent-the-gamer/utils";
+import CardPageLayout from "./layouts/CardPageLayout.vue";
 
 const currentPlatform = getCurrentPlatform()
 

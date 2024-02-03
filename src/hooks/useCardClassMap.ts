@@ -1,5 +1,3 @@
-import { CardClass } from "@/datatypes/card"
-
 export default function useCardClassMap() {
     const { t } = useI18n()
     // card class map 卡牌类型和名称映射

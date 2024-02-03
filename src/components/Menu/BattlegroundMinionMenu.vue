@@ -131,14 +131,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useStore } from "@/store/useStore"
-import { ClassType, KindType, Rarity } from "@/datatypes/card"
-import useWaterMarkMap from "@/hooks/useWaterMarkMap";
-import useCardClassMap from "@/hooks/useCardClassMap"
-
 // store
 const store = useStore()
-
 
 // card class map 卡牌类型和名称映射
 const cardClassMap = useCardClassMap()

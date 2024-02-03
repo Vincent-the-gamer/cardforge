@@ -10,14 +10,5 @@
 </template>
 
 <script lang="ts" setup>
-import { CardType } from '@/datatypes/card';
-import { useStore } from '@/store/useStore';
-import Minion from '@/components/Card/Minion.vue';
-import Spell from '@/components/Card/Spell.vue';
-import Weapon from '@/components/Card/Weapon.vue';
-import BattlegroundsMinion from '@/components/Card/BattlegroundsMinion.vue';
-import Hero from '@/components/Card/Hero.vue';
-import Location from '@/components/Card/Location.vue';
-
 const store = useStore()
 </script>

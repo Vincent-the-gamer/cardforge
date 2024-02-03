@@ -27,11 +27,16 @@ export default defineConfig({
           type: true,
         },
       ],
+      dts: true,
+      dirs: [
+        "./src/hooks",
+        "./src/datatypes",
+        "./src/store"
+      ],
+      vueTemplate: true
     }),
     Components({
-      extensions: ['vue', 'md', 'ts', 'json'],
       dts: true,
-      include: [/\.vue$/, /\.vue\?vue/, /\.json$/, /\.ts$/],
     })
   ],
   server: {

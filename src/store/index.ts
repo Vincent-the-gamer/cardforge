@@ -1,14 +1,4 @@
 import { defineStore } from "pinia";
-import { 
-    CardType, 
-    Rarity, 
-    Flag, 
-    CardClass, 
-    ClassType, 
-    KindType, 
-    WaterMark 
-} from "@/datatypes/card"
-import { WebSocketState } from "@/datatypes/websocket";
 
 export const useStore = defineStore("card", {
     state: () => {

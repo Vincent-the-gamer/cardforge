@@ -129,16 +129,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ClassType, KindType, CardType, Rarity, Flag, WaterMark } from '@/datatypes/card';
-import CardFace from '@/components/CardFace.vue';
-import Number from '@/components/Number.vue';
-import { useStore } from '@/store/useStore';
-import { computed } from 'vue';
-import Mask from './Mask.vue';
-import useStyledDescription from "@/hooks/useStyledDescription"
-import Watermark from './Watermark.vue';
-import { useI18n } from 'vue-i18n';
-
 const store = useStore()
 
 const { locale } = useI18n()

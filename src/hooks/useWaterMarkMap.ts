@@ -1,5 +1,3 @@
-import { WaterMark } from "@/datatypes/card";
-
 export default function useWaterMarkMap() {
     const { t } = useI18n()
     // watermark map 水印类型和名称映射
