@@ -1,5 +1,5 @@
 <template>
-    <div id="card" class="position-relative flex justify-center w-100% h-100% z-2">
+    <div id="card" relative flex="~ justify-center" w-full h-full z-2>
        <Minion v-if="store.cardType === CardType.Minion"/>
        <Spell v-else-if="store.cardType === CardType.Spell"/>
        <Weapon v-else-if="store.cardType === CardType.Weapon"/>
@@ -12,3 +12,10 @@
 <script lang="ts" setup>
 const store = useStore()
 </script>
+
+<style lang="css" scoped>
+#card {
+    transform: translateY(-17px);
+}
+
+</style>

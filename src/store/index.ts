@@ -52,7 +52,9 @@ export const useStore = defineStore("card", {
             // Websocket连接状态
             websocketState: WebSocketState.Disconnected,
             // 卡面图片Url
-            cardFaceUrl: "" as string
+            cardFaceUrl: "" as string,
+            // 导出的文件名
+            exportFileName: "" as string
         }
     },
     actions: {

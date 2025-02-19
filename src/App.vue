@@ -2,7 +2,7 @@
   <Header v-if="currentPlatform !== 'mobile'"/>
   <MobileHeader v-else/>
   <CardPageLayout/>
-  <Footer v-if="currentPlatform !== 'mobile'" :is-alpha="true"/>
+  <Footer v-if="currentPlatform !== 'mobile'"/>
   <Plum/>
 </template>
 

@@ -68,5 +68,6 @@
     "durability": "Durability",
     "heroAttackHint": "Hero card will hide attack logo while attack is 0.",
     "download": "Download",
-    "dontLeave": "Please don't leave. ヽ(。>д<)ｐ"
+    "dontLeave": "Please don't leave. ヽ(。>д<)ｐ",
+    "fileName": "File Name"
 }

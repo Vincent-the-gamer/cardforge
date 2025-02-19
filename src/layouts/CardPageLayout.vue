@@ -65,6 +65,10 @@
                     <input type="checkbox" v-model="store.lockAspectRatio"
                         class="w-20px h-20px"/>
                 </p>
+                <div flex="~ justify-center" mb-2>
+                    <span>{{ $t("fileName") }}:</span>
+                    <input type="text" v-model="store.exportFileName" m-inline-1 border="1px rd-1"/>
+                </div>
                 <input type="file"
                     @mouseenter="() => mask = `cursor-pointer upload-input-mask`"
                     @mouseleave="() => mask = ''"
@@ -158,7 +162,7 @@ function generateImage(){
     domToPng(card).then(dataUrl => {
         const link = document.createElement("a")
         link.href = dataUrl
-        link.download = "MyCard.png"
+        link.download = store.exportFileName || "MyCard"
         link.click()
         // 关闭遮罩
         store.setShowMask(false)
