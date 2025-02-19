@@ -6,7 +6,7 @@ import Components from "unplugin-vue-components/vite"
 
 // vite.config.ts
 export default defineConfig({
-  base: "./",
+  base: "/",
   optimizeDeps: {
     include: [
       'vue',
