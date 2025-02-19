@@ -4,7 +4,7 @@
 
 <p align="center">炉石传说卡牌制作器</p>
 
-<p align="center" style="font-style: italic;">内测版本: V0.1.4</p>
+<p align="center" style="font-style: italic;">版本: V1.0.0</p>
 
 <p align="center">
     <a href="https://github.com/vincent-the-gamer/cardforge/blob/main/LICENSE" target="_blank">
