@@ -146,7 +146,7 @@
     <!-- 卡面图片 -->
     <CardFace v-if="store.cardFaceUrl" :url="store.cardFaceUrl"/>
     <!-- 遮罩 -->
-    <Mask class="position-absolute z--2"
+    <Mask absolute z--2
           :card-type="CardType.Hero"
           v-show="store.cardType === CardType.Hero && store.showMask"/>
 </template>

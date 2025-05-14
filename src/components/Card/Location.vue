@@ -115,7 +115,7 @@
     <!-- 遮罩 -->
     <Mask position-absolute z--2
           :card-type="CardType.Location"
-          v-show="true || store.cardType === CardType.Location && store.showMask"/>
+          v-show="store.cardType === CardType.Location && store.showMask"/>
 </template>
 
 <script lang="ts" setup>
