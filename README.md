@@ -26,7 +26,7 @@
 - 🌏 i18n --- multi-language support.
 - 👀 Keep Newest --- Sync with latest version of HearthStone game.
 - 😁 High Similarity --- try my best to make the cards look like those in game.
-- **PWA**(Progress Web Application) --- Support offline use on desktop/mobile devices.
+- **PWA**(Progressive Web Application) --- Support offline use on desktop/mobile devices.
 
 # Play
 
