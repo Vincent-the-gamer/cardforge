@@ -26,7 +26,7 @@
 - 🌏 i18n --- multi-language support.
 - 👀 Keep Newest --- Sync with latest version of HearthStone game.
 - 😁 High Similarity --- try my best to make the cards look like those in game.
-- PWA(Progress Web Application) --- Support offline use on desktop/mobile devices.
+- **PWA**(Progress Web Application) --- Support offline use on desktop/mobile devices.
 
 # Play
 
@@ -38,6 +38,8 @@ Play it online at：
 ## PWA
 
 This page supports PWA download now! you can download it to your PC or mobile devices!
+
+![pwa](.github/pwa.png)
 
 # Changelog
 
