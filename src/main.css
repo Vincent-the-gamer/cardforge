@@ -27,16 +27,11 @@ html.dark{
     color: white;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
 html select {
-    border-color: black;
-    color: black;
-}
-
-html.dark select {
     border-color: white;
     color: white;
 }
@@ -57,8 +52,8 @@ html.dark select option {
 html button, 
 html input,
 html textarea {
-    color: black;
-    border-color: black;
+    color: white;
+    border-color: white;
 }
 
 html.dark button, 

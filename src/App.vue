@@ -1,16 +1,18 @@
 <template>
-  <Header v-if="currentPlatform !== 'mobile'"/>
-  <MobileHeader v-else/>
-  <CardPageLayout/>
-  <Footer v-if="currentPlatform !== 'mobile'"/>
+  <MobileHeader v-if="mobile"/>
+  <Header v-else/>
+  <CardPageLayout v-if="!mobile"/>
+  <MobileCardPageLayout v-else/>
+  <Footer />
   <Plum/>
 </template>
 
 <script setup lang="ts">
-import { getCurrentPlatform } from "@vincent-the-gamer/utils";
 import CardPageLayout from "./layouts/CardPageLayout.vue";
+import MobileCardPageLayout from "./layouts/MobileCardPageLayout.vue";
+import { isMobile } from "./utils/isMobile";
 
-const currentPlatform = getCurrentPlatform()
+const mobile: boolean = isMobile()
 
 const { t } = useI18n()
 

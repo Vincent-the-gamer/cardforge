@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
+import { VitePWA } from "vite-plugin-pwa"
 
 // vite.config.ts
 export default defineConfig({
@@ -37,6 +38,48 @@ export default defineConfig({
     }),
     Components({
       dts: true,
+    }),
+    VitePWA({
+      registerType: "autoUpdate",
+      injectRegister: "auto",
+      devOptions: {
+        enabled: true,
+      },
+      manifest: {
+        "name": "CardForge",
+        "short_name": "CardForge",
+        "icons": [
+          {
+            "src": "/pwa-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/pwa-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/pwa-maskable-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+          },
+          {
+            "src": "/pwa-maskable-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+          }
+        ],
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#FFFFFF",
+        "theme_color": "#FFFFFF",
+        "description": "A HearthStone card maker."
+      }
     })
   ],
   server: {

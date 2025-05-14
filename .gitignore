@@ -29,3 +29,6 @@ websocket-server/target
 # unplugin-auto-import
 auto-imports.d.ts
 components.d.ts
+
+# Vite PWA
+dev-dist

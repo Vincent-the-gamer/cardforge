@@ -1,5 +1,5 @@
 <template>
-    <div id="card" relative flex="~ justify-center" w-full h-full z-2>
+    <div id="card" relative flex="~ justify-center" w-75vw h-75vh z-2>
        <Minion v-if="store.cardType === CardType.Minion"/>
        <Spell v-else-if="store.cardType === CardType.Spell"/>
        <Weapon v-else-if="store.cardType === CardType.Weapon"/>

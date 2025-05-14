@@ -54,7 +54,7 @@
         
         <!-- 橙卡龙框 -->
         <img src="@/assets/materials/weapon/weapon-dragon.png"
-            class="position-absolute top-28.5px translate-x-51px z-6 pointer-events-none"
+            class="position-absolute top-32px translate-x-51px z-6 pointer-events-none"
             v-if="store.rarity === Rarity.Legandary"/>
     </template>
 
@@ -123,7 +123,7 @@
     <!-- 卡面图片 -->
     <CardFace v-if="store.cardFaceUrl" :url="store.cardFaceUrl"/>
     <!-- 遮罩 -->
-    <Mask class="position-absolute z--2"
+    <Mask absolute z--2
           :card-type="CardType.Weapon"
           v-show="store.cardType === CardType.Weapon && store.showMask"/>
 </template>

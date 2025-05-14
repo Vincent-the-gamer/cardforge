@@ -113,9 +113,9 @@
     <!-- 卡面图片 -->
     <CardFace v-if="store.cardFaceUrl" :url="store.cardFaceUrl"/>
     <!-- 遮罩 -->
-    <Mask class="position-absolute z--2"
+    <Mask position-absolute z--2
           :card-type="CardType.Location"
-          v-show="store.cardType === CardType.Location && store.showMask"/>
+          v-show="true || store.cardType === CardType.Location && store.showMask"/>
 </template>
 
 <script lang="ts" setup>

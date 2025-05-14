@@ -1,14 +1,14 @@
 import { 
     defineConfig,
-    presetUno, 
     presetAttributify,
-    presetIcons
+    presetIcons,
+    presetWind3
 } from 'unocss'
 
 // uno.config.ts
 export default defineConfig({
     presets: [
-        presetUno(),
+        presetWind3(),
         presetAttributify(),
         presetIcons({
             extraProperties: {

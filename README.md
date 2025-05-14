@@ -26,81 +26,18 @@
 - 🌏 i18n --- multi-language support.
 - 👀 Keep Newest --- Sync with latest version of HearthStone game.
 - 😁 High Similarity --- try my best to make the cards look like those in game.
-- 🆒 [Passive Control](#passive-control) --- call websocket server to control your web page, then get your picture^_^.
-
-## Feature Details
-### Passive Control 
-Server required. Download it in [v0.0.6 Alpha Release](https://github.com/Vincent-the-gamer/cardforge/releases/tag/v0.0.6-alpha).
-
-#### How to use `Passive Control Server`
-- [Download](https://github.com/Vincent-the-gamer/cardforge/releases/tag/v0.0.6-alpha).
-
-- Run!
-  ```shell
-  # Run at default port 8081
-  ./cardforge-passive-server
-  cardforge-passive-server.exe
-
-  # Run at custom port
-  ./cardforge-passive-server 9000
-  cardforge-passive-server.exe 9000
-  ```
-
-#### Demo
-Send JSON message to websocket server to control your webpage. (Please do not close your webpage.)
-
-🚧 Warning: 🚧
-the card face picture will have a fixed position and size in `Passive Control Mode` , so please
-adjust picture yourselves. 
-
-Using this data structure to control the page.
-
-PS: you shouldn't bring the comments while sending message to server.(JSON doesn't allow comments).
-
-```js
-{
-    "language": "en",
-    "cardType": "spell",
-    "classType": "dual",
-    "cardClass": "mage",    // Only work while classType === "single"
-    "leftClass": "warrior", // Only work while classType === "dual"
-    "rightClass": "hunter", // Only work while classType === "dual"
-    "rarity": "rare",
-    "name": "Test",
-    "kindType": "dual",
-    "cardKind": "kind",  // Only work while cardKind === "single"
-    "upKind": "kind1",   // Only work while cardKind === "dual"
-    "downKind": "kind2", // Only work while cardKind === "dual"
-    "description": "**Battlecry**: Testing.",
-    "watermark": "year-of-the-wolf",
-    "desFontSize": 20,
-    "cost": 3,
-    "vitality": 3, // Work in Minion, Battleground Minion, Hero(armor), Weapon(durability), Location(durability)
-    "armor": 3,  // Alias of vitality on Hero Cards
-    "durability": 3, // Alias of vitality on Weapon Cards/Location Cards
-    "cardFaceUrl": "https://image-static.segmentfault.com/596/308/596308474-6389c86c5126c_cover" // web picture is available.
-}
-```
-
-![passive-control-demo](./.github/passive-control-demo.gif)
-
-#### Interact with Koishi Plugin
-
-What is Koishi? A bot framework for multiple chatting platforms. 
-
-Link: [Koishi.js](https://koishi.chat/zh-CN/)
-
-Use `Passive Control Server` above for implementation.
-
-![cardforge-koishi](./.github/cardforge-koishi.png)
-
-Plugin is coming soon.
+- PWA(Progress Web Application) --- Support offline use on desktop/mobile devices.
 
 # Play
 
-Play it at：
+## Online
+Play it online at：
 
 [https://vincent-the-gamer.github.io/cardforge-live-page/](https://vincent-the-gamer.github.io/cardforge-live-page/)
+
+## PWA
+
+This page supports PWA download now! you can download it to your PC or mobile devices!
 
 # Changelog
 

@@ -1,6 +1,6 @@
 <template>
-    <footer class="position-fixed bottom-0 left-0 w-100% h-30px z-10 bg-rgba-156-156-156-0.5 
-            font-family-GBJenLei flex justify-center">
+    <footer fixed bottom-0 left-0 w-full h-30px z-10 bg-rgba-156-156-156-0.5 
+            font-family-GBJenLei flex="~ justify-center" >
         <h4 class="position-absolute top--16px font-light">
             @2023-present
             <a href="https://github.com/vincent-the-gamer" target="_blank"
