@@ -39,10 +39,9 @@
            
         </FormLayout>
     
-        <CardLayout class="card-layout flex justify-center items-center flex-col h-100% w-500px overflow-hidden"
-            :class="mobile ? 'left-17% translate-y-60px flex-1' : ''">
+        <CardLayout :class="mobile ? 'left-17% translate-y-60px flex-1' : ''">
 
-            <Card :class="`position-absolute h-655px translate-y-10px`"/>
+            <Card />
             <!-- 操作菜单 -->
             <div fixed h-fit p-3 right-15 top-15 bg-rgba-0-0-0-0.6 z-2 color-white v-if="showActionMenu">
                 <p align="center" :class="`m-5px color-yellow ${locale === 'en' && 'font-size-12px'}`">{{ $t("cardHint") }}</p>

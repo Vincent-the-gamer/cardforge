@@ -1,5 +1,5 @@
 <template>
-    <div id="card" relative flex="~ justify-center" w-80vw h-100vh z-2>
+    <div id="card">
        <Minion v-if="store.cardType === CardType.Minion"/>
        <Spell v-else-if="store.cardType === CardType.Spell"/>
        <Weapon v-else-if="store.cardType === CardType.Weapon"/>
@@ -15,7 +15,13 @@ const store = useStore()
 
 <style lang="css" scoped>
 #card {
-    transform: translateY(28px);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 550px;
+    height: 100vh;
+    z-index: 2;
+    transform: translateY(10px) scale(0.9);
 }
 
 </style>

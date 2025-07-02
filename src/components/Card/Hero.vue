@@ -148,7 +148,7 @@
     <!-- 遮罩 -->
     <Mask absolute z--2
           :card-type="CardType.Hero"
-          v-show="store.cardType === CardType.Hero && store.showMask"/>
+          v-show="true || store.cardType === CardType.Hero && store.showMask"/>
 </template>
 
 <script lang="ts" setup>
