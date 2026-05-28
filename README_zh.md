@@ -4,8 +4,6 @@
 
 <p align="center">炉石传说卡牌制作器</p>
 
-<p align="center" style="font-style: italic;">版本: V1.0.0</p>
-
 <p align="center">
     <a href="https://github.com/vincent-the-gamer/cardforge/blob/main/LICENSE" target="_blank">
         <img src="https://img.shields.io/github/license/vincent-the-gamer/cardforge?style=flat-square"/>
@@ -18,10 +16,8 @@
     <span>中文文档</span>
 </p>
 
-> [!NOTE]
-> 这个仓库的内容尚未完成，还有很多细节没有添加。
-
 # 特性
+
 - 💪 实时卡牌部件切换 --- 不使用预导出的完整卡牌框架，而将部件拆分并使用菜单实时切换。
 - 🌏 i18n（国际化） --- 多语言支持。
 - 👀 保持最新 --- 和最新版炉石传说内容保持同步。
@@ -44,11 +40,12 @@
 
 # 版本修改日志
 
-查看日志:  [版本修改日志](./CHANGELOG.md)
+查看日志: [版本修改日志](./CHANGELOG.md)
 
 # 预览
 
 ## UI
+
 `i18n` 多语言已支持!!
 
 英语:
@@ -59,35 +56,41 @@
 ![preview-cn](./.github/preview-cn.png)
 
 ## 随从
-| 中文 | 英语 |
-|  -      |   -     | 
-|  ![minion-zh](./.github/cards/minion-zh.png)        |  ![minion-en](./.github/cards/minion-en.png)        |
+
+| 中文                                        | 英语                                        |
+| ------------------------------------------- | ------------------------------------------- |
+| ![minion-zh](./.github/cards/minion-zh.png) | ![minion-en](./.github/cards/minion-en.png) |
 
 ## 法术
-| 中文 | 英语 |
-|  -      |   -     | 
-|  ![spell-zh](./.github/cards/spell-zh.png)        |  ![spell-en](./.github/cards/spell-en.png)        |
+
+| 中文                                      | 英语                                      |
+| ----------------------------------------- | ----------------------------------------- |
+| ![spell-zh](./.github/cards/spell-zh.png) | ![spell-en](./.github/cards/spell-en.png) |
 
 ## 武器
-| 中文 | 英语 |
-|  -      |   -     | 
-|  ![weapon-zh](./.github/cards/weapon-zh.png)       |   ![weapon-en](./.github/cards/weapon-en.png)  |
 
+| 中文                                        | 英语                                        |
+| ------------------------------------------- | ------------------------------------------- |
+| ![weapon-zh](./.github/cards/weapon-zh.png) | ![weapon-en](./.github/cards/weapon-en.png) |
 
 ## 酒馆战棋随从
-| 中文 | 英语 |
-|  -      |   -     | 
-|  ![battlegrounds-zh](./.github/cards/battlegrounds-zh.png)       |   ![battlegrounds-en](./.github/cards/battlegrounds-en.png)  |
+
+| 中文                                                      | 英语                                                      |
+| --------------------------------------------------------- | --------------------------------------------------------- |
+| ![battlegrounds-zh](./.github/cards/battlegrounds-zh.png) | ![battlegrounds-en](./.github/cards/battlegrounds-en.png) |
 
 ## 英雄
-| 中文 | 英语 |
-|  -      |   -     | 
-|  ![hero-zh](./.github/cards/hero-zh.png)       |   ![hero-en](./.github/cards/hero-en.png)  |
+
+| 中文                                    | 英语                                    |
+| --------------------------------------- | --------------------------------------- |
+| ![hero-zh](./.github/cards/hero-zh.png) | ![hero-en](./.github/cards/hero-en.png) |
 
 ## 地标
-| 中文 | 英语 |
-|  -      |   -     | 
-|  ![hero-zh](./.github/cards/location-zh.png)       |   ![hero-en](./.github/cards/location-en.png)  |
+
+| 中文                                        | 英语                                        |
+| ------------------------------------------- | ------------------------------------------- |
+| ![hero-zh](./.github/cards/location-zh.png) | ![hero-en](./.github/cards/location-en.png) |
 
 # 开源许可
+
 [MIT](./LICENSE)
