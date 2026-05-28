@@ -23,11 +23,12 @@
             border-solid
             border-black
             color-black
-            border-rd-6px
+            border-rd-8px
             hover:bg-black
             hover:color-white
             hover:cursor-pointer
-            transition-all-250
+            hover:shadow-md
+            transition-all-300
             v-show="showToggleButton"
             @click="showFormLayout = !showFormLayout"
         >
@@ -48,9 +49,15 @@
             hover:bg-black
             hover:color-white
             hover:cursor-pointer
-            border="black rd-2 solid 1px"
-            transition-all-250
+            hover:shadow-md
+            border="black rd-8 solid 1px"
+            transition-all-300
             @click="showActionMenu = !showActionMenu"
+            :class="
+                showActionMenu
+                    ? 'bg-black! color-white! dark:bg-white! dark:color-black!'
+                    : ''
+            "
         >
             <div i-grommet-icons-apps-rounded relative w-full h-full />
         </button>
@@ -65,11 +72,11 @@
             w-400px
             flex="~ col justify-center items-center"
             w-fit
-            class="form-layout backdrop-blur-12px border-rd-10px border-1px border-solid border-white/10 shadow-lg"
+            class="form-panel backdrop-blur-16px border-rd-12px border-1px border-solid border-white/10"
             :class="
                 isDark
-                    ? 'bg-[#1a1a2e]/70 color-white'
-                    : 'bg-[#0f0f23]/80 color-white'
+                    ? 'bg-[#1a1a2e]/65 color-white shadow-[0_8px_40px_rgba(0,0,0,0.4)]'
+                    : 'bg-[#0f0f23]/75 color-white shadow-[0_8px_40px_rgba(0,0,0,0.3)]'
             "
         >
             <div class="h-100%">
@@ -119,17 +126,17 @@
             <div
                 fixed
                 h-fit
-                p-4
+                p-5
                 right-15
                 top-15
-                bg="[#0f0f23]/90"
-                backdrop-blur-8px
+                backdrop-blur-16px
                 border="1px solid white/10"
-                border-rd-10px
-                shadow="0 8px 32px rgba(0,0,0,0.5)"
+                border-rd-12px
+                shadow="0 8px 40px rgba(0,0,0,0.45)"
                 z-2
                 color-white
                 v-if="showActionMenu"
+                :class="isDark ? 'bg-[#0f0f23]/88' : 'bg-[#0f0f23]/88'"
             >
                 <p
                     align="center"
@@ -275,10 +282,13 @@ watch(
 </script>
 
 <style scoped>
+/* 页面容器不显示滚动条 */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
 .hide-scrollbar {
-    ::-webkit-scrollbar {
-        display: none;
-    }
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .toggle-menu {
@@ -287,7 +297,7 @@ watch(
     left: 20px;
 }
 
-.form-layout {
+.form-panel {
     position: fixed;
     top: 50px;
     left: 60px;

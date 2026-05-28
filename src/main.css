@@ -24,11 +24,28 @@ html {
     background-color: white;
     color: black;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html.dark {
     background-color: black;
     color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global scrollbar hiding for any scrollable containers */
+.hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
 a {
