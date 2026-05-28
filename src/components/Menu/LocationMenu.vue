@@ -1,51 +1,84 @@
 <template>
     <!-- 地标菜单 -->
-    <div class="flex justify-center items-center flex-col">
-        <p class="m-b-2px">
-            <span>{{ $t("classType") }}: </span>
-            <input type="radio" name="class-type" v-model="store.classType" :value="ClassType.Single"/><span>{{ $t("singleClass") }}</span>
-            <input type="radio" name="class-type" v-model="store.classType" :value="ClassType.Dual"/><span>{{ $t("dualClasses")}}</span>
+    <div class="flex flex-col gap-3 w-340px px-2">
+        <p class="flex items-center gap-2 m-0 text-sm">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("classType")
+            }}</span>
+            <label class="flex items-center gap-1 cursor-pointer">
+                <input
+                    type="radio"
+                    name="class-type"
+                    v-model="store.classType"
+                    :value="ClassType.Single"
+                />
+                <span>{{ $t("singleClass") }}</span>
+            </label>
+            <label class="flex items-center gap-1 cursor-pointer">
+                <input
+                    type="radio"
+                    name="class-type"
+                    v-model="store.classType"
+                    :value="ClassType.Dual"
+                />
+                <span>{{ $t("dualClasses") }}</span>
+            </label>
         </p>
-        <!-- 单职业卡底 -->
-        <p class="m-b-2px" v-if="store.classType === ClassType.Single">
-            <span>{{ $t("class") }}: </span>
+        <p
+            class="flex items-center gap-2 m-0 text-sm"
+            v-if="store.classType === ClassType.Single"
+        >
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("class")
+            }}</span>
             <select class="select" v-model="store.cardClass">
-                <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key">
+                <option
+                    v-for="[key, value] of Object.entries(cardClassMap)"
+                    :value="key"
+                    :key="key"
+                >
                     {{ value.value }}
                 </option>
             </select>
         </p>
-        <!-- 双职业卡底 -->
-        <template v-else>
-            <p class="m-b-2px">
-                <span>{{ $t("leftClass") }}: </span>
-                <select class="select m-r-7px" v-model="store.dualCardClass.left">
-                    <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key">
-                        {{ value.value }}
-                    </option>
-                </select>
-                <span>{{ $t("rightClass") }}: </span>
-                <select class="select" v-model="store.dualCardClass.right">
-                    <option v-for="[key, value] of Object.entries(cardClassMap)" :value="key" :key="key">
-                        {{ value.value }}
-                    </option>
-                </select>
-            </p>
-        </template>
-
-        <!-- 旗帜 -->
-        <p class="m-b-2px">
-            <span>{{ $t("flag") }}: </span>
-            <select class="select" v-model="store.flag">
-                <option :value="Flag.None">{{ $t("none") }}</option>
-                <option :value="Flag.Tradeable">{{  $t("tradeable") }}</option>
-                <option :value="Flag.Forge">{{  $t("forge") }}</option>
+        <p v-else class="flex items-center gap-2 m-0 text-sm flex-wrap">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("leftClass")
+            }}</span>
+            <select class="select w-90px" v-model="store.dualCardClass.left">
+                <option
+                    v-for="[key, value] of Object.entries(cardClassMap)"
+                    :value="key"
+                    :key="key"
+                >
+                    {{ value.value }}
+                </option>
+            </select>
+            <span class="opacity-70">{{ $t("rightClass") }}</span>
+            <select class="select w-90px" v-model="store.dualCardClass.right">
+                <option
+                    v-for="[key, value] of Object.entries(cardClassMap)"
+                    :value="key"
+                    :key="key"
+                >
+                    {{ value.value }}
+                </option>
             </select>
         </p>
-        
-        <!-- 稀有度 -->
-        <p class="m-b-2px">
-            <span>{{ $t("rarity") }}: </span>
+        <p class="flex items-center gap-2 m-0 text-sm">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("flag")
+            }}</span>
+            <select class="select" v-model="store.flag">
+                <option :value="Flag.None">{{ $t("none") }}</option>
+                <option :value="Flag.Tradeable">{{ $t("tradeable") }}</option>
+                <option :value="Flag.Forge">{{ $t("forge") }}</option>
+            </select>
+        </p>
+        <p class="flex items-center gap-2 m-0 text-sm">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("rarity")
+            }}</span>
             <select class="select" v-model="store.rarity">
                 <option :value="Rarity.None">{{ $t("none") }}</option>
                 <option :value="Rarity.Common">{{ $t("common") }}</option>
@@ -54,67 +87,91 @@
                 <option :value="Rarity.Legandary">{{ $t("legendary") }}</option>
             </select>
         </p>
-        <p class="m-b-2px">
-            <span>{{ $t("name") }}: </span>
-            <input type="text" class="input-text"
-                    v-model="store.name"/>
+        <p class="flex items-center gap-2 m-0 text-sm">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("name")
+            }}</span>
+            <input type="text" class="input-text flex-1" v-model="store.name" />
         </p>
-        
-        <!-- 地标描述 -->
-        <p class="m-b-1px flex justify-center">
-            <span>{{ $t("description") }}: </span>
-            <textarea class="input-text w-300px h-100px resize-none m-l-5px"
-                        v-model="description"></textarea>
-        </p>
-        
-        <p class="w-fit h-fit m-b-1px font-size-13px color-yellow">
+        <div class="flex gap-2 m-0">
+            <span class="w-70px text-right shrink-0 opacity-70 text-sm pt-2">{{
+                $t("description")
+            }}</span>
+            <textarea
+                class="input-text flex-1 h-100px text-sm"
+                v-model="description"
+            ></textarea>
+        </div>
+        <p class="m-0 font-size-12px color-yellow/70 text-center">
             {{ $t("descriptionHint") }}
         </p>
-
-        <!-- 描述水印 -->
-        <p class="m-b-2px">
-            <span>{{ $t("watermark") }}: </span>
-            <select class="select w-fit p-1px" v-model="store.watermark">
-                <option v-for="[key, value] of Object.entries(waterMarkMap)" :value="key" :key="key">
+        <p class="flex items-center gap-2 m-0 text-sm">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("watermark")
+            }}</span>
+            <select class="select w-130px" v-model="store.watermark">
+                <option
+                    v-for="[key, value] of Object.entries(waterMarkMap)"
+                    :value="key"
+                    :key="key"
+                >
                     {{ value.value }}
                 </option>
             </select>
         </p>
-
-        <p class="m-b-2px">
-            <span>{{  $t("descriptionFontSize") }}: </span>
-            <input type="number" min="0" class="input-text w-120px"
-                    v-model="store.desFontSize"/>
-            <span class="m-l-3px">px</span>
+        <p class="flex items-center gap-2 m-0 text-sm">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("descriptionFontSize")
+            }}</span>
+            <input
+                type="number"
+                min="0"
+                class="input-text w-80px"
+                v-model="store.desFontSize"
+            />
+            <span class="opacity-50">px</span>
         </p>
-
-        <p class="m-b-2px">
-            <span>{{ $t("spellCost") }}: </span>
-            <input type="number" min="0" class="input-text w-120px"
-                    v-model="store.cost"/>
+        <p class="flex items-center gap-2 m-0 text-sm">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("spellCost")
+            }}</span>
+            <input
+                type="number"
+                min="0"
+                class="input-text w-80px"
+                v-model="store.cost"
+            />
         </p>
-
-        <p class="m-b-2px">
-            <span>{{ $t("durability") }}: </span>
-            <input type="number" min="0" class="input-text w-120px"
-                    v-model="store.vitality"/>
+        <p class="flex items-center gap-2 m-0 text-sm">
+            <span class="w-70px text-right shrink-0 opacity-70">{{
+                $t("durability")
+            }}</span>
+            <input
+                type="number"
+                min="0"
+                class="input-text w-80px"
+                v-model="store.vitality"
+            />
         </p>
     </div>
 </template>
 
 <script lang="ts" setup>
 // store
-const store = useStore()
+const store = useStore();
 
 // card class map 卡牌类型和名称映射
-const cardClassMap = useCardClassMap()
+const cardClassMap = useCardClassMap();
 
 // watermark map 水印类型和名称映射
-const waterMarkMap = useWaterMarkMap()
+const waterMarkMap = useWaterMarkMap();
 
 // 对描述特殊处理, 否则会将正则匹配替换的结果显示到菜单中
-const description = ref<string>(store.description)
-watch(() => description.value, newVal => {
-    store.setDescription(newVal)
-})
+const description = ref<string>(store.description);
+watch(
+    () => description.value,
+    (newVal) => {
+        store.setDescription(newVal);
+    },
+);
 </script>

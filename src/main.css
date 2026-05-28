@@ -1,7 +1,8 @@
 @font-face {
     font-family: GBJenLei;
-    src: url("@/assets/fonts/GBJenLei/GBJenLei-Medium.woff") format("woff"),
-         url("@/assets/fonts/GBJenLei/GBJenLei-Medium.woff2") format("woff2");
+    src:
+        url("@/assets/fonts/GBJenLei/GBJenLei-Medium.woff") format("woff"),
+        url("@/assets/fonts/GBJenLei/GBJenLei-Medium.woff2") format("woff2");
 }
 
 @font-face {
@@ -11,8 +12,11 @@
 
 @font-face {
     font-family: FranklinGothic;
-    src: url("@/assets/fonts/FranklinGothic/FranklinGothic-MediumCond.woff") format("woff"),
-         url("@/assets/fonts/FranklinGothic/FranklinGothic-MediumCond.woff2") format("woff2");
+    src:
+        url("@/assets/fonts/FranklinGothic/FranklinGothic-MediumCond.woff")
+            format("woff"),
+        url("@/assets/fonts/FranklinGothic/FranklinGothic-MediumCond.woff2")
+            format("woff2");
     font-weight: lighter;
 }
 
@@ -22,7 +26,7 @@ html {
     overflow-x: hidden;
 }
 
-html.dark{
+html.dark {
     background-color: black;
     color: white;
 }
@@ -32,61 +36,114 @@ a {
 }
 
 html select {
-    border-color: white;
+    border-color: rgba(255, 255, 255, 0.25);
     color: white;
 }
 
 html select option {
     font-family: BlizzardGlobal;
-    background-color: white;
-    color: black;
+    background-color: #1a1a2e;
+    color: white;
+    padding: 8px;
 }
 
 html.dark select option {
     font-family: BlizzardGlobal;
-    background-color: black;
+    background-color: #1a1a2e;
     color: white;
 }
 
-
-html button, 
-html input,
+html button,
+html input[type="text"],
+html input[type="number"],
 html textarea {
     color: white;
-    border-color: white;
 }
 
-html.dark button, 
-html.dark input,
+html.dark button,
+html.dark input[type="text"],
+html.dark input[type="number"],
 html.dark textarea {
     color: white;
-    border-color: white;
+}
+
+/* Radio buttons */
+html input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin: 0 4px 0 8px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+html input[type="radio"]:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+html input[type="radio"]:checked {
+    border-color: #60a5fa;
+    background-color: #60a5fa;
+    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Checkbox */
+html input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    margin: 0 4px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+html input[type="checkbox"]:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+html input[type="checkbox"]:checked {
+    background-color: #60a5fa;
+    border-color: #60a5fa;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M4.5 8.5L7 11l4.5-5' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+}
+
+/* Textarea */
+html textarea {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-family: BlizzardGlobal;
+    font-size: 14px;
+    color: white;
+    transition: all 0.2s ease;
+    resize: none;
+}
+html textarea:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+html textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
 html button:hover,
 html .ws-button:hover {
-    background-color: black;
-    border-color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.7);
     color: white;
 }
 
 html.dark button:hover,
 html.dark .ws-button:hover {
-    background-color: white;
-    border-color: black;
-    color: black;
-}
-
-html .upload-input-mask {
-    background-color: black;
-    border-color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.7);
     color: white;
-}
-
-html.dark .upload-input-mask {
-    background-color: white;
-    border-color: black;
-    color: black;
 }
 
 html a {
@@ -97,97 +154,98 @@ html.dark a {
     color: white;
 }
 
-
 /* View Transition API */
 @media (prefers-reduced-motion: no-preference) {
     html:not(.no-sliding) [slide-enter],
     html:not(.no-sliding) .slide-enter,
-    html:not(.no-sliding) .slide-enter-content > *:not(:has(.table-of-contents)) {
-      --enter-stage: 0;
-      --enter-step: 90ms;
-      --enter-initial: 0ms;
-      animation: slide-enter 1s both 1;
-      animation-delay: calc(
-        var(--enter-initial) + var(--enter-stage) * var(--enter-step)
-      );
+    html:not(.no-sliding)
+        .slide-enter-content
+        > *:not(:has(.table-of-contents)) {
+        --enter-stage: 0;
+        --enter-step: 90ms;
+        --enter-initial: 0ms;
+        animation: slide-enter 1s both 1;
+        animation-delay: calc(
+            var(--enter-initial) + var(--enter-stage) * var(--enter-step)
+        );
     }
-  
+
     .slide-enter-content > *:nth-child(1) {
-      --enter-stage: 1 !important;
+        --enter-stage: 1 !important;
     }
     .slide-enter-content > *:nth-child(2) {
-      --enter-stage: 2 !important;
+        --enter-stage: 2 !important;
     }
     .slide-enter-content > *:nth-child(3) {
-      --enter-stage: 3 !important;
+        --enter-stage: 3 !important;
     }
     .slide-enter-content > *:nth-child(4) {
-      --enter-stage: 4 !important;
+        --enter-stage: 4 !important;
     }
     .slide-enter-content > *:nth-child(5) {
-      --enter-stage: 5 !important;
+        --enter-stage: 5 !important;
     }
     .slide-enter-content > *:nth-child(6) {
-      --enter-stage: 6 !important;
+        --enter-stage: 6 !important;
     }
     .slide-enter-content > *:nth-child(7) {
-      --enter-stage: 7 !important;
+        --enter-stage: 7 !important;
     }
     .slide-enter-content > *:nth-child(8) {
-      --enter-stage: 8 !important;
+        --enter-stage: 8 !important;
     }
     .slide-enter-content > *:nth-child(9) {
-      --enter-stage: 9 !important;
+        --enter-stage: 9 !important;
     }
     .slide-enter-content > *:nth-child(10) {
-      --enter-stage: 10 !important;
+        --enter-stage: 10 !important;
     }
     .slide-enter-content > *:nth-child(11) {
-      --enter-stage: 11 !important;
+        --enter-stage: 11 !important;
     }
     .slide-enter-content > *:nth-child(12) {
-      --enter-stage: 12 !important;
+        --enter-stage: 12 !important;
     }
     .slide-enter-content > *:nth-child(13) {
-      --enter-stage: 13 !important;
+        --enter-stage: 13 !important;
     }
     .slide-enter-content > *:nth-child(14) {
-      --enter-stage: 14 !important;
+        --enter-stage: 14 !important;
     }
     .slide-enter-content > *:nth-child(15) {
-      --enter-stage: 15 !important;
+        --enter-stage: 15 !important;
     }
     .slide-enter-content > *:nth-child(16) {
-      --enter-stage: 16 !important;
+        --enter-stage: 16 !important;
     }
     .slide-enter-content > *:nth-child(17) {
-      --enter-stage: 17 !important;
+        --enter-stage: 17 !important;
     }
     .slide-enter-content > *:nth-child(18) {
-      --enter-stage: 18 !important;
+        --enter-stage: 18 !important;
     }
     .slide-enter-content > *:nth-child(19) {
-      --enter-stage: 19 !important;
+        --enter-stage: 19 !important;
     }
     .slide-enter-content > *:nth-child(20) {
-      --enter-stage: 20 !important;
+        --enter-stage: 20 !important;
     }
-  }
-  
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
-  }
-  ::view-transition-old(root) {
+}
+::view-transition-old(root) {
     z-index: 1;
-  }
-  ::view-transition-new(root) {
+}
+::view-transition-new(root) {
     z-index: 9999;
-  }
-  .dark::view-transition-old(root) {
+}
+.dark::view-transition-old(root) {
     z-index: 9999;
-  }
-  .dark::view-transition-new(root) {
+}
+.dark::view-transition-new(root) {
     z-index: 1;
-  }
+}

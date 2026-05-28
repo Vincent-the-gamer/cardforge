@@ -1,63 +1,32 @@
 
 export default function useStyledDescription() {
     const store = useStore()
-    // 对描述的字体进行关键词等标记的特殊样式处理
-    // 武器牌描述文字颜色为白色
+    // 对描述的字体进行关键词等标记的特殊样式处理（不修改 store 原始数据）
     const styledDescription = computed<string>(() => {
+        // 使用副本进行操作，避免污染 store 原始数据
+        let desc = store.description
+
+        const isWeapon = store.cardType === CardType.Weapon
+        const textShadowStyle = isWeapon
+            ? 'font-weight: bold; text-shadow: 0 0 1px white;'
+            : 'font-weight: bold; text-shadow: 0 0 1px black;'
+
         // 加粗
-        const boldPattern = /\*\*(.*?)\*\*/g
-        const matchBold: RegExpMatchArray | null = store.description.match(boldPattern)
-        // 斜体
-        const italicPattern = /\*(.*?)\*/g
-        const matchItalic: RegExpMatchArray | null = store.description.match(italicPattern)
-        // 斜体加粗
-        const boldItalicPattern = /~(.*?)~/g
-        const matchBoldItalic: RegExpMatchArray | null = store.description.match(boldItalicPattern)
+        desc = desc.replace(/\*\*(.*?)\*\*/g, (_, text) =>
+            `<span style="${textShadowStyle}">${text}</span>`
+        )
 
-        if(matchBold){
-            for (let i = 0; i < matchBold.length; i++) {
-                if(store.cardType === CardType.Weapon){
-                    store.description = store.description.replaceAll(
-                        matchBold[i], 
-                        `<span style="font-weight: bold; text-shadow: 0 0 1px white;">${matchBold[i]}</span>`.replaceAll("*", "")
-                    )
-                }
-                else {
-                    store.description = store.description.replaceAll(
-                        matchBold[i], 
-                        `<span style="font-weight: bold; text-shadow: 0 0 1px black;">${matchBold[i]}</span>`.replaceAll("*", "")
-                    )
-                }  
-            }
-        } 
-        if(matchItalic){
-            for (let i = 0; i < matchItalic.length; i++) {
-                store.description = store.description.replaceAll(
-                    matchItalic[i], 
-                    `<span style="font-style: italic;">${matchItalic[i]}</span>`.replaceAll("*", "")
-                )
-            }
-        }
-        if(matchBoldItalic){
-            for (let i = 0; i < matchBoldItalic.length; i++) {
-                if(store.cardType === CardType.Weapon) {
-                    store.description = store.description.replaceAll(
-                        matchBoldItalic[i], 
-                        `<span style="font-weight: bold; text-shadow: 0 0 1px white; font-style: italic;">${matchBoldItalic[i]}</span>`
-                        .replaceAll("~", "")
-                    )
-                }
-                else {
-                    store.description = store.description.replaceAll(
-                        matchBoldItalic[i], 
-                        `<span style="font-weight: bold; text-shadow: 0 0 1px black; font-style: italic;">${matchBoldItalic[i]}</span>`
-                        .replaceAll("~", "")
-                    )
-                }
-            }
-        }
+        // 斜体加粗 (~text~)
+        desc = desc.replace(/~(.*?)~/g, (_, text) =>
+            `<span style="${textShadowStyle} font-style: italic;">${text}</span>`
+        )
 
-        return store.description
+        // 斜体 (*text*) — 必须在加粗之后处理，避免冲突
+        desc = desc.replace(/\*(.*?)\*/g, (_, text) =>
+            `<span style="font-style: italic;">${text}</span>`
+        )
+
+        return desc
     })
 
     return styledDescription
