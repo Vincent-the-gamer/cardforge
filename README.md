@@ -28,7 +28,7 @@
 
 ## Online
 
-[https://](https://cardforge.vince-g.xyz/)
+https://cardforge.vince-g.xyz
 
 ## PWA
 
