@@ -28,9 +28,7 @@
 
 ## Online
 
-Play it online at：
-
-[https://vincent-the-gamer.github.io/cardforge-live-page/](https://vincent-the-gamer.github.io/cardforge-live-page/)
+[https://](https://cardforge.vince-g.xyz/)
 
 ## PWA
 
